@@ -20,8 +20,9 @@ export default function LandingLayout({ children }: { children: React.ReactNode 
             </span>
           </Link>
           <div className="flex items-center gap-3">
-            <a href={`tel:${company.phones[0].e164}`} className="hidden text-sm font-semibold md:inline hover:link-underline">
-              {company.phones[0].display}
+            <a href={`tel:${company.phones[0].e164}`} aria-label={`Call VGIS on ${company.phones[0].display}`} className="flex h-10 items-center justify-center border border-ink px-3 text-sm font-semibold md:border-0 md:px-0 md:hover:link-underline">
+              <span className="md:hidden">Call</span>
+              <span className="hidden md:inline">{company.phones[0].display}</span>
             </a>
             <WhatsAppLink className="btn !gap-2 !px-4 !py-2.5 border-[#25D366] bg-[#25D366] text-sm text-white hover:bg-[#1da851]">
               <WhatsAppIcon size={18} /> <span>WhatsApp</span>

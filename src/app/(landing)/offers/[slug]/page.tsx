@@ -95,7 +95,7 @@ export default async function OfferPage({ params }: Props) {
         <div className="mt-6 grid border-l border-t border-line md:grid-cols-3">
           {o.why.map((w, i) => (
             <div key={w.title} className="border-b border-r border-line p-6">
-              <span className="font-display text-4xl text-orange">{String(i + 1).padStart(2, "0")}</span>
+              <span className="font-display text-4xl text-orange-ink">{String(i + 1).padStart(2, "0")}</span>
               <h2 className="mt-3 text-3xl">{w.title}</h2>
               <p className="mt-2 text-muted">{w.body}</p>
             </div>

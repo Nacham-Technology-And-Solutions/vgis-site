@@ -20,7 +20,7 @@ export default function ServicesPage() {
         crumbs={[{ name: "Services", path: "/services" }]}
       />
       {disciplineOrder.map((d, i) => (
-        <section key={d} className="wrap py-20">
+        <section key={d} id={d} className="wrap scroll-mt-24 py-20">
           <SectionHead num={String(i + 1).padStart(2, "0")} eyebrow={disciplines[d].label} title={disciplines[d].name} intro={disciplines[d].intro} />
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {servicesBy(d).map((s, j) => <ServiceCard key={s.slug} s={s} index={j} />)}

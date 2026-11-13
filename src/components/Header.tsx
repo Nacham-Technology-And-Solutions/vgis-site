@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { nav } from "@/content/site";
+import { company, nav } from "@/content/site";
 import { Logo } from "./Logo";
 
 export function Header() {
@@ -14,7 +14,7 @@ export function Header() {
           <span className="bg-white p-1">
             <Logo height={44} priority />
           </span>
-          <span className="hidden leading-tight sm:block">
+          <span className="hidden leading-tight xl:block">
             <span className="block font-display text-2xl tracking-wide">VGIS®</span>
             <span className="block text-[11px] text-muted">Visual Graphics Illustration Services Ltd</span>
           </span>
@@ -33,6 +33,11 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
+          {/* Tap-to-call: icon on small screens, number on large */}
+          <a href={`tel:${company.phones[0].e164}`} aria-label={`Call VGIS on ${company.phones[0].display}`} className="flex h-10 w-10 items-center justify-center border border-ink lg:h-auto lg:w-auto lg:border-0 lg:text-sm lg:font-semibold lg:hover:link-underline">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true" className="lg:hidden"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z" /></svg>
+            <span className="hidden lg:inline">{company.phones[0].display}</span>
+          </a>
           <Link href="/contact" className="btn btn-primary !px-4 !py-2.5 text-sm">
             Start a project
           </Link>

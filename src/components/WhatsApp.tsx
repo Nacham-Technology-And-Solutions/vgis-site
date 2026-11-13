@@ -4,7 +4,20 @@ import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import { company, whatsapp } from "@/content/site";
 import { offers } from "@/content/offers";
-import { attributionRef, trackLead } from "@/lib/attribution";
+import { attributionRef, getAttribution, trackLead } from "@/lib/attribution";
+import { beforeYouBuild } from "@/content/campaigns";
+
+/** Campaign pages that are not in the offers list (currently Before You Build). */
+const onCampaign = () => typeof window !== "undefined" && window.location.pathname.startsWith(`/offers/${beforeYouBuild.slug}`);
+const campaignSlug = () => (onCampaign() ? beforeYouBuild.slug : undefined);
+const campaignMessage = () => (onCampaign() ? beforeYouBuild.waMessage : undefined);
+
+/** Adds the visitor's chosen audience line (e.g. "I'm a developer.") to campaign messages. */
+function withAudience(msg: string, slug?: string) {
+  if (slug !== beforeYouBuild.slug) return msg;
+  const a = beforeYouBuild.audiences.find((x) => x.id === getAttribution().audience);
+  return a ? `${msg} ${a.message}` : msg;
+}
 
 const number = company.phones.find((p) => p.whatsapp)!.e164.replace("+", "");
 const DEFAULT_MSG = "Hello VGIS, I'd like to discuss a project.";
@@ -41,14 +54,18 @@ export function WhatsAppLink({
   className,
   message,
   ariaLabel,
+  offerSlug,
 }: {
   children: ReactNode;
   className?: string;
   message?: string;
   ariaLabel?: string;
+  /** For campaign pages outside the standard offers list. */
+  offerSlug?: string;
 }) {
   const offer = useOffer();
-  const msg = message ?? offer?.waMessage ?? DEFAULT_MSG;
+  const slug = offerSlug ?? offer?.slug ?? campaignSlug();
+  const msg = message ?? offer?.waMessage ?? campaignMessage() ?? DEFAULT_MSG;
   return (
     <a
       href={whatsapp.url}
@@ -57,8 +74,8 @@ export function WhatsAppLink({
       aria-label={ariaLabel}
       className={className}
       onClick={(e) => {
-        e.currentTarget.href = waUrl(msg, offer?.slug);
-        trackLead("whatsapp", offer?.slug);
+        e.currentTarget.href = waUrl(withAudience(msg, slug), slug);
+        trackLead("whatsapp", slug);
       }}
     >
       {children}

@@ -66,7 +66,7 @@ export function PageHero({
 export function SectionHead({ num, eyebrow, title, intro }: { num?: string; eyebrow?: string; title: ReactNode; intro?: ReactNode }) {
   return (
     <div className="grid gap-6 md:grid-cols-[96px_1fr] md:items-end">
-      {num ? <span className="font-display text-7xl leading-[0.8] text-orange" aria-hidden="true">{num}</span> : <span className="hidden md:block" />}
+      {num ? <span className="font-display text-7xl leading-[0.8] text-orange-ink" aria-hidden="true">{num}</span> : <span className="hidden md:block" />}
       <div>
         {eyebrow && <p className="eyebrow">{eyebrow}</p>}
         <h2 className="mt-2 text-5xl sm:text-6xl">{title}</h2>
@@ -107,7 +107,7 @@ export function FaqList({ faqs, mobileLimit }: { faqs: Faq[]; mobileLimit?: numb
 export function ServiceCard({ s, index }: { s: Service; index: number }) {
   return (
     <Link href={`/services/${s.slug}`} className="group flex h-full flex-col border border-line p-6 transition-colors hover:border-ink">
-      <span className="font-display text-3xl text-orange">{String(index + 1).padStart(2, "0")}</span>
+      <span className="font-display text-3xl text-orange-ink">{String(index + 1).padStart(2, "0")}</span>
       <h3 className="mt-6 text-3xl">{s.name}</h3>
       <p className="mt-3 flex-1 text-sm text-muted">{s.description}</p>
       <span className="mt-6 text-sm font-semibold group-hover:link-underline">Explore service →</span>
@@ -156,7 +156,7 @@ export function ProcessSteps({ process }: { process: Process }) {
     <ol className="grid border-l border-t border-line sm:grid-cols-2 lg:grid-cols-3">
       {process.steps.map((st, i) => (
         <li key={st.title} className="border-b border-r border-line bg-paper p-6">
-          <span className="font-display text-4xl text-orange">{String(i + 1).padStart(2, "0")}</span>
+          <span className="font-display text-4xl text-orange-ink">{String(i + 1).padStart(2, "0")}</span>
           <h3 className="mt-3 text-2xl">{st.title}</h3>
           <p className="mt-2 text-sm text-muted">{st.body}</p>
         </li>

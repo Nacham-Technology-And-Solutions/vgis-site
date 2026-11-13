@@ -8,7 +8,7 @@ import { track } from "@vercel/analytics";
  */
 const KEY = "vgis_attr";
 const PARAMS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "gclid", "fbclid", "li_fat_id"] as const;
-export type Attribution = Partial<Record<(typeof PARAMS)[number] | "landing", string>>;
+export type Attribution = Partial<Record<(typeof PARAMS)[number] | "landing" | "audience", string>>;
 
 export function captureAttribution() {
   try {
@@ -38,11 +38,21 @@ export function getAttribution(): Attribution {
   }
 }
 
+/** Records the visitor's self-selected audience (e.g. "developers") alongside the UTM fields. */
+export function setAudience(audience: string) {
+  try {
+    const a = getAttribution();
+    a.audience = audience;
+    sessionStorage.setItem(KEY, JSON.stringify(a));
+    window.dispatchEvent(new CustomEvent("vgis:audience", { detail: audience }));
+  } catch {}
+}
+
 /** Short human-readable reference for WhatsApp, e.g. "off-plan-renders · facebook/paid/nov-launch". */
 export function attributionRef(offer?: string) {
   const a = getAttribution();
   const src = [a.utm_source, a.utm_medium, a.utm_campaign].filter(Boolean).join("/");
-  return [offer, src || (a.gclid ? "google-ads" : a.fbclid ? "meta-ads" : "")].filter(Boolean).join(" · ");
+  return [offer, a.audience, src || (a.gclid ? "google-ads" : a.fbclid ? "meta-ads" : "")].filter(Boolean).join(" · ");
 }
 
 type Win = Window & { fbq?: (...a: unknown[]) => void; gtag?: (...a: unknown[]) => void };

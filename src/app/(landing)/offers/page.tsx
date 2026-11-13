@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { offers } from "@/content/offers";
+import { beforeYouBuild } from "@/content/campaigns";
 import { SITE_URL } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -10,13 +11,18 @@ export const metadata: Metadata = {
   alternates: { canonical: "/offers" },
 };
 
-/** UTM templates per platform. {{...}} are the platforms' own dynamic macros. */
+/**
+ * UTM templates per platform, following the shared convention (lowercase, dashes; source = platform;
+ * medium = social | bio | paid-social | cpc | email | qr; campaign = the push). {...} are platform macros.
+ */
 const utm = (slug: string) => {
   const base = `${SITE_URL}/offers/${slug}`;
   return [
-    { platform: "Google Ads (final URL suffix)", url: `${base}?utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_content={adgroupid}&utm_term={keyword}` },
-    { platform: "Meta (Facebook / Instagram)", url: `${base}?utm_source=meta&utm_medium=paid_social&utm_campaign={{campaign.name}}&utm_content={{ad.name}}` },
-    { platform: "LinkedIn", url: `${base}?utm_source=linkedin&utm_medium=paid_social&utm_campaign=${slug}` },
+    { platform: "Google Ads (final URL suffix)", url: `${base}?utm_source=google&utm_medium=cpc&utm_campaign=${slug}&utm_content={adgroupid}&utm_term={keyword}` },
+    { platform: "Facebook ads", url: `${base}?utm_source=facebook&utm_medium=paid-social&utm_campaign=${slug}&utm_content={{ad.name}}` },
+    { platform: "Instagram ads", url: `${base}?utm_source=instagram&utm_medium=paid-social&utm_campaign=${slug}&utm_content={{ad.name}}` },
+    { platform: "LinkedIn ads", url: `${base}?utm_source=linkedin&utm_medium=paid-social&utm_campaign=${slug}` },
+    { platform: "Organic post (any platform: swap source)", url: `${base}?utm_source=instagram&utm_medium=social&utm_campaign=${slug}&utm_content=post-name` },
     { platform: "WhatsApp status / broadcast", url: `${base}?utm_source=whatsapp&utm_medium=social&utm_campaign=${slug}` },
   ];
 };
@@ -26,6 +32,11 @@ const Count = ({ text, max }: { text: string; max: number }) => (
     {text.length}/{max}
   </span>
 );
+
+const kit = [
+  { slug: beforeYouBuild.slug, name: `Campaign: ${beforeYouBuild.name}`, audience: "Nigeria first · developers, architects, contractors, real estate, homeowners", headline: beforeYouBuild.headline, ads: beforeYouBuild.ads },
+  ...offers,
+];
 
 export default function OffersKit() {
   return (
@@ -43,12 +54,12 @@ export default function OffersKit() {
 
       <div className="wrap space-y-20 py-16">
         <nav aria-label="Offers" className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
-          {offers.map((o) => (
+          {kit.map((o) => (
             <a key={o.slug} href={`#${o.slug}`} className="link-underline">{o.name}</a>
           ))}
         </nav>
 
-        {offers.map((o) => (
+        {kit.map((o) => (
           <section key={o.slug} id={o.slug} className="scroll-mt-8 border-t-4 border-ink pt-8">
             <p className="eyebrow">{o.audience}</p>
             <h2 className="mt-2 text-5xl">{o.name}</h2>

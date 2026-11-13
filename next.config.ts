@@ -38,6 +38,8 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  // Plan uploads on the enquiry form (Vercel caps request bodies at ~4.5 MB).
+  experimental: { serverActions: { bodySizeLimit: "4.5mb" } },
   images: {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 828, 1080, 1280, 1600, 1920, 2560],
@@ -45,6 +47,12 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Retired subdomains fold into the main site (active once their DNS points to Vercel
+      // and the domains are added to this project).
+      { source: "/:path*", has: [{ type: "host", value: "skyframexr.3dvgis.com" }], destination: "https://3dvgis.com/services/skyframe-xr", permanent: true },
+      { source: "/portfolio:rest(.*)", has: [{ type: "host", value: "2d.3dvgis.com" }], destination: "https://3dvgis.com/work?filter=2d", permanent: true },
+      { source: "/contact:rest(.*)", has: [{ type: "host", value: "2d.3dvgis.com" }], destination: "https://3dvgis.com/contact", permanent: true },
+      { source: "/:path*", has: [{ type: "host", value: "2d.3dvgis.com" }], destination: "https://3dvgis.com/services#2d", permanent: true },
       ...legacy.flatMap(([from, to]) => [
         { source: from, destination: to, permanent: true },
         // also catch trailing-slash variants (e.g. /3d/)
