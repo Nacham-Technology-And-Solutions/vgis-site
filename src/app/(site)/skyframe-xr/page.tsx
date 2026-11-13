@@ -1,11 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
+import { Montserrat } from "next/font/google";
 import { getService, serviceHref } from "@/content/services";
 import { getProject } from "@/content/projects";
 import { portfolioFor } from "@/content/portfolio";
 import { insightsForService } from "@/content/insights";
 import { skyframe as x } from "@/content/skyframe";
-import { AnswerBox, Breadcrumbs, CtaBand, FaqList, ProjectCard, SectionHead } from "@/components/blocks";
+import { AnswerBox, Breadcrumbs, FaqList, ProjectCard } from "@/components/blocks";
 import { SampleBadge } from "@/components/portfolio";
 import { WhatsAppIcon, WhatsAppLink } from "@/components/WhatsApp";
 import { JsonLd } from "@/components/JsonLd";
@@ -13,23 +15,29 @@ import { faqSchema, graph, serviceSchema, webPageSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
 
 /**
- * Skyframe XR product area (owner: product section on the main site, not a subdomain).
- * All copy comes from src/content/skyframe.ts, which is limited to the owner-approved brief.
+ * Skyframe XR product area, in the Skyframe XR brand (docs/skyframe-brand/): Paper ground, Charcoal bands,
+ * Frame Orange fills, Montserrat 800 display. Credited "Skyframe XR by VGIS" (owner: VGIS is the sole owner).
+ * Copy comes only from src/content/skyframe.ts.
  */
+const montserrat = Montserrat({ weight: ["700", "800"], subsets: ["latin"], variable: "--font-montserrat", display: "swap" });
+
 const s = getService("skyframe-xr")!;
 const path = serviceHref(s);
 const description =
   "Skyframe XR by VGIS: on-site AR/VR and 1:1 virtual walkthroughs that let buyers experience a property before a single block is laid.";
 
-export const metadata = pageMetadata({ title: "Skyframe XR: Walk Through Tomorrow, Today", description, path });
+export const metadata: Metadata = {
+  ...pageMetadata({ title: "Skyframe XR: Walk Through Tomorrow, Today", description, path }),
+  // Brand rule: the badge is the app icon / favicon.
+  icons: { icon: "/skyframe/brand/skyframe-xr-badge.png", apple: "/skyframe/brand/skyframe-xr-badge.png" },
+};
 
-function Wa({ label = "Book a Skyframe XR demo on WhatsApp" }: { label?: string }) {
+const LOGO_WHITE = { src: "/skyframe/brand/skyframe-xr-horizontal-white.png", width: 802, height: 172 };
+const LOGO_BLACK = { src: "/skyframe/brand/skyframe-xr-horizontal-black.png", width: 802, height: 172 };
+
+function Wa({ label = "Book a demo on WhatsApp" }: { label?: string }) {
   return (
-    <WhatsAppLink
-      offerSlug="skyframe-xr"
-      message="Hello, I'd like to know more about Skyframe XR for my project."
-      className="btn border-[#25D366] bg-[#25D366] text-white hover:bg-[#1da851]"
-    >
+    <WhatsAppLink offerSlug="skyframe-xr" message="Hello, I'd like to book a Skyframe XR demo for my project." className="btn btn-primary">
       <WhatsAppIcon size={20} /> <span>{label}</span>
     </WhatsAppLink>
   );
@@ -37,59 +45,45 @@ function Wa({ label = "Book a Skyframe XR demo on WhatsApp" }: { label?: string 
 
 export default function SkyframePage() {
   const cedarwood = getProject("cedarwood-city-estate");
-  const sample = portfolioFor("xr")[0];
+  const sample = portfolioFor("xr").find((p) => p.placeholder);
   const reading = insightsForService(s.slug).slice(0, 3);
   const video = x.media.video;
 
   return (
-    <>
+    <div className={`${montserrat.variable} theme-skyframe`}>
       <JsonLd
         data={graph(
-          webPageSchema({ path, name: "Skyframe XR", description }),
-          {
-            ...serviceSchema(s),
-            brand: { "@type": "Brand", name: x.name, slogan: x.tagline },
-          },
+          webPageSchema({ path, name: "Skyframe XR by VGIS", description }),
+          { ...serviceSchema(s), brand: { "@type": "Brand", name: x.name, slogan: x.tagline, logo: `https://3dvgis.com${LOGO_BLACK.src}` } },
           faqSchema(x.faqs),
         )}
       />
 
-      {/* Hero */}
-      <section className="band plan-grid">
-        <div className="wrap grid gap-12 pb-16 pt-10 sm:pb-24 lg:grid-cols-[1.2fr_1fr] lg:items-center">
+      {/* Hero: Charcoal band, white horizontal logo, master tagline with the page's one orange highlight bar */}
+      <section className="band relative overflow-hidden">
+        <div className="sky-halftone pointer-events-none absolute inset-y-0 right-0 w-2/3" aria-hidden="true" />
+        <div className="wrap relative grid gap-12 pb-16 pt-10 sm:pb-24 lg:grid-cols-[1.25fr_1fr] lg:items-center">
           <div>
             <Breadcrumbs items={[{ name: "Skyframe XR", path }]} />
-            {x.media.logo ? (
-              <span className="mt-10 inline-block bg-paper px-4 py-3">
-                <Image src={x.media.logo.src} alt="Skyframe XR" width={x.media.logo.width} height={x.media.logo.height} priority className="h-10 w-auto sm:h-12" />
-              </span>
-            ) : (
-              <p className="mt-10 font-display text-4xl tracking-wide">
-                SKYFRAME <span className="text-orange">XR</span>
-              </p>
-            )}
-            <p className="mt-3 text-sm font-semibold uppercase tracking-[0.14em] text-ink-muted">{x.name} {x.byline}</p>
-            <h1 className="mt-6 text-6xl sm:text-8xl">{x.tagline}</h1>
+            <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-3">
+              <Image src={LOGO_WHITE.src} alt="Skyframe XR" width={LOGO_WHITE.width} height={LOGO_WHITE.height} priority className="h-12 w-auto sm:h-14" />
+              <span className="border-l border-white/30 pl-5 text-sm font-semibold text-ink-muted">{x.byline}</span>
+            </div>
+            <h1 className="mt-10">
+              Walk Through <span className="sky-highlight">Tomorrow</span>, Today.
+            </h1>
             <p className="mt-6 max-w-xl text-lg text-ink-muted">{x.hooks.imagine}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Wa />
               <Link href="/contact" className="btn btn-ghost"><span>Send your plans</span></Link>
             </div>
           </div>
-          <div className={`relative overflow-hidden bg-ink ${video?.mp4 ? "mx-auto aspect-[9/16] w-full max-w-[340px]" : "aspect-video lg:aspect-square"}`}>
-            {video?.youtubeId ? (
-              <iframe
-                src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}?rel=0`}
-                title="Skyframe XR walkthrough"
-                allow="fullscreen; picture-in-picture"
-                allowFullScreen
-                className="absolute inset-0 h-full w-full"
-              />
-            ) : video?.mp4 ? (
+          <div className={`relative overflow-hidden rounded-2xl bg-ink ${video?.mp4 ? "mx-auto aspect-[9/16] w-full max-w-[340px]" : "aspect-square"}`}>
+            {video?.mp4 ? (
               <video src={video.mp4} poster={video.poster} controls playsInline preload="metadata" className="absolute inset-0 h-full w-full object-cover" />
             ) : x.media.mark ? (
               <div className="absolute inset-0 bg-paper">
-                <Image src={x.media.mark.src} alt="Skyframe XR logo" fill priority sizes="(min-width: 1024px) 40vw, 100vw" className="object-contain" />
+                <Image src="/skyframe/brand/skyframe-xr-stacked.png" alt="Skyframe XR logo" fill priority sizes="(min-width: 1024px) 40vw, 100vw" className="object-contain p-10" />
               </div>
             ) : (
               sample && (
@@ -105,19 +99,19 @@ export default function SkyframePage() {
 
       <section className="wrap py-16 sm:py-20">
         <AnswerBox question="What is Skyframe XR?">{x.definition}</AnswerBox>
-        <blockquote className="mt-10 max-w-4xl font-display text-4xl leading-tight sm:text-5xl">&ldquo;{x.hooks.confidence}&rdquo;</blockquote>
+        <p className="mt-10 max-w-4xl font-display text-2xl font-extrabold leading-snug sm:text-3xl">&ldquo;{x.hooks.confidence}&rdquo;</p>
       </section>
 
-      {/* The problem */}
+      {/* The problem: Charcoal feature bar with numbered orange step markers */}
       <section className="band">
         <div className="wrap py-16 sm:py-20">
           <p className="eyebrow">The problem</p>
-          <h2 className="mt-3 text-5xl sm:text-6xl">Why off-plan selling needs more than blueprints</h2>
+          <h2 className="mt-3 max-w-3xl">Why off-plan selling needs more than blueprints</h2>
           <div className="mt-10 grid gap-8 md:grid-cols-3">
             {x.problems.map((p, i) => (
               <div key={p.title}>
-                <span className="font-display text-4xl text-orange">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="mt-2 text-3xl">{p.title}</h3>
+                <span className="sky-step">{i + 1}</span>
+                <h3 className="mt-4">{p.title}</h3>
                 <p className="mt-2 text-ink-muted">{p.body}</p>
               </div>
             ))}
@@ -125,50 +119,54 @@ export default function SkyframePage() {
         </div>
       </section>
 
-      {/* Features */}
+      {/* Features: outlined cards with orange pill labels */}
       <section className="wrap py-16 sm:py-20">
-        <SectionHead num="01" eyebrow="Features" title="Nothing left to the imagination" intro={x.hooks.precision} />
-        <div className="mt-10 grid border-l border-t border-line sm:grid-cols-2 lg:grid-cols-3">
+        <p className="eyebrow">Powered by precision</p>
+        <h2 className="mt-3 max-w-3xl">Nothing left to the imagination</h2>
+        <p className="mt-4 max-w-2xl text-muted">{x.hooks.precision}</p>
+        <div className="mt-12 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
           {x.features.map((f) => (
-            <div key={f.title} className="border-b border-r border-line p-6">
-              <div className="flex items-start justify-between gap-3">
-                <h3 className="text-3xl">{f.title}</h3>
-                {f.v2 && <span className="shrink-0 bg-ink px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-paper">2.0</span>}
-              </div>
+            <div key={f.title} className="sky-card relative p-6 pt-8">
+              {f.v2 && <span className="sky-pill absolute -top-3 left-6">Skyframe XR 2.0</span>}
+              <h3>{f.title}</h3>
               <p className="mt-2 text-sm text-muted">{f.body}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* How it works: two delivery models */}
-      <section className="border-t border-line">
+      {/* How it works: the two delivery models, kept separate. Concrete ground. */}
+      <section className="border-t border-line" style={{ background: "#EDEBE8" }}>
         <div className="wrap py-16 sm:py-20">
-          <SectionHead num="02" eyebrow="How it works" title="Two ways to experience Skyframe XR" />
+          <p className="eyebrow">How it works</p>
+          <h2 className="mt-3">Two ways to experience Skyframe XR</h2>
           <div className="mt-10 grid gap-8 lg:grid-cols-2">
-            <div className="border border-line p-6 sm:p-8">
-              <h3 className="text-4xl">{x.models.onSite.title}</h3>
+            <div className="sky-card p-6 sm:p-8">
+              <span className="sky-pill" style={{ background: "#292929", color: "#FFFBF7" }}>On site</span>
+              <h3 className="mt-4" style={{ fontSize: 24 }}>{x.models.onSite.title}</h3>
               <p className="mt-3 text-muted">{x.models.onSite.intro}</p>
               <p className="mt-3 text-sm text-muted">{x.models.onSite.setup}</p>
-              <ol className="mt-6 space-y-2">
+              <ol className="mt-6 space-y-3">
                 {x.models.onSite.steps.map((st, i) => (
-                  <li key={st} className="flex gap-3">
-                    <span className="w-6 shrink-0 font-display text-xl text-orange-ink">{i + 1}</span>
-                    <span>{st}</span>
+                  <li key={st} className="flex items-start gap-3">
+                    <span className="sky-step shrink-0 text-sm" style={{ height: 28, width: 28 }}>{i + 1}</span>
+                    <span className="pt-0.5">{st}</span>
                   </li>
                 ))}
               </ol>
             </div>
-            <div className="band p-6 sm:p-8">
-              <span className="bg-orange px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-ink">Skyframe XR 2.0</span>
-              <h3 className="mt-4 text-4xl">{x.models.v2.title}</h3>
+            <div className="band rounded-2xl p-6 sm:p-8">
+              <span className="sky-pill">Skyframe XR 2.0</span>
+              <h3 className="mt-4" style={{ fontSize: 24 }}>{x.models.v2.title}</h3>
               <p className="mt-3 text-ink-muted">{x.models.v2.intro}</p>
-              <ol className="mt-6 space-y-5">
+              <ol className="mt-6 space-y-6">
                 {x.models.v2.steps.map((st, i) => (
-                  <li key={st.title}>
-                    <span className="font-display text-3xl text-orange">{String(i + 1).padStart(2, "0")}</span>
-                    <h4 className="font-display text-2xl">{st.title}</h4>
-                    <p className="text-ink-muted">{st.body}</p>
+                  <li key={st.title} className="flex items-start gap-4">
+                    <span className="sky-step shrink-0">{i + 1}</span>
+                    <span>
+                      <h4>{st.title}</h4>
+                      <span className="text-ink-muted">{st.body}</span>
+                    </span>
                   </li>
                 ))}
               </ol>
@@ -178,40 +176,34 @@ export default function SkyframePage() {
         </div>
       </section>
 
-      {/* Who it's for */}
-      <section className="border-t border-line">
-        <div className="wrap grid gap-10 py-16 sm:py-20 md:grid-cols-2">
-          <div>
-            <p className="eyebrow">For</p>
-            <h2 className="mt-3 text-4xl">Developers & firms</h2>
-            <ul className="mt-6 divide-y divide-line border-y border-line">
-              {x.audiences.platform.map((a) => <li key={a} className="py-3">{a}</li>)}
-            </ul>
-          </div>
-          <div>
-            <p className="eyebrow">And their clients</p>
-            <h2 className="mt-3 text-4xl">Buyers who need to see it</h2>
-            <ul className="mt-6 divide-y divide-line border-y border-line">
-              {x.audiences.clients.map((a) => <li key={a} className="py-3">{a}</li>)}
-            </ul>
-          </div>
+      {/* Audiences */}
+      <section className="wrap grid gap-10 py-16 sm:py-20 md:grid-cols-2">
+        <div>
+          <p className="eyebrow">For</p>
+          <h2 className="mt-3">Developers & firms</h2>
+          <ul className="mt-6 divide-y divide-line border-y border-line">
+            {x.audiences.platform.map((a) => <li key={a} className="py-3">{a}</li>)}
+          </ul>
         </div>
-      </section>
-
-      {/* Ownership */}
-      <section className="band">
-        <div className="wrap py-14">
-          <p className="max-w-3xl text-lg text-ink-muted">{x.ownership}</p>
-          <p className="mt-4 font-display text-3xl">&ldquo;{x.hooks.trust}&rdquo;</p>
+        <div>
+          <p className="eyebrow">And their clients</p>
+          <h2 className="mt-3">Buyers who need to see it</h2>
+          <ul className="mt-6 divide-y divide-line border-y border-line">
+            {x.audiences.clients.map((a) => <li key={a} className="py-3">{a}</li>)}
+          </ul>
         </div>
       </section>
 
       {/* Related VGIS work */}
       {cedarwood && (
-        <section className="wrap py-16 sm:py-20">
-          <SectionHead eyebrow="Related VGIS work" title="Interactive walkthroughs" intro="Cedarwood City Estate included an interactive game walkthrough of the estate." />
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <ProjectCard p={cedarwood} />
+        <section className="border-t border-line">
+          <div className="wrap py-16 sm:py-20">
+            <p className="eyebrow">From the VGIS studio</p>
+            <h2 className="mt-3">Interactive walkthroughs</h2>
+            <p className="mt-3 max-w-2xl text-muted">Cedarwood City Estate included an interactive game walkthrough of the estate.</p>
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <ProjectCard p={cedarwood} />
+            </div>
           </div>
         </section>
       )}
@@ -219,9 +211,9 @@ export default function SkyframePage() {
       {/* FAQ */}
       <section className="border-t border-line">
         <div className="wrap py-16 sm:py-20">
-          <SectionHead num="03" eyebrow="Questions" title="Skyframe XR: FAQ" />
+          <p className="eyebrow">Questions</p>
+          <h2 className="mt-3">Skyframe XR: FAQ</h2>
           <div className="mt-10"><FaqList faqs={x.faqs} /></div>
-          <div className="mt-10"><Wa label="Ask us on WhatsApp" /></div>
         </div>
       </section>
 
@@ -232,8 +224,8 @@ export default function SkyframePage() {
             <ul className="mt-6 grid gap-6 md:grid-cols-3">
               {reading.map((r) => (
                 <li key={r.slug}>
-                  <Link href={`/insights/${r.slug}`} className="group block h-full border border-line p-6 hover:border-ink">
-                    <h3 className="text-2xl group-hover:link-underline">{r.title}</h3>
+                  <Link href={`/insights/${r.slug}`} className="sky-card group block h-full p-6">
+                    <h3 className="group-hover:link-underline">{r.title}</h3>
                     <p className="mt-2 text-sm text-muted">{r.description}</p>
                   </Link>
                 </li>
@@ -243,7 +235,20 @@ export default function SkyframePage() {
         </section>
       )}
 
-      <CtaBand title="Let buyers walk through it before it's built." body="Send your architectural plans and a short description of the project. We'll agree the deliverables with you before development begins." />
-    </>
+      {/* Closing Charcoal band: white logo, tagline, credit line, CTA */}
+      <section className="band">
+        <div className="wrap grid gap-8 py-16 sm:py-20 md:grid-cols-[1fr_auto] md:items-end">
+          <div>
+            <Image src={LOGO_WHITE.src} alt="Skyframe XR" width={LOGO_WHITE.width} height={LOGO_WHITE.height} className="h-10 w-auto" />
+            <h2 className="mt-6">{x.tagline}</h2>
+            <p className="mt-3 text-ink-muted">{x.ownership}</p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <Wa />
+            <Link href="/contact" className="btn btn-ghost"><span>Send your plans</span></Link>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }
