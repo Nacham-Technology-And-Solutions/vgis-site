@@ -55,6 +55,8 @@ export function Footer() {
                   ["Facebook", company.social.facebook],
                   ["YouTube", company.social.youtube],
                   ["LinkedIn", company.social.linkedin],
+                  ["TikTok", company.social.tiktok],
+                  ["X", company.social.x],
                   ["Behance", company.social.behance],
                 ] as const
               ).map(([label, href]) => (

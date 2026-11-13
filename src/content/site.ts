@@ -62,6 +62,8 @@ export const company = {
     youtube: "https://www.youtube.com/@3DVGIS",
     linkedin: "https://www.linkedin.com/company/3d-vgis/",
     behance: "https://www.behance.net/gallery/223756599/Visual-Graphics-Illustration-Services-LTD",
+    tiktok: "https://www.tiktok.com/@3d.vgis",
+    x: "https://x.com/3d_vgis",
   },
   behanceGalleries: [
     { label: "Company gallery", url: "https://www.behance.net/gallery/223756599/Visual-Graphics-Illustration-Services-LTD" },
@@ -102,6 +104,8 @@ export const sameAs = [
   company.social.youtube,
   company.social.linkedin,
   company.social.behance,
+  company.social.tiktok,
+  company.social.x,
 ];
 
 export const nav = [
