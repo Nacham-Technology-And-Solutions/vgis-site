@@ -27,6 +27,7 @@ export function Footer() {
               <li><Link className="hover:text-paper" href="/about">About VGIS</Link></li>
               <li><Link className="hover:text-paper" href="/work">Signature projects</Link></li>
               <li><Link className="hover:text-paper" href="/process">Our process</Link></li>
+              <li><Link className="hover:text-paper" href="/insights">Insights</Link></li>
               <li><Link className="hover:text-paper" href="/faq">FAQ</Link></li>
               <li><Link className="hover:text-paper" href="/contact">Contact</Link></li>
             </ul>

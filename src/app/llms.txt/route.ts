@@ -3,6 +3,7 @@ import { services, disciplines } from "@/content/services";
 import { projects } from "@/content/projects";
 import { leadership } from "@/content/team";
 import { companyFaqs } from "@/content/faqs";
+import { insights } from "@/content/insights";
 
 export const dynamic = "force-static";
 
@@ -41,6 +42,9 @@ ${leadership.map((p) => `- ${p.name}: ${p.role}. ${p.bio}`).join("\n")}
 
 ## Key facts (FAQ)
 ${companyFaqs.map((f) => `- **${f.q}** ${f.a}`).join("\n")}
+
+## Insights
+${insights.map((p) => `- [${p.title}](${SITE_URL}/insights/${p.slug}): ${p.description}`).join("\n")}
 
 ## Pages
 - [About](${SITE_URL}/about)

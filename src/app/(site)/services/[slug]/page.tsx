@@ -5,6 +5,7 @@ import { getService, services, disciplines } from "@/content/services";
 import { processes } from "@/content/process";
 import { projectsForService } from "@/content/projects";
 import { portfolio } from "@/content/portfolio";
+import { insightsForService } from "@/content/insights";
 import { PortfolioTile } from "@/components/portfolio";
 import { company } from "@/content/site";
 import { AnswerBox, CtaBand, FaqList, PageHero, ProcessSteps, ProjectCard, SectionHead, ServiceCard } from "@/components/blocks";
@@ -33,6 +34,7 @@ export default async function ServicePage({ params }: Props) {
   const siblings = services.filter((x) => x.slug !== s.slug && x.discipline === s.discipline).slice(0, 3);
   const process = processes[s.process];
   // Related visual work; AI-assisted pieces only ever appear on the AI-assisted service.
+  const reading = insightsForService(s.slug).slice(0, 3);
   const work = portfolio.filter((w) => w.service === s.slug && (!w.aiAssisted || s.slug === "ai-assisted-content")).slice(0, 3);
 
   return (
@@ -114,6 +116,24 @@ export default async function ServicePage({ params }: Props) {
           <div className="mt-10"><FaqList faqs={s.faqs} /></div>
         </div>
       </section>
+
+      {reading.length > 0 && (
+        <section className="border-t border-line">
+          <div className="wrap py-20">
+            <SectionHead eyebrow="Insights" title="Further reading" />
+            <ul className="mt-10 grid gap-6 md:grid-cols-3">
+              {reading.map((r) => (
+                <li key={r.slug}>
+                  <Link href={`/insights/${r.slug}`} className="group block h-full border border-line p-6 hover:border-ink">
+                    <h3 className="text-2xl group-hover:link-underline">{r.title}</h3>
+                    <p className="mt-2 text-sm text-muted">{r.description}</p>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
 
       {siblings.length > 0 && (
         <section className="border-t border-line">
