@@ -5,8 +5,8 @@
     "project": "Skyframe XR",
     "category": "xr",
     "title": "Skyframe XR walkthrough",
-    "bytes": 17272488,
-    "note": "Original file from skyframexr.3dvgis.com, 16.5 MB, under the 25 MB cap, included as-is."
+    "bytes": 11601064,
+    "note": "Cleaned walkthrough: intro and outro Besitz Group cards trimmed; corner Besitz logo removed and replaced with a Skyframe XR watermark. The 'WE ARE SET INTRODUCE VIRTUAL REALITY INSPECTION' caption is retained. Skyframe XR is a VGIS product. 11.1 MB, under the 25 MB cap."
   },
   "images": [
     {
@@ -2647,7 +2647,7 @@
       "client": null,
       "credit": null,
       "scope": [],
-      "scopeNote": "Skyframe XR is presented as an Arkfield and VGIS partnership.",
+      "scopeNote": "Skyframe XR is a VGIS product. The current cover artwork still carries a 'Powered By Arkfield & VGIS' line at the foot; treat Skyframe as solely owned by VGIS.",
       "youtubeId": null,
       "signature": false,
       "hero": true,
@@ -2663,7 +2663,7 @@
       "client": null,
       "credit": null,
       "scope": [],
-      "scopeNote": "Skyframe XR is presented as an Arkfield and VGIS partnership.",
+      "scopeNote": "Skyframe XR is a VGIS product.",
       "youtubeId": null,
       "signature": false,
       "hero": false,
@@ -2679,7 +2679,7 @@
       "client": null,
       "credit": null,
       "scope": [],
-      "scopeNote": "Skyframe XR is presented as an Arkfield and VGIS partnership.",
+      "scopeNote": "Skyframe XR is a VGIS product.",
       "youtubeId": null,
       "signature": false,
       "hero": false,
