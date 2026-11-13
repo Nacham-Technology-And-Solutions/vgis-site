@@ -32,6 +32,7 @@ export function PortfolioTile({ item, sizes = "(min-width: 1024px) 33vw, (min-wi
   const [hover, setHover] = useState(false);
   const vidRef = useRef<HTMLVideoElement>(null);
   const v = item.video;
+  const playable = !!(v?.youtubeId || v?.vimeoId || v?.mp4);
   const embed = v?.youtubeId
     ? `https://www.youtube-nocookie.com/embed/${v.youtubeId}?autoplay=1&rel=0`
     : v?.vimeoId
@@ -52,7 +53,9 @@ export function PortfolioTile({ item, sizes = "(min-width: 1024px) 33vw, (min-wi
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
-        {playing && embed ? (
+        {playing && v?.mp4 && !embed ? (
+          <video src={v.mp4} poster={item.image.src} controls autoPlay playsInline className="absolute inset-0 h-full w-full bg-ink object-contain" />
+        ) : playing && embed ? (
           <iframe
             src={embed}
             title={item.title}
@@ -85,23 +88,28 @@ export function PortfolioTile({ item, sizes = "(min-width: 1024px) 33vw, (min-wi
             {v && (
               <button
                 type="button"
-                onClick={() => embed && setPlaying(true)}
-                disabled={!embed}
-                aria-label={embed ? `Play ${item.title}` : `${item.title}: video coming soon`}
+                onClick={() => playable && setPlaying(true)}
+                disabled={!playable}
+                aria-label={playable ? `Play ${item.title}` : `${item.title}: video coming soon`}
                 className="absolute inset-0 flex items-center justify-center disabled:cursor-default"
               >
                 <PlayIcon />
               </button>
             )}
+            {item.href && !v && <Link href={item.href} className="absolute inset-0" aria-label={`View ${item.title}`} />}
             {item.placeholder && <SampleBadge className="absolute left-3 top-3" />}
-            {v && !embed && (
+            {v && !playable && (
               <span className="absolute bottom-3 right-3 bg-paper/90 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-ink">Video placeholder</span>
             )}
           </>
         )}
       </div>
       <figcaption className="flex items-baseline justify-between gap-3 px-4 py-3">
-        <span className="font-display text-2xl leading-none">{item.title}</span>
+        {item.href ? (
+          <Link href={item.href} className="font-display text-2xl leading-none hover:link-underline">{item.title}</Link>
+        ) : (
+          <span className="font-display text-2xl leading-none">{item.title}</span>
+        )}
         <span className="shrink-0 text-[11px] uppercase tracking-[0.12em] text-muted">
           {categories.find((c) => c.id === item.category)?.label}
         </span>

@@ -1,4 +1,5 @@
 import type { Discipline } from "./services";
+import { manifestProjects, type ManifestProject } from "./work.generated";
 
 /**
  * Projects from the Company Profile, updated with owner answers (13 Nov 2026, channel #111):
@@ -23,9 +24,13 @@ export type Project = {
   client?: { name: string; url?: string };
   /** Other names this project has been published under (kept for search and redirects). */
   aka?: string[];
+  /** YouTube walkthrough/film IDs (@3DVGIS). */
+  youtubeIds?: string[];
+  /** Partner credit line, e.g. Justking Solutions. */
+  credit?: string;
 };
 
-export const projects: Project[] = [
+const curated: Project[] = [
   {
     slug: "down-town-castries",
     name: "Down Town Castries",
@@ -132,6 +137,107 @@ export const projects: Project[] = [
     services: ["brand-identity"],
     images: [],
   },
+];
+
+/* ---------------- Merge with the owner's portfolio manifest ---------------- */
+
+/** Manifest project names that map onto curated records above. */
+const MANIFEST_TO_SLUG: Record<string, string> = {
+  "Down Town Castries": "down-town-castries",
+  "St Helen Hotel": "st-helen-hotel",
+  "Cedarwood City": "cedarwood-city-estate",
+  "Kavacha Garden": "kavacha-garden",
+  "Infra-Tech Capital": "infra-tech-capital-services",
+};
+/** Manifest groups that are not standalone projects. */
+const NOT_PROJECTS = new Set(["Skyframe XR"]);
+
+const SCOPE_LABEL: Record<string, string> = {
+  concept: "concept",
+  design: "design",
+  "space-design": "space design",
+  "working-drawings": "working drawings",
+  interior: "interior visualisation",
+  visualization: "3D visualisation",
+  "signage-permit": "signage permit visualisation",
+  permit: "permit visualisation",
+  renovation: "renovation",
+};
+const DESIGN_TAGS = ["concept", "design", "space-design", "working-drawings"];
+
+const sentence = (parts: string[]) => {
+  const p = [...new Set(parts)];
+  const txt = p.length > 1 ? `${p.slice(0, -1).join(", ")} and ${p.at(-1)}` : (p[0] ?? "");
+  return txt ? txt[0].toUpperCase() + txt.slice(1) + "." : "";
+};
+
+function servicesFor(m: ManifestProject): string[] {
+  if (m.category === "2d") return m.name.toLowerCase().includes("graphic") ? ["graphic-design"] : ["brand-identity"];
+  const out: string[] = [];
+  if (m.scope.some((t) => DESIGN_TAGS.includes(t))) out.push("architectural-design");
+  out.push("architectural-visualization");
+  if (m.youtubeIds.length) out.push("cinematic-walkthroughs");
+  return out;
+}
+
+function fromManifest(m: ManifestProject): Project {
+  const scope = sentence(m.scope.map((t) => SCOPE_LABEL[t] ?? t)) || (m.category === "2d" ? "Brand identity and design." : "3D visualisation.");
+  const design = m.scope.some((t) => DESIGN_TAGS.includes(t));
+  return {
+    slug: m.folder,
+    name: m.name === "Graphics Design Portfolio" ? "Graphic design portfolio" : m.name,
+    year: m.year ?? undefined,
+    discipline: m.category === "2d" ? "2d" : "3d",
+    category: m.category === "2d" ? (m.name.toLowerCase().includes("graphic") ? "Graphic design" : "2D branding") : design ? "Design & 3D visualisation" : "3D visualisation",
+    scope,
+    summary: scope,
+    services: servicesFor(m),
+    images: [],
+    signature: m.signature,
+  };
+}
+
+function attach(p: Project, m: ManifestProject): Project {
+  return {
+    ...p,
+    year: p.year ?? m.year ?? undefined,
+    images: m.images.map(({ src, width, height, alt }) => ({ src, width, height, alt })),
+    youtubeIds: m.youtubeIds.length ? m.youtubeIds : p.youtubeIds,
+    credit: m.credit ?? p.credit,
+    client: p.client ?? (m.client && m.client !== m.name ? { name: m.client } : undefined),
+  };
+}
+
+const bySlug = new Map(curated.map((p) => [p.slug, p]));
+const extra: Project[] = [];
+for (const m of manifestProjects) {
+  if (NOT_PROJECTS.has(m.name)) continue;
+  const slug = MANIFEST_TO_SLUG[m.name];
+  if (slug && bySlug.has(slug)) bySlug.set(slug, attach(bySlug.get(slug)!, m));
+  else extra.push(attach(fromManifest(m), m));
+}
+
+// White Avenue Real Estate: aggregates its developments (Cedarwood City, Colour Code).
+const whiteAvenueParts = [bySlug.get("cedarwood-city-estate"), extra.find((e) => e.name === "Colour Code")].filter(
+  (x): x is Project => !!x,
+);
+const wa = bySlug.get("white-avenue-real-estate");
+if (wa) {
+  bySlug.set("white-avenue-real-estate", {
+    ...wa,
+    images: whiteAvenueParts.flatMap((x) => x.images),
+    youtubeIds: [...new Set(whiteAvenueParts.flatMap((x) => x.youtubeIds ?? []))],
+  });
+}
+// Colour Code is White Avenue work, like Cedarwood City; neither is a separate signature.
+for (const e of extra) if (e.name === "Colour Code") { e.client = { name: "White Avenue Real Estate", url: "https://whiteavenuegroup.com" }; e.signature = false; }
+const cw = bySlug.get("cedarwood-city-estate");
+if (cw) bySlug.set("cedarwood-city-estate", { ...cw, signature: false });
+
+/** Signature first, then curated order, then manifest projects with images (newest first). */
+export const projects: Project[] = [
+  ...curated.map((p) => bySlug.get(p.slug)!),
+  ...extra.filter((e) => e.images.length).sort((a, b) => (b.year ?? 0) - (a.year ?? 0)),
 ];
 
 export const getProject = (slug: string) => projects.find((p) => p.slug === slug);

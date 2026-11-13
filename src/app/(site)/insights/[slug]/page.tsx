@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getInsight, insights } from "@/content/insights";
 import { reason } from "@/content/knowledge/80-reasons";
-import { portfolio } from "@/content/portfolio";
+import { anyPortfolioItem } from "@/content/portfolio";
 import { getService, serviceHref } from "@/content/services";
 import { company, whatsapp } from "@/content/site";
 import { Breadcrumbs } from "@/components/blocks";
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const p = getInsight((await params).slug);
   if (!p) return {};
   const m = pageMetadata({ title: p.title, description: p.description, path: `/insights/${p.slug}`, ogType: "article" });
-  const img = portfolio.find((w) => w.id === p.image)?.image;
+  const img = anyPortfolioItem(p.image)?.image;
   // Article image first; the generated brand card stays as the fallback.
   const images = img ? [{ url: img.src, width: img.width, height: img.height, alt: img.alt }, ...ogDefaults.images] : ogDefaults.images;
   return {
@@ -43,7 +43,7 @@ export default async function InsightPage({ params }: Props) {
   const path = `/insights/${p.slug}`;
   const svc = getService(p.service)!;
   const related = (p.related ?? []).map(getService).filter((s) => s !== undefined);
-  const img = portfolio.find((w) => w.id === p.image);
+  const img = anyPortfolioItem(p.image);
   const more = insights.filter((x) => x.slug !== p.slug).slice(0, 3);
 
   return (

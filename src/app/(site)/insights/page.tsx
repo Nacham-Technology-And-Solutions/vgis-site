@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { insights } from "@/content/insights";
-import { portfolio } from "@/content/portfolio";
+import { anyPortfolioItem } from "@/content/portfolio";
 import { getService } from "@/content/services";
 import { CtaBand, PageHero } from "@/components/blocks";
 import { SampleBadge } from "@/components/portfolio";
@@ -33,7 +33,7 @@ export default function InsightsIndex() {
       <section className="wrap py-16 sm:py-20">
         <div className="grid gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
           {posts.map((p) => {
-            const img = portfolio.find((w) => w.id === p.image);
+            const img = anyPortfolioItem(p.image);
             const svc = getService(p.service);
             return (
               <article key={p.slug} className="group">

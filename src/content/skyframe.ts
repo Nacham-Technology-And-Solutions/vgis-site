@@ -1,3 +1,10 @@
+import { manifestProjects, skyframeWalkthrough } from "./work.generated";
+
+function skyframeAsset(name: string) {
+  const img = manifestProjects.find((m) => m.name === "Skyframe XR")?.images.find((i) => i.src.includes(`/skyframe/${name}`));
+  return img ? { src: img.src, width: img.width, height: img.height } : undefined;
+}
+
 /**
  * SKYFRAME XR product content.
  *
@@ -142,9 +149,12 @@ export const skyframe = {
     },
   ],
 
-  /** Media: swap in once Geburah's PR lands (public/skyframe/...). */
+  /** Media from the owner's asset PR (public/skyframe/...), picked up automatically from the manifest import. */
   media: {
-    logo: undefined as string | undefined, // "/skyframe/logo-horizontal.png"
-    video: undefined as { mp4?: string; youtubeId?: string; poster?: string } | undefined,
+    logo: skyframeAsset("logo-horizontal"),
+    video: skyframeWalkthrough ? { mp4: skyframeWalkthrough, poster: skyframeAsset("cover")?.src } : undefined,
+  } as {
+    logo?: { src: string; width: number; height: number };
+    video?: { mp4?: string; youtubeId?: string; poster?: string };
   },
 };

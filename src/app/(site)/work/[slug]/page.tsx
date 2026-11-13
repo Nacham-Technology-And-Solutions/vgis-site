@@ -45,15 +45,43 @@ export default async function ProjectPage({ params }: Props) {
 
       <section className="wrap grid gap-12 py-20 lg:grid-cols-[2fr_1fr]">
         <div>
-          <ProjectVisual p={p} priority sizes="(min-width: 1024px) 66vw, 100vw" />
-          {p.images.slice(1).map((img) => (
-            <div key={img.src} className="relative mt-6 aspect-[4/3] overflow-hidden bg-ink">
-              <Image src={img.src} alt={img.alt} fill sizes="(min-width: 1024px) 66vw, 100vw" className="object-cover" />
+          {p.images.length === 0 ? (
+            <ProjectVisual p={p} priority sizes="(min-width: 1024px) 66vw, 100vw" />
+          ) : (
+            <>
+              {/* Lead image, native aspect ratio (logos and posters are never cropped) */}
+              <figure className={p.discipline === "2d" ? "bg-panel" : "bg-ink"}>
+                <Image src={p.images[0].src} alt={p.images[0].alt} width={p.images[0].width} height={p.images[0].height} priority sizes="(min-width: 1024px) 66vw, 100vw" className="h-auto w-full" />
+              </figure>
+              {p.images.length > 1 && (
+                <div className="mt-6 grid gap-6 sm:grid-cols-2">
+                  {p.images.slice(1).map((img) => (
+                    <figure key={img.src} className={p.discipline === "2d" ? "bg-panel" : "bg-ink"}>
+                      <Image src={img.src} alt={img.alt} width={img.width} height={img.height} sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" className="h-auto w-full" />
+                    </figure>
+                  ))}
+                </div>
+              )}
+            </>
+          )}
+          {(p.youtubeIds ?? []).map((id) => (
+            <div key={id} className="mt-10">
+              <p className="eyebrow">Walkthrough film</p>
+              <div className="relative mt-3 aspect-video bg-ink">
+                <iframe
+                  src={`https://www.youtube-nocookie.com/embed/${id}?rel=0`}
+                  title={`${p.name}: walkthrough film`}
+                  loading="lazy"
+                  allow="fullscreen; picture-in-picture"
+                  allowFullScreen
+                  className="absolute inset-0 h-full w-full"
+                />
+              </div>
             </div>
           ))}
         </div>
         <dl className="h-fit divide-y divide-line border-y border-line text-sm">
-          <div className="py-4"><dt className="eyebrow">Client project</dt><dd className="mt-1 text-base font-medium">{p.name}</dd></div>
+          <div className="py-4"><dt className="eyebrow">Project</dt><dd className="mt-1 text-base font-medium">{p.name}</dd></div>
           {p.year && <div className="py-4"><dt className="eyebrow">Year</dt><dd className="mt-1 text-base">{p.year}</dd></div>}
           {p.location && <div className="py-4"><dt className="eyebrow">Location</dt><dd className="mt-1 text-base">{p.location}</dd></div>}
           {p.client && (
@@ -63,6 +91,9 @@ export default async function ProjectPage({ params }: Props) {
                 {p.client.url ? <a href={p.client.url} target="_blank" rel="noopener noreferrer" className="link-underline">{p.client.name}</a> : p.client.name}
               </dd>
             </div>
+          )}
+          {p.credit && p.credit !== p.client?.name && (
+            <div className="py-4"><dt className="eyebrow">In collaboration with</dt><dd className="mt-1 text-base">{p.credit}</dd></div>
           )}
           {p.aka && <div className="py-4"><dt className="eyebrow">Also known as</dt><dd className="mt-1 text-base">{p.aka.join(", ")}</dd></div>}
           <div className="py-4"><dt className="eyebrow">Service category</dt><dd className="mt-1 text-base">{p.category}</dd></div>

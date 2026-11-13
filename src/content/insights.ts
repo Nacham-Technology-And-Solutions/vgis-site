@@ -312,10 +312,10 @@ export const getInsight = (slug: string) => insights.find((p) => p.slug === slug
 export const insightsForService = (slug: string) => insights.filter((p) => p.service === slug || p.related?.includes(slug));
 
 // Build-time integrity check: every post must point at a real portfolio image and service.
-import { portfolio as _portfolio } from "./portfolio";
+import { anyPortfolioItem as _anyItem } from "./portfolio";
 import { services as _services } from "./services";
 for (const p of insights) {
-  if (!_portfolio.some((w) => w.id === p.image)) throw new Error(`Insight "${p.slug}": unknown image id "${p.image}"`);
+  if (!!!_anyItem(p.image)) throw new Error(`Insight "${p.slug}": unknown image id "${p.image}"`);
   for (const s of [p.service, ...(p.related ?? [])])
     if (!_services.some((x) => x.slug === s)) throw new Error(`Insight "${p.slug}": unknown service "${s}"`);
 }
