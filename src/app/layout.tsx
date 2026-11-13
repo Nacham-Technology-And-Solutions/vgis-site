@@ -6,6 +6,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
+import { WhatsAppFab } from "@/components/WhatsApp";
 import { SITE_URL, company } from "@/content/site";
 import { graph, organizationSchema, officeSchemas, personSchemas, websiteSchema } from "@/lib/schema";
 
@@ -64,6 +65,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main id="main">{children}</main>
         <Footer />
+        <WhatsAppFab />
         <Analytics />
         <SpeedInsights />
       </body>

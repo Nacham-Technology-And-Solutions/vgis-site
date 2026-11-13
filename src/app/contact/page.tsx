@@ -1,4 +1,5 @@
-import { company } from "@/content/site";
+import { company, whatsapp } from "@/content/site";
+import { WhatsAppIcon } from "@/components/WhatsApp";
 import { PageHero } from "@/components/blocks";
 import { JsonLd } from "@/components/JsonLd";
 import { graph, ids, webPageSchema } from "@/lib/schema";
@@ -6,7 +7,7 @@ import { pageMetadata } from "@/lib/seo";
 import { ContactForm } from "./ContactForm";
 
 const description =
-  "Contact VGIS in Abuja for 3D architectural visualisation, product rendering, XR and branding. Call +234 811 285 3404 or email info@3dvgis.com.";
+  "Contact VGIS in Abuja for 3D architectural visualisation, product rendering, XR and branding. WhatsApp or call +234 811 285 3404, or email 3d.vgis.ltd@gmail.com.";
 
 export const metadata = pageMetadata({ title: "Contact VGIS: Start a Project", description, path: "/contact" });
 
@@ -26,6 +27,13 @@ export default function ContactPage() {
           <div className="mt-8"><ContactForm /></div>
         </div>
         <aside className="space-y-10">
+          <div>
+            <h2 className="eyebrow">WhatsApp</h2>
+            <a href={whatsapp.url} target="_blank" rel="noopener noreferrer" className="btn mt-3 border-[#25D366] bg-[#25D366] text-white hover:bg-[#1da851]">
+              <WhatsAppIcon size={20} /> <span>Chat {whatsapp.display}</span>
+            </a>
+            <p className="mt-2 text-sm text-muted">The fastest way to reach us.</p>
+          </div>
           <div>
             <h2 className="eyebrow">Email</h2>
             <p className="mt-2 space-y-1">

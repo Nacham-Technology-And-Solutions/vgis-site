@@ -32,7 +32,7 @@ export const companyFaqs: Faq[] = [
   },
   {
     q: "How does a VGIS project start?",
-    a: "Every project starts with Discovery, where we study your idea, site and goals, followed by a Blueprint & agreement stage that fixes the plan, deliverables and terms. Send a brief through the contact page or email info@3dvgis.com.",
+    a: "Every project starts with Discovery, where we study your idea, site and goals, followed by a Blueprint & agreement stage that fixes the plan, deliverables and terms. Send a brief through the contact page, WhatsApp +234 811 285 3404 or email 3d.vgis.ltd@gmail.com.",
   },
   {
     q: "How much does 3D visualisation cost?",

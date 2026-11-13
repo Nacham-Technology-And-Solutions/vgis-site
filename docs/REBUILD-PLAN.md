@@ -26,7 +26,7 @@ and the Company Profile PDF. Owner decision (13 Nov 2026): use **®**, not ™.
 - **Content as typed data** in `src/content/*`. One source of truth feeds pages, JSON-LD, sitemap and `llms.txt`, so facts can't drift between them.
 - `next/font` self-hosts Bebas Neue and Inter (no layout shift, no third-party request).
 - **Vercel Analytics and Speed Insights** for real-user Core Web Vitals.
-- **Contact form:** a server action sends through Resend's API. If the keys aren't set, the form falls back to `info@3dvgis.com`.
+- **Contact form:** a server action sends through Resend's API. If the keys aren't set, the form falls back to email (3d.vgis.ltd@gmail.com, primary since 13 Nov) and WhatsApp.
 
 ## 3. Information architecture
 

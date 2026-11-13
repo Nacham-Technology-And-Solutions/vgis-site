@@ -27,7 +27,7 @@ export async function sendEnquiry(_prev: ContactState, form: FormData): Promise<
   const { RESEND_API_KEY, CONTACT_TO_EMAIL, CONTACT_FROM_EMAIL } = process.env;
   if (!RESEND_API_KEY || !CONTACT_TO_EMAIL || !CONTACT_FROM_EMAIL) {
     console.error("Contact form is not configured: missing RESEND_API_KEY, CONTACT_TO_EMAIL or CONTACT_FROM_EMAIL");
-    return { status: "error", message: "Our form is offline right now. Please email info@3dvgis.com and we will reply promptly." };
+    return { status: "error", message: "Our form is offline right now. Please email 3d.vgis.ltd@gmail.com or WhatsApp +234 811 285 3404 and we will reply promptly." };
   }
 
   const rows: [string, string][] = [
@@ -58,6 +58,6 @@ export async function sendEnquiry(_prev: ContactState, form: FormData): Promise<
     return { status: "ok", message: "Thank you. Your brief has been received and we will reply shortly." };
   } catch (e) {
     console.error(e);
-    return { status: "error", message: "We could not send your message. Please email info@3dvgis.com." };
+    return { status: "error", message: "We could not send your message. Please email 3d.vgis.ltd@gmail.com or WhatsApp +234 811 285 3404." };
   }
 }

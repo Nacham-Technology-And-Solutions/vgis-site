@@ -23,10 +23,10 @@ export const company = {
     applications: ["NG/TM/O/2024/265289", "NG/TM/O/2024/265290", "NG/TM/O/2024/265294"],
     classes: [9, 35, 42],
   },
-  emails: { primary: "info@3dvgis.com", secondary: "3d.vgis.ltd@gmail.com" },
+  emails: { primary: "3d.vgis.ltd@gmail.com", secondary: "info@3dvgis.com" },
   phones: [
-    { display: "+234 811 285 3404", e164: "+2348112853404" },
-    { display: "+234 707 247 5996", e164: "+2347072475996" },
+    { display: "+234 811 285 3404", e164: "+2348112853404", whatsapp: true },
+    { display: "+234 707 247 5996", e164: "+2347072475996", whatsapp: false },
   ],
   offices: [
     {
@@ -97,6 +97,14 @@ export const company = {
     },
   ],
 } as const;
+
+/** WhatsApp chat link with a prefilled greeting. */
+export const whatsapp = {
+  display: company.phones.find((p) => p.whatsapp)!.display,
+  url: `https://wa.me/${company.phones.find((p) => p.whatsapp)!.e164.replace("+", "")}?text=${encodeURIComponent(
+    "Hello VGIS, I'd like to discuss a project.",
+  )}`,
+};
 
 export const sameAs = [
   company.social.instagram,

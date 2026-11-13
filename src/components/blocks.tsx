@@ -6,6 +6,7 @@ import type { Project } from "@/content/projects";
 import type { Process } from "@/content/process";
 import { JsonLd } from "./JsonLd";
 import { breadcrumbSchema, graph } from "@/lib/schema";
+import { company, whatsapp } from "@/content/site";
 
 /* ---------- Breadcrumbs (visible + BreadcrumbList schema) ---------- */
 export function Breadcrumbs({ items }: { items: { name: string; path: string }[] }) {
@@ -177,7 +178,8 @@ export function CtaBand({ title = "Bring your project to life before it is built
         </div>
         <div className="flex flex-wrap gap-3">
           <Link href="/contact" className="btn btn-primary">Send a brief →</Link>
-          <a href="mailto:info@3dvgis.com" className="btn btn-ghost"><span>info@3dvgis.com</span></a>
+          <a href={whatsapp.url} target="_blank" rel="noopener noreferrer" className="btn btn-ghost"><span>WhatsApp {whatsapp.display}</span></a>
+          <a href={`mailto:${company.emails.primary}`} className="btn btn-ghost"><span>{company.emails.primary}</span></a>
         </div>
       </div>
     </section>

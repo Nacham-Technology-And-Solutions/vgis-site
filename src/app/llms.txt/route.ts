@@ -1,4 +1,4 @@
-import { SITE_URL, company } from "@/content/site";
+import { SITE_URL, company, whatsapp } from "@/content/site";
 import { services, disciplines } from "@/content/services";
 import { projects } from "@/content/projects";
 import { leadership } from "@/content/team";
@@ -22,7 +22,7 @@ Tagline: "${company.tagline}" Formerly ${company.formerName}. CAC RC ${company.r
 Head office: ${company.offices[0].streetAddress}, ${company.offices[0].addressLocality}, ${company.offices[0].countryName}. Second studio: ${company.offices[1].addressLocality}, ${company.offices[1].addressRegion}.
 Hubs: ${company.hubs.join(", ")}. Clients in: ${company.areaServed.join(", ")}.
 Serves: ${company.audiences.join(", ")}.
-Contact: ${company.emails.primary}, ${company.phones.map((p) => p.display).join(", ")}.
+Contact: ${company.emails.primary} (also ${company.emails.secondary}), phone ${company.phones.map((p) => p.display).join(", ")}, WhatsApp ${whatsapp.display} (${whatsapp.url.split("?")[0]}).
 
 ## ${disciplines["3d"].name} (core)
 ${svc("3d")}

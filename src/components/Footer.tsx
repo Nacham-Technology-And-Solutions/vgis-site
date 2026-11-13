@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { company } from "@/content/site";
+import { company, whatsapp } from "@/content/site";
 import { services } from "@/content/services";
 
 export function Footer() {
@@ -43,7 +43,9 @@ export function Footer() {
           <div>
             <h2 className="eyebrow">Contact</h2>
             <ul className="mt-4 space-y-2 text-sm text-ink-muted">
+              <li><a className="hover:text-paper" href={whatsapp.url} target="_blank" rel="noopener noreferrer">WhatsApp {whatsapp.display}</a></li>
               <li><a className="hover:text-paper" href={`mailto:${company.emails.primary}`}>{company.emails.primary}</a></li>
+              <li><a className="hover:text-paper" href={`mailto:${company.emails.secondary}`}>{company.emails.secondary}</a></li>
               {company.phones.map((p) => (
                 <li key={p.e164}><a className="hover:text-paper" href={`tel:${p.e164}`}>{p.display}</a></li>
               ))}
