@@ -1,8 +1,13 @@
 import Link from "next/link";
 import { services } from "@/content/services";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 
 export default function NotFound() {
   return (
+    <>
+    <Header />
+    <main id="main">
     <section className="band plan-grid">
       <div className="wrap py-28">
         <p className="eyebrow">Error 404</p>
@@ -18,5 +23,8 @@ export default function NotFound() {
         </ul>
       </div>
     </section>
+    </main>
+    <Footer />
+    </>
   );
 }

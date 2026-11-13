@@ -1,4 +1,27 @@
-import { whatsapp } from "@/content/site";
+"use client";
+
+import { usePathname } from "next/navigation";
+import type { ReactNode } from "react";
+import { company, whatsapp } from "@/content/site";
+import { offers } from "@/content/offers";
+import { attributionRef, trackLead } from "@/lib/attribution";
+
+const number = company.phones.find((p) => p.whatsapp)!.e164.replace("+", "");
+const DEFAULT_MSG = "Hello VGIS, I'd like to discuss a project.";
+
+/** Builds the wa.me URL at click time so the message carries the offer and ad reference. */
+function waUrl(message: string, offer?: string) {
+  const ref = attributionRef(offer);
+  const text = ref ? `${message}\n\n(Ref: ${ref})` : message;
+  return `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
+}
+
+/** Offer currently in view, from /offers/<slug>. */
+function useOffer() {
+  const path = usePathname() ?? "";
+  const slug = path.startsWith("/offers/") ? path.split("/")[2] : undefined;
+  return offers.find((o) => o.slug === slug);
+}
 
 /** WhatsApp glyph (Simple Icons, CC0). */
 export function WhatsAppIcon({ size = 24, className = "" }: { size?: number; className?: string }) {
@@ -10,24 +33,51 @@ export function WhatsAppIcon({ size = 24, className = "" }: { size?: number; cla
 }
 
 /**
- * Floating WhatsApp button, fixed bottom-right on every page.
- * WhatsApp green for instant recognition; a white ring keeps it visible on black bands.
+ * Any WhatsApp link on the site. Uses the offer's own message on offer pages, appends the ad
+ * reference, and records a lead on click. Without JS it still opens a plain chat.
  */
-export function WhatsAppFab() {
+export function WhatsAppLink({
+  children,
+  className,
+  message,
+  ariaLabel,
+}: {
+  children: ReactNode;
+  className?: string;
+  message?: string;
+  ariaLabel?: string;
+}) {
+  const offer = useOffer();
+  const msg = message ?? offer?.waMessage ?? DEFAULT_MSG;
   return (
     <a
       href={whatsapp.url}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={`Chat with VGIS on WhatsApp, ${whatsapp.display}`}
-      className="group fixed z-50 flex items-center gap-2 rounded-full bg-[#25D366] p-3.5 text-white shadow-[0_6px_20px_rgb(0_0_0/0.28)] ring-2 ring-white transition-transform hover:scale-105 focus-visible:outline-offset-4 sm:px-5"
-      style={{
-        right: "max(16px, env(safe-area-inset-right, 0px))",
-        bottom: "max(16px, env(safe-area-inset-bottom, 0px))",
+      aria-label={ariaLabel}
+      className={className}
+      onClick={(e) => {
+        e.currentTarget.href = waUrl(msg, offer?.slug);
+        trackLead("whatsapp", offer?.slug);
       }}
+    >
+      {children}
+    </a>
+  );
+}
+
+/**
+ * Floating WhatsApp button, fixed bottom-right on every page.
+ * WhatsApp green for instant recognition; a white ring keeps it visible on black bands.
+ */
+export function WhatsAppFab() {
+  return (
+    <WhatsAppLink
+      ariaLabel={`Chat with VGIS on WhatsApp, ${whatsapp.display}`}
+      className="fixed z-50 flex items-center gap-2 rounded-full bg-[#25D366] p-3.5 text-white shadow-[0_6px_20px_rgb(0_0_0/0.28)] ring-2 ring-white transition-transform hover:scale-105 focus-visible:outline-offset-4 sm:px-5 [bottom:max(16px,env(safe-area-inset-bottom,0px))] [right:max(16px,env(safe-area-inset-right,0px))]"
     >
       <WhatsAppIcon size={28} />
       <span className="hidden text-sm font-semibold sm:inline">Chat on WhatsApp</span>
-    </a>
+    </WhatsAppLink>
   );
 }

@@ -20,6 +20,12 @@ export async function sendEnquiry(_prev: ContactState, form: FormData): Promise<
   const phone = clean(form.get("phone"), 40);
   const service = clean(form.get("service"), 80);
   const message = clean(form.get("message"), 5000);
+  const offer = clean(form.get("offer"), 80);
+  // Ad attribution captured client-side (utm_*, click IDs, landing page)
+  let attribution: Record<string, string> = {};
+  try {
+    attribution = JSON.parse(clean(form.get("attribution"), 1500) || "{}");
+  } catch {}
 
   if (!name || !email || !message) return { status: "error", message: "Please add your name, email and a short brief." };
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return { status: "error", message: "Please enter a valid email address." };
@@ -36,6 +42,8 @@ export async function sendEnquiry(_prev: ContactState, form: FormData): Promise<
     ["Company", company || "-"],
     ["Phone", phone || "-"],
     ["Service", service || "-"],
+    ["Offer page", offer || "-"],
+    ...Object.entries(attribution).map(([k, v]): [string, string] => [k, String(v).slice(0, 200)]),
   ];
   const html = `<h2>New project enquiry</h2><table>${rows
     .map(([k, v]) => `<tr><td style="padding:4px 12px 4px 0"><b>${k}</b></td><td>${esc(v)}</td></tr>`)
@@ -49,7 +57,7 @@ export async function sendEnquiry(_prev: ContactState, form: FormData): Promise<
         from: CONTACT_FROM_EMAIL,
         to: CONTACT_TO_EMAIL.split(",").map((s) => s.trim()),
         reply_to: email,
-        subject: `Website enquiry: ${service || "General"} from ${name}`,
+        subject: `${offer ? "Ad lead" : "Website enquiry"}: ${service || offer || "General"} from ${name}`,
         html,
         text: `${rows.map(([k, v]) => `${k}: ${v}`).join("\n")}\n\n${message}`,
       }),

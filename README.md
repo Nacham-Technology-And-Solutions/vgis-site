@@ -30,3 +30,13 @@ npm run build && npm start   # production check
 - Brand: Bebas Neue headings, Inter body, black and white with VGIS Orange (`#FF6600`) as an accent only. Use the official logo in black and white with a subtle drop shadow. Use ®.
 - Publish only facts the company can stand behind: no invented stats, people, testimonials or third-party images.
 - To add project images, put files in `public/work/<slug>/` and add them to `images` in `src/content/projects.ts`.
+
+## Ad landing pages (`/offers`)
+
+One page per offer at `/offers/<slug>`, for paid traffic. Each has a minimal header with no main navigation, the quote form above the fold, and WhatsApp as the main action. They are `noindex` and left out of the sitemap so they don't compete with the service pages; ad platform crawlers can still read them.
+
+- **Edit offers** in `src/content/offers.ts`. Page copy and ad copy live together so they always match.
+- **Ad kit:** open `/offers` (internal, not indexed) for each offer's URL, tracking links per platform, keywords, audiences, headlines, descriptions and primary text. Character counts are checked against Google limits.
+- **Attribution:** `utm_*`, `gclid`, `fbclid` and `li_fat_id` are stored for the session on arrival. WhatsApp messages end with `(Ref: <offer> · <source>/<medium>/<campaign>)`, and form emails include every tag, so each lead can be traced to its ad.
+- **Conversions:** set `NEXT_PUBLIC_META_PIXEL_ID` and/or `NEXT_PUBLIC_GOOGLE_ADS_ID` + `NEXT_PUBLIC_GOOGLE_ADS_LEAD_LABEL` (and optionally `NEXT_PUBLIC_GA4_ID`) in Vercel. A lead fires on every WhatsApp click (Meta `Contact`) and form submission (Meta `Lead`, Google Ads conversion). Nothing third-party loads until these are set.
+- `/privacy` is the privacy policy that Google Ads and Meta require for lead-collecting pages.

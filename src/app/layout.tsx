@@ -3,10 +3,9 @@ import { Bebas_Neue, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
 import { WhatsAppFab } from "@/components/WhatsApp";
+import { Tracking } from "@/components/Tracking";
 import { SITE_URL, company } from "@/content/site";
 import { graph, organizationSchema, officeSchemas, personSchemas, websiteSchema } from "@/lib/schema";
 
@@ -62,10 +61,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         {/* Site-wide entity graph: Organization, offices, leadership, WebSite */}
         <JsonLd data={graph(organizationSchema(), ...officeSchemas(), ...personSchemas(), websiteSchema())} />
-        <Header />
-        <main id="main">{children}</main>
-        <Footer />
+        {children}
         <WhatsAppFab />
+        <Tracking />
         <Analytics />
         <SpeedInsights />
       </body>

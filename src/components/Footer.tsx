@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { company, whatsapp } from "@/content/site";
+import { WhatsAppLink } from "./WhatsApp";
 import { services } from "@/content/services";
 
 export function Footer() {
@@ -43,7 +44,7 @@ export function Footer() {
           <div>
             <h2 className="eyebrow">Contact</h2>
             <ul className="mt-4 space-y-2 text-sm text-ink-muted">
-              <li><a className="hover:text-paper" href={whatsapp.url} target="_blank" rel="noopener noreferrer">WhatsApp {whatsapp.display}</a></li>
+              <li><WhatsAppLink className="hover:text-paper">WhatsApp {whatsapp.display}</WhatsAppLink></li>
               <li><a className="hover:text-paper" href={`mailto:${company.emails.primary}`}>{company.emails.primary}</a></li>
               <li><a className="hover:text-paper" href={`mailto:${company.emails.secondary}`}>{company.emails.secondary}</a></li>
               {company.phones.map((p) => (
@@ -72,7 +73,7 @@ export function Footer() {
 
         <div className="mt-14 flex flex-col gap-2 border-t border-ink-line pt-6 text-xs text-ink-muted sm:flex-row sm:justify-between">
           <p>© {year} {company.legalName} · RC {company.rcNumber}</p>
-          <p>VGIS® is a trademark of {company.legalName}.</p>
+          <p>VGIS® is a trademark of {company.legalName}. · <Link href="/privacy" className="hover:text-paper">Privacy</Link></p>
         </div>
       </div>
     </footer>

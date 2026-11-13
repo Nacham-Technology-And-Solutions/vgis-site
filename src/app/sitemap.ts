@@ -23,5 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page("/about", 0.7),
     page("/faq", 0.7),
     page("/contact", 0.8, "yearly"),
+    page("/privacy", 0.2, "yearly"),
+    // /offers/* are ad landing pages: noindex and deliberately not listed.
   ];
 }

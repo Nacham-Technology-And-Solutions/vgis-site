@@ -1,10 +1,10 @@
 import { company, whatsapp } from "@/content/site";
-import { WhatsAppIcon } from "@/components/WhatsApp";
+import { WhatsAppIcon, WhatsAppLink } from "@/components/WhatsApp";
 import { PageHero } from "@/components/blocks";
 import { JsonLd } from "@/components/JsonLd";
 import { graph, ids, webPageSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
-import { ContactForm } from "./ContactForm";
+import { ContactForm } from "@/components/ContactForm";
 
 const description =
   "Contact VGIS in Abuja for 3D architectural visualisation, product rendering, XR and branding. WhatsApp or call +234 811 285 3404, or email 3d.vgis.ltd@gmail.com.";
@@ -29,9 +29,9 @@ export default function ContactPage() {
         <aside className="space-y-10">
           <div>
             <h2 className="eyebrow">WhatsApp</h2>
-            <a href={whatsapp.url} target="_blank" rel="noopener noreferrer" className="btn mt-3 border-[#25D366] bg-[#25D366] text-white hover:bg-[#1da851]">
+            <WhatsAppLink className="btn mt-3 border-[#25D366] bg-[#25D366] text-white hover:bg-[#1da851]">
               <WhatsAppIcon size={20} /> <span>Chat {whatsapp.display}</span>
-            </a>
+            </WhatsAppLink>
             <p className="mt-2 text-sm text-muted">The fastest way to reach us.</p>
           </div>
           <div>
