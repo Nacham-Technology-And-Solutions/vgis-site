@@ -10,14 +10,15 @@ import { AudiencePicker, AudienceReasons } from "@/components/Audience";
 import { WhatsAppIcon, WhatsAppLink } from "@/components/WhatsApp";
 import { JsonLd } from "@/components/JsonLd";
 import { graph, ids, webPageSchema } from "@/lib/schema";
+import { ogDefaults, twitterDefaults } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: { absolute: c.meta.title },
   description: c.meta.description,
   alternates: { canonical: `/offers/${c.slug}` },
   robots: { index: false, follow: true },
-  openGraph: { title: c.meta.title, description: c.meta.description, url: `/offers/${c.slug}` },
-  twitter: { title: c.meta.title, description: c.meta.description },
+  openGraph: { ...ogDefaults, title: c.meta.title, description: c.meta.description, url: `/offers/${c.slug}` },
+  twitter: { ...twitterDefaults, title: c.meta.title, description: c.meta.description },
 };
 
 /** Only the reasons this page uses are serialised (the full 80 stay internal). */

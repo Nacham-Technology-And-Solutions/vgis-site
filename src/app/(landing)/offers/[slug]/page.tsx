@@ -11,6 +11,7 @@ import { ContactForm } from "@/components/ContactForm";
 import { WhatsAppIcon, WhatsAppLink } from "@/components/WhatsApp";
 import { JsonLd } from "@/components/JsonLd";
 import { graph, ids, webPageSchema } from "@/lib/schema";
+import { ogDefaults, twitterDefaults } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -29,8 +30,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     // Ad landing pages overlap the service pages, so keep them out of organic search.
     // Ad platforms' crawlers (AdsBot, facebookexternalhit) still read them.
     robots: { index: false, follow: true },
-    openGraph: { title: o.meta.title, description: o.meta.description, url: `/offers/${o.slug}` },
-    twitter: { title: o.meta.title, description: o.meta.description },
+    openGraph: { ...ogDefaults, title: o.meta.title, description: o.meta.description, url: `/offers/${o.slug}` },
+    twitter: { ...twitterDefaults, title: o.meta.title, description: o.meta.description },
   };
 }
 

@@ -8,6 +8,7 @@ import { WhatsAppFab } from "@/components/WhatsApp";
 import { Tracking } from "@/components/Tracking";
 import { SITE_URL, company } from "@/content/site";
 import { graph, organizationSchema, officeSchemas, personSchemas, websiteSchema } from "@/lib/schema";
+import { ogDefaults, twitterDefaults } from "@/lib/seo";
 
 const bebas = Bebas_Neue({ weight: "400", subsets: ["latin"], variable: "--font-bebas", display: "swap" });
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
@@ -27,13 +28,8 @@ export const metadata: Metadata = {
   category: "Architectural visualisation",
   alternates: { canonical: "/" },
   formatDetection: { telephone: true, email: true, address: true },
-  openGraph: {
-    type: "website",
-    siteName: "VGIS®",
-    locale: "en_NG",
-    url: SITE_URL,
-  },
-  twitter: { card: "summary_large_image" },
+  openGraph: { ...ogDefaults, type: "website", url: SITE_URL },
+  twitter: twitterDefaults,
   robots: {
     index: true,
     follow: true,

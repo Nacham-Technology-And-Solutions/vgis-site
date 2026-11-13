@@ -1,6 +1,22 @@
 import type { Metadata } from "next";
 import { SITE_URL, company } from "@/content/site";
 
+/**
+ * Next.js replaces (does not merge) nested metadata objects, so every page that sets
+ * openGraph/twitter must spread these defaults or it loses the share image, site name and card.
+ */
+export const ogDefaults = {
+  siteName: "VGIS®",
+  locale: "en_NG",
+  images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "VGIS®: Bridging the gap between imagination and reality" }],
+};
+export const twitterDefaults = {
+  card: "summary_large_image" as const,
+  site: "@3dvgis",
+  creator: "@3dvgis",
+  images: ["/opengraph-image"],
+};
+
 type PageMeta = {
   title: string;
   description: string;
@@ -18,8 +34,8 @@ export function pageMetadata({ title, description, path, absoluteTitle, ogType =
     title: absoluteTitle ? { absolute: title } : title,
     description,
     alternates: { canonical: path },
-    openGraph: { title: fullTitle, description, url, type: ogType },
-    twitter: { title: fullTitle, description },
+    openGraph: { ...ogDefaults, title: fullTitle, description, url, type: ogType },
+    twitter: { ...twitterDefaults, title: fullTitle, description },
   };
 }
 

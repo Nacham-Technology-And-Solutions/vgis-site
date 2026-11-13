@@ -12,7 +12,7 @@ import { SampleBadge } from "@/components/portfolio";
 import { WhatsAppIcon, WhatsAppLink } from "@/components/WhatsApp";
 import { JsonLd } from "@/components/JsonLd";
 import { graph, ids, webPageSchema } from "@/lib/schema";
-import { absoluteUrl, pageMetadata } from "@/lib/seo";
+import { absoluteUrl, ogDefaults, pageMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -25,7 +25,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const p = getInsight((await params).slug);
   if (!p) return {};
   const m = pageMetadata({ title: p.title, description: p.description, path: `/insights/${p.slug}`, ogType: "article" });
-  return { ...m, openGraph: { ...m.openGraph, type: "article", publishedTime: p.date } };
+  const img = portfolio.find((w) => w.id === p.image)?.image;
+  // Article image first; the generated brand card stays as the fallback.
+  const images = img ? [{ url: img.src, width: img.width, height: img.height, alt: img.alt }, ...ogDefaults.images] : ogDefaults.images;
+  return {
+    ...m,
+    openGraph: { ...m.openGraph, type: "article", publishedTime: p.date, images },
+    twitter: { ...m.twitter, images: images.map((i) => i.url) },
+  };
 }
 
 const fmt = (d: string) => new Date(d).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });

@@ -93,7 +93,7 @@ Phase 2 (after launch):
 3. **Leadership photos** (real, approved) for `/about`.
 4. **Testimonials:** genuine and attributable only.
 5. **Skyframe XR:** should `skyframexr.3dvgis.com` stay a separate site, or redirect to `/services/skyframe-xr`? Should `2d.3dvgis.com` redirect to `/services`? (Recommended: redirect both, to consolidate authority.)
-6. Opening hours for GBP and schema. (TikTok @3d.vgis and X @3d_vgis were confirmed by Geburah on 13 Nov and added.)
+6. Opening hours for GBP and schema. (TikTok @3d.vgis and X @3dvgis confirmed by Geburah on 13 Nov and added.)
 7. A **logo master** as a transparent PNG or SVG (current file is a flattened PNG).
 
 ## 7. Cutover checklist (3dvgis.com → Vercel)

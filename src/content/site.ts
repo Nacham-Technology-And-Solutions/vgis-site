@@ -63,7 +63,7 @@ export const company = {
     linkedin: "https://www.linkedin.com/company/3d-vgis/",
     behance: "https://www.behance.net/gallery/223756599/Visual-Graphics-Illustration-Services-LTD",
     tiktok: "https://www.tiktok.com/@3d.vgis",
-    x: "https://x.com/3d_vgis",
+    x: "https://x.com/3dvgis",
   },
   behanceGalleries: [
     { label: "Company gallery", url: "https://www.behance.net/gallery/223756599/Visual-Graphics-Illustration-Services-LTD" },
