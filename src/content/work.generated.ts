@@ -2,7 +2,8 @@
 export type ManifestImage = { src: string; width: number; height: number; alt: string; title: string; hero: boolean };
 export type ManifestProject = {
   name: string; folder: string; category: string; year: number | null; scope: string[];
-  client: string | null; credit: string | null; signature: boolean; youtubeIds: string[]; images: ManifestImage[];
+  client: string | null; credit: string | null; signature: boolean; youtubeIds: string[];
+  videos: string[]; location: string | null; images: ManifestImage[];
 };
 
 export const manifestProjects: ManifestProject[] = [
@@ -18,6 +19,8 @@ export const manifestProjects: ManifestProject[] = [
     "credit": "Justking Solutions",
     "signature": true,
     "youtubeIds": [],
+    "videos": [],
+    "location": null,
     "images": [
       {
         "src": "/work/down-town-castries/01-park-view-2.jpg",
@@ -155,6 +158,8 @@ export const manifestProjects: ManifestProject[] = [
     "credit": "Justking Solutions",
     "signature": true,
     "youtubeIds": [],
+    "videos": [],
+    "location": null,
     "images": [
       {
         "src": "/work/st-helen-hotel/01-establishing-exterior.jpg",
@@ -236,6 +241,8 @@ export const manifestProjects: ManifestProject[] = [
     "youtubeIds": [
       "bIE4Q3VNdTI"
     ],
+    "videos": [],
+    "location": null,
     "images": [
       {
         "src": "/work/cedarwood-city/01-estate-park.jpg",
@@ -309,6 +316,8 @@ export const manifestProjects: ManifestProject[] = [
     "youtubeIds": [
       "bIE4Q3VNdTI"
     ],
+    "videos": [],
+    "location": null,
     "images": [
       {
         "src": "/work/colour-code/01-mixed-facade-row.jpg",
@@ -360,6 +369,8 @@ export const manifestProjects: ManifestProject[] = [
     "youtubeIds": [
       "ycldrBMGe7U"
     ],
+    "videos": [],
+    "location": null,
     "images": [
       {
         "src": "/work/swahili-village-dc/01-day-shot-1.jpg",
@@ -416,6 +427,8 @@ export const manifestProjects: ManifestProject[] = [
     "credit": "Justking Solutions",
     "signature": false,
     "youtubeIds": [],
+    "videos": [],
+    "location": null,
     "images": [
       {
         "src": "/work/swahili-village-newark/01-curved-glass-corner.jpg",
@@ -467,6 +480,8 @@ export const manifestProjects: ManifestProject[] = [
     "youtubeIds": [
       "AUlDXZ77hNU"
     ],
+    "videos": [],
+    "location": null,
     "images": [
       {
         "src": "/work/royal-assisted-living/01-entrance-exterior.jpg",
@@ -539,6 +554,8 @@ export const manifestProjects: ManifestProject[] = [
     "credit": "Justking Solutions",
     "signature": false,
     "youtubeIds": [],
+    "videos": [],
+    "location": null,
     "images": [
       {
         "src": "/work/hajaras-kitchen/01-shopfront.jpg",
@@ -578,6 +595,8 @@ export const manifestProjects: ManifestProject[] = [
     "credit": "Justking Solutions",
     "signature": false,
     "youtubeIds": [],
+    "videos": [],
+    "location": null,
     "images": [
       {
         "src": "/work/michael-nwosu/01-front-exterior.jpg",
@@ -624,12 +643,16 @@ export const manifestProjects: ManifestProject[] = [
       "working-drawings",
       "visualization"
     ],
-    "client": "Spicy Kingdom",
+    "client": "Spicy Palace",
     "credit": null,
     "signature": false,
     "youtubeIds": [
       "7gzZxbAmEDo"
     ],
+    "videos": [
+      "/skyframe/walkthrough.mp4"
+    ],
+    "location": "Bida, Niger State, Nigeria",
     "images": [
       {
         "src": "/work/spicy-kingdom/01-dining-day.jpg",
@@ -705,6 +728,8 @@ export const manifestProjects: ManifestProject[] = [
     "youtubeIds": [
       "Rz3Wcjm2esc"
     ],
+    "videos": [],
+    "location": null,
     "images": [
       {
         "src": "/work/lucian-afri-complex/01-beauty-shopfront.jpg",
@@ -764,6 +789,8 @@ export const manifestProjects: ManifestProject[] = [
     "youtubeIds": [
       "0r-qt-4VQ-c"
     ],
+    "videos": [],
+    "location": null,
     "images": [
       {
         "src": "/work/coco-jerk/01-service-counter.jpg",
@@ -813,6 +840,8 @@ export const manifestProjects: ManifestProject[] = [
     "credit": "Justking Solutions",
     "signature": false,
     "youtubeIds": [],
+    "videos": [],
+    "location": null,
     "images": [
       {
         "src": "/work/josh/01-open-living-kitchen.jpg",
@@ -876,6 +905,8 @@ export const manifestProjects: ManifestProject[] = [
     "credit": null,
     "signature": false,
     "youtubeIds": [],
+    "videos": [],
+    "location": null,
     "images": [
       {
         "src": "/work/akaboukwu-residence/01-main-house.jpg",
@@ -932,6 +963,8 @@ export const manifestProjects: ManifestProject[] = [
     "credit": "Justking Solutions",
     "signature": false,
     "youtubeIds": [],
+    "videos": [],
+    "location": null,
     "images": [
       {
         "src": "/work/alafia-adult-day-care/01-street-corner.jpg",
@@ -979,6 +1012,8 @@ export const manifestProjects: ManifestProject[] = [
     "credit": null,
     "signature": false,
     "youtubeIds": [],
+    "videos": [],
+    "location": null,
     "images": [
       {
         "src": "/work/cape-studio/01-living-room.jpg",
@@ -1035,6 +1070,8 @@ export const manifestProjects: ManifestProject[] = [
     "credit": "Justking Solutions",
     "signature": false,
     "youtubeIds": [],
+    "videos": [],
+    "location": null,
     "images": [
       {
         "src": "/work/greenbelt/01-dusk-exterior.jpg",
@@ -1084,6 +1121,8 @@ export const manifestProjects: ManifestProject[] = [
     "youtubeIds": [
       "TEF01EG6-S4"
     ],
+    "videos": [],
+    "location": null,
     "images": [
       {
         "src": "/work/hebron-city/01-courtyard-pool.jpg",
@@ -1141,6 +1180,8 @@ export const manifestProjects: ManifestProject[] = [
     "youtubeIds": [
       "-koyJNnva7c"
     ],
+    "videos": [],
+    "location": null,
     "images": [
       {
         "src": "/work/victoria-mansions/01-dusk-terrace.jpg",
@@ -1192,6 +1233,8 @@ export const manifestProjects: ManifestProject[] = [
     "youtubeIds": [
       "awoQ71d9FA4"
     ],
+    "videos": [],
+    "location": null,
     "images": [
       {
         "src": "/work/kavacha-garden/01-pavilion-walk.jpg",
@@ -1257,6 +1300,8 @@ export const manifestProjects: ManifestProject[] = [
     "youtubeIds": [
       "JntxnlI-05Q"
     ],
+    "videos": [],
+    "location": null,
     "images": [
       {
         "src": "/work/l-shaped/01-courtyard-houses.jpg",
@@ -1298,6 +1343,8 @@ export const manifestProjects: ManifestProject[] = [
     "youtubeIds": [
       "4R3iCfezymk"
     ],
+    "videos": [],
+    "location": null,
     "images": [
       {
         "src": "/work/windi/01-living-room.jpg",
@@ -1343,6 +1390,8 @@ export const manifestProjects: ManifestProject[] = [
     "credit": null,
     "signature": false,
     "youtubeIds": [],
+    "videos": [],
+    "location": null,
     "images": [
       {
         "src": "/work/tusnny/01-billboard-mockup.jpg",
@@ -1404,6 +1453,8 @@ export const manifestProjects: ManifestProject[] = [
     "credit": null,
     "signature": false,
     "youtubeIds": [],
+    "videos": [],
+    "location": null,
     "images": [
       {
         "src": "/work/infra-tech-capital/01-logo-horizontal.png",
@@ -1449,6 +1500,8 @@ export const manifestProjects: ManifestProject[] = [
     "credit": null,
     "signature": false,
     "youtubeIds": [],
+    "videos": [],
+    "location": null,
     "images": [
       {
         "src": "/work/graphics-design-portfolio/01-cover.jpg",
@@ -1566,6 +1619,8 @@ export const manifestProjects: ManifestProject[] = [
     "credit": null,
     "signature": false,
     "youtubeIds": [],
+    "videos": [],
+    "location": null,
     "images": [
       {
         "src": "/skyframe/cover.jpg",

@@ -8,7 +8,8 @@ Run from the repo root after adding or changing portfolio images:
 - Reads real pixel dimensions from each file (Pillow), so next/image gets correct sizes.
 - Groups images by project; hero image first.
 - Publishes only public-safe fields. `scopeNote` is internal and is NEVER written out.
-- Client names are kept only when clientPublic is true.
+- Client names are kept only when clientPublic is true. `clientContact` (a private person) is never written out.
+- `location` and `relatedVideo` (a local MP4, e.g. the Skyframe XR demo) are carried per project.
 """
 import json
 import re
@@ -48,9 +49,17 @@ for item in data["images"]:
             "credit": item.get("credit"),
             "signature": bool(item.get("signature")),
             "youtubeIds": [],
+            "videos": [],
+            "location": None,
             "images": [],
         },
     )
+    p["location"] = p["location"] or item.get("location")
+    rv = item.get("relatedVideo")
+    if rv and (ROOT / rv).exists():
+        src = "/" + rv.removeprefix("public/")
+        if src not in p["videos"]:
+            p["videos"].append(src)
     p["year"] = p["year"] or item.get("year")
     p["signature"] = p["signature"] or bool(item.get("signature"))
     yt = item.get("youtubeId")
@@ -80,7 +89,8 @@ header = (
     "export type ManifestImage = { src: string; width: number; height: number; alt: string; title: string; hero: boolean };\n"
     "export type ManifestProject = {\n"
     "  name: string; folder: string; category: string; year: number | null; scope: string[];\n"
-    "  client: string | null; credit: string | null; signature: boolean; youtubeIds: string[]; images: ManifestImage[];\n"
+    "  client: string | null; credit: string | null; signature: boolean; youtubeIds: string[];\n"
+    "  videos: string[]; location: string | null; images: ManifestImage[];\n"
     "};\n"
 )
 body = (

@@ -28,6 +28,8 @@ export type Project = {
   youtubeIds?: string[];
   /** Partner credit line, e.g. Justking Solutions. */
   credit?: string;
+  /** Self-hosted videos featured on the project page (e.g. the Skyframe XR VR demo built on this project). */
+  videos?: { mp4: string; poster?: string; title: string; href?: string }[];
 };
 
 const curated: Project[] = [
@@ -204,6 +206,14 @@ function attach(p: Project, m: ManifestProject): Project {
     images: m.images.map(({ src, width, height, alt }) => ({ src, width, height, alt })),
     youtubeIds: m.youtubeIds.length ? m.youtubeIds : p.youtubeIds,
     credit: m.credit ?? p.credit,
+    location: p.location ?? m.location ?? undefined,
+    videos: m.videos.length
+      ? m.videos.map((mp4) =>
+          mp4.includes("/skyframe/")
+            ? { mp4, poster: "/skyframe/walkthrough-poster.jpg", title: "Skyframe XR VR demo, built on this project", href: "/skyframe-xr" }
+            : { mp4, title: "Project video" },
+        )
+      : p.videos,
     client: p.client ?? (m.client && m.client !== m.name ? { name: m.client } : undefined),
   };
 }
