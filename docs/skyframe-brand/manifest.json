@@ -1,0 +1,152 @@
+{
+  "manifestVersion": 3,
+  "name": "Skyframe XR",
+  "namespace": "SkyframeXR",
+  "files": [
+    "applications.md",
+    "assets/Logos/README.md",
+    "assets/Reference/README.md",
+    "components/Button/README.md",
+    "components/FeatureBar/README.md",
+    "components/FeatureCard/README.md",
+    "components/HalftonePanel/README.md",
+    "components/HighlightHeadline/README.md",
+    "components/PillLabel/README.md",
+    "components/PropertyCodeField/README.md",
+    "components/StepMarker/README.md",
+    "components/bundle.css",
+    "tokens.css",
+    "voice.md"
+  ],
+  "libraries": [],
+  "components": [
+    {
+      "name": "Button",
+      "group": "Actions",
+      "summary": "Pill-shaped buttons; the orange primary is the one action you most want taken on a view."
+    },
+    {
+      "name": "FeatureBar",
+      "group": "Content",
+      "summary": "A full-width row (icon circle, title, one-line description) for feature lists, from the deck's Key Features slide."
+    },
+    {
+      "name": "FeatureCard",
+      "group": "Content",
+      "summary": "The signature Skyframe card: White surface, 1.5px Ink outline, radius-lg corners, a PillLabel overlapping the top edge."
+    },
+    {
+      "name": "HalftonePanel",
+      "group": "Graphics",
+      "summary": "A panel whose background is a grid of Ink dots fading out from one edge: the cover-page motif, a plan dissolving into reality."
+    },
+    {
+      "name": "HighlightHeadline",
+      "group": "Typography",
+      "summary": "A Montserrat ExtraBold headline with one word or phrase on a Frame Orange bar, from the deck cover (\"Pitch Deck Presentation\")."
+    },
+    {
+      "name": "PillLabel",
+      "group": "Labels",
+      "summary": "Rounded orange tag that names a card, a tier or a section, taken from the pitch deck."
+    },
+    {
+      "name": "PropertyCodeField",
+      "group": "App",
+      "summary": "The code-entry panel from the Quest app and the website: where a buyer types the Property Code a developer gave them."
+    },
+    {
+      "name": "StepMarker",
+      "group": "Content",
+      "summary": "Numbered circle plus tracked-caps title and a short line, for \"From Blueprint to VR in Three Simple Steps\" and other sequences."
+    }
+  ],
+  "assetGroups": [
+    {
+      "name": "Logos",
+      "tile": "l",
+      "order": [
+        "skyframe-xr-horizontal-black.png",
+        "skyframe-xr-horizontal-white.png",
+        "skyframe-xr-badge.png",
+        "skyframe-xr-stacked.png",
+        "skyframe-xr-stacked-white.png"
+      ],
+      "files": [
+        {
+          "path": "assets/Logos/skyframe-xr-horizontal-black.png",
+          "id": "6c54118f8ac1fee2c45ab2e09e9b5ef1"
+        },
+        {
+          "path": "assets/Logos/skyframe-xr-horizontal-white.png",
+          "id": "c41c46cbf489ac937bc455d545331b30"
+        },
+        {
+          "path": "assets/Logos/skyframe-xr-badge.png",
+          "id": "523b67c49a1b059fefc77d20af9ad898"
+        },
+        {
+          "path": "assets/Logos/skyframe-xr-stacked.png",
+          "id": "207f250409ec5c765497dd7e9524b477"
+        },
+        {
+          "path": "assets/Logos/skyframe-xr-stacked-white.png",
+          "id": "e5b4c6296411cd9bb2cf4ab28955df48"
+        }
+      ]
+    },
+    {
+      "name": "Reference",
+      "order": [
+        "skyframe-cover-page.jpg"
+      ],
+      "files": [
+        {
+          "path": "assets/Reference/skyframe-cover-page.jpg",
+          "id": "0b2f9ebed13e9bc2b4baf7fc76bd63e4"
+        }
+      ]
+    }
+  ],
+  "storage": {
+    "files": {
+      "assets/Logos/skyframe-xr-badge.png": {
+        "store": "blob",
+        "id": "523b67c49a1b059fefc77d20af9ad898",
+        "bytes": 22228,
+        "type": "image/png"
+      },
+      "assets/Logos/skyframe-xr-horizontal-black.png": {
+        "store": "blob",
+        "id": "6c54118f8ac1fee2c45ab2e09e9b5ef1",
+        "bytes": 13346,
+        "type": "image/png"
+      },
+      "assets/Logos/skyframe-xr-horizontal-white.png": {
+        "store": "blob",
+        "id": "c41c46cbf489ac937bc455d545331b30",
+        "bytes": 13199,
+        "type": "image/png"
+      },
+      "assets/Logos/skyframe-xr-stacked-white.png": {
+        "store": "blob",
+        "id": "e5b4c6296411cd9bb2cf4ab28955df48",
+        "bytes": 27796,
+        "type": "image/png"
+      },
+      "assets/Logos/skyframe-xr-stacked.png": {
+        "store": "blob",
+        "id": "207f250409ec5c765497dd7e9524b477",
+        "bytes": 28459,
+        "type": "image/png"
+      },
+      "assets/Reference/skyframe-cover-page.jpg": {
+        "store": "blob",
+        "id": "0b2f9ebed13e9bc2b4baf7fc76bd63e4",
+        "bytes": 217070,
+        "type": "image/jpeg"
+      }
+    },
+    "blobBytesUsed": 322098
+  }
+}
