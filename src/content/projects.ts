@@ -1,3 +1,4 @@
+import { caseStudies, getCaseStudy } from "./case-studies";
 import type { Discipline } from "./services";
 import { manifestProjects, type ManifestProject } from "./work.generated";
 
@@ -244,12 +245,20 @@ for (const e of extra) if (e.name === "Colour Code") { e.client = { name: "White
 const cw = bySlug.get("cedarwood-city-estate");
 if (cw) bySlug.set("cedarwood-city-estate", { ...cw, signature: false });
 
-/** Signature first, then curated order, then manifest projects with images (newest first). */
+/** Curated order, then manifest projects with images (newest first). Every case study is a signature project. */
 export const projects: Project[] = [
   ...curated.map((p) => bySlug.get(p.slug)!),
   ...extra.filter((e) => e.images.length).sort((a, b) => (b.year ?? 0) - (a.year ?? 0)),
-];
+].map((p) => (getCaseStudy(p.slug) ? { ...p, signature: true } : p));
+
+for (const c of caseStudies) if (!projects.some((p) => p.slug === c.slug)) throw new Error(`Case study "${c.slug}" has no project`);
 
 export const getProject = (slug: string) => projects.find((p) => p.slug === slug);
-export const signatureProjects = () => projects.filter((p) => p.signature);
+/** Signature projects in case-study order. */
+export const signatureProjects = () =>
+  projects.filter((p) => p.signature).sort((a, b) => order(a.slug) - order(b.slug));
+const order = (slug: string) => {
+  const i = caseStudies.findIndex((c) => c.slug === slug);
+  return i < 0 ? 99 : i;
+};
 export const projectsForService = (slug: string) => projects.filter((p) => p.services.includes(slug));

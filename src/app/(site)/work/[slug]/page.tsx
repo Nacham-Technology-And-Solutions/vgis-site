@@ -6,6 +6,8 @@ import { getProject, projects } from "@/content/projects";
 import { getService, serviceHref } from "@/content/services";
 import { CtaBand, PageHero, ProjectCard, ProjectVisual, SectionHead } from "@/components/blocks";
 import { JsonLd } from "@/components/JsonLd";
+import { CaseStudyView } from "@/components/CaseStudy";
+import { getCaseStudy } from "@/content/case-studies";
 import { graph, projectSchema, webPageSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
 
@@ -19,6 +21,13 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const p = getProject((await params).slug);
   if (!p) return {};
+  const cs = getCaseStudy(p.slug);
+  if (cs)
+    return pageMetadata({
+      title: `${p.name}${p.year ? ` (${p.year})` : ""}: case study`,
+      description: cs.headline.slice(0, 160),
+      path: `/work/${p.slug}`,
+    });
   return pageMetadata({
     title: `${p.name}${p.year ? ` (${p.year})` : ""}: ${p.category}`,
     description: `${p.summary} A VGIS ${p.category.toLowerCase()} project.`.slice(0, 160),
@@ -32,6 +41,15 @@ export default async function ProjectPage({ params }: Props) {
   const path = `/work/${p.slug}`;
   const svc = p.services.map(getService).filter((s) => s !== undefined);
   const more = projects.filter((x) => x.slug !== p.slug && x.discipline === p.discipline).slice(0, 3);
+
+  const cs = getCaseStudy(p.slug);
+  if (cs)
+    return (
+      <>
+        <JsonLd data={graph(webPageSchema({ path, name: `${p.name}: case study`, description: cs.headline }), projectSchema(p))} />
+        <CaseStudyView p={p} cs={cs} />
+      </>
+    );
 
   return (
     <>

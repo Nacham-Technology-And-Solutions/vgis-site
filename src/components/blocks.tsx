@@ -1,3 +1,4 @@
+import { getCaseStudy } from "@/content/case-studies";
 import Link from "next/link";
 import Image from "next/image";
 import type { ReactNode } from "react";
@@ -139,6 +140,7 @@ export function ProjectVisual({ p, priority = false, sizes = "(min-width: 1024px
 }
 
 export function ProjectCard({ p }: { p: Project }) {
+  const cs = getCaseStudy(p.slug);
   return (
     <Link href={`/work/${p.slug}`} className="group block">
       <ProjectVisual p={p} />
@@ -151,7 +153,14 @@ export function ProjectCard({ p }: { p: Project }) {
           {[p.location, p.client && p.client.name !== p.name ? `For ${p.client.name}` : undefined].filter(Boolean).join(" · ")}
         </p>
       )}
-      <p className="mt-1 text-sm text-muted">{p.scope}</p>
+      {cs ? (
+        <>
+          <p className="mt-2 text-sm text-muted">{cs.headline}</p>
+          <p className="mt-3 text-sm font-semibold group-hover:link-underline">Read the case study →</p>
+        </>
+      ) : (
+        <p className="mt-1 text-sm text-muted">{p.scope}</p>
+      )}
     </Link>
   );
 }

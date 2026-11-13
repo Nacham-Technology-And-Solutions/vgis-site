@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { projects } from "@/content/projects";
+import { projects, signatureProjects } from "@/content/projects";
 import { portfolio } from "@/content/portfolio";
 import { company } from "@/content/site";
 import { CtaBand, PageHero, ProjectCard, SectionHead } from "@/components/blocks";
@@ -14,7 +14,7 @@ const description =
 export const metadata = pageMetadata({ title: "Work: 3D Visualisation, XR, Campaigns & Branding", description, path: "/work" });
 
 export default function WorkPage() {
-  const signature = projects.filter((p) => p.signature);
+  const signature = signatureProjects();
   /** Projects without images yet (listed as text so they stay discoverable). */
   const textOnly = projects.filter((p) => !p.images.length && !p.signature);
   return (

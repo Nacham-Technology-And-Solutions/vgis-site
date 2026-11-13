@@ -275,32 +275,32 @@ export const manifestProjects: ManifestProject[] = [
         "src": "/work/cedarwood-city/04-set1-7.jpg",
         "width": 2400,
         "height": 1350,
-        "alt": "A further view of the Cedarwood estate grounds, paths and neighbouring houses.",
-        "title": "Estate view 7",
+        "alt": "An aerial view over the estate's terraced houses, with a park, play area and pond among the trees.",
+        "title": "Estate aerial",
         "hero": false
       },
       {
         "src": "/work/cedarwood-city/05-set2-13.jpg",
         "width": 2400,
         "height": 1350,
-        "alt": "A landscaped view of the Cedarwood estate with houses, planting and paved paths.",
-        "title": "Estate view 13",
+        "alt": "A cobbled walk under a timber pergola, leading to a timber gazebo bridge among trees.",
+        "title": "Pergola walk",
         "hero": false
       },
       {
         "src": "/work/cedarwood-city/06-set2-15.jpg",
         "width": 2400,
         "height": 1350,
-        "alt": "Another landscaped view of the Cedarwood estate, with houses set among planting.",
-        "title": "Estate view 15",
+        "alt": "Fenced hard courts with green and red surfaces, set below the houses and planting.",
+        "title": "Sports courts",
         "hero": false
       },
       {
         "src": "/work/cedarwood-city/07-aerial-estate.jpg",
         "width": 2400,
         "height": 1350,
-        "alt": "An overview of the Cedarwood estate layout, showing houses, roads and open landscape.",
-        "title": "Estate overview",
+        "alt": "A landscaped pond with a timber deck, gazebos and bamboo, with trees and houses beyond.",
+        "title": "Estate pond",
         "hero": false
       }
     ]
@@ -676,24 +676,24 @@ export const manifestProjects: ManifestProject[] = [
         "src": "/work/spicy-kingdom/02-dining-day-17.jpg",
         "width": 2400,
         "height": 1350,
-        "alt": "A further daytime view of the Spicy Kingdom dining room and service area.",
-        "title": "Dining room by day 17",
+        "alt": "A walled lawn with mown stripes leading to a covered outdoor stage with a dark red backdrop, with tall trees beyond the wall.",
+        "title": "Lawn and outdoor stage",
         "hero": false
       },
       {
         "src": "/work/spicy-kingdom/03-dining-day-24.jpg",
         "width": 2400,
         "height": 1350,
-        "alt": "Another daytime interior of the restaurant, showing seating and the service counter.",
-        "title": "Dining room by day 24",
+        "alt": "Children playing under a large shade tree beside an inflatable bouncy castle on the lawn, with curved seating around the tree.",
+        "title": "Children's play area",
         "hero": false
       },
       {
         "src": "/work/spicy-kingdom/04-dining-day-37.jpg",
         "width": 2400,
         "height": 1350,
-        "alt": "A supporting daytime still of the Spicy Kingdom interior.",
-        "title": "Dining room by day 37",
+        "alt": "A wider view of the play area: the bouncy castle and slides under the shade tree, children on the lawn and the boundary wall behind.",
+        "title": "Play area, wider view",
         "hero": false
       },
       {
@@ -708,16 +708,16 @@ export const manifestProjects: ManifestProject[] = [
         "src": "/work/spicy-kingdom/06-dining-night-17.jpg",
         "width": 2400,
         "height": 1350,
-        "alt": "A further dusk view of the Spicy Kingdom dining room.",
-        "title": "Dining room at dusk 17",
+        "alt": "The walled lawn and covered outdoor stage in softer late-day light.",
+        "title": "Lawn and stage, evening light",
         "hero": false
       },
       {
         "src": "/work/spicy-kingdom/07-dining-night-38.jpg",
         "width": 2400,
         "height": 1350,
-        "alt": "A supporting night still of the restaurant interior.",
-        "title": "Dining room at dusk 38",
+        "alt": "A top-down night view of the whole site: the restaurant building, lawns, the play area, a pool and the boundary walls.",
+        "title": "Site plan at night",
         "hero": false
       }
     ]
@@ -1276,32 +1276,32 @@ export const manifestProjects: ManifestProject[] = [
         "src": "/work/kavacha-garden/03-garden-2.jpg",
         "width": 2400,
         "height": 1350,
-        "alt": "A further view of the Kavacha Garden pavilions and planting.",
-        "title": "Garden 2",
+        "alt": "A car park with sports cars lined up beside a planted green wall and tall lamp posts, with palms beyond.",
+        "title": "Car park",
         "hero": false
       },
       {
         "src": "/work/kavacha-garden/04-garden-12.jpg",
         "width": 2400,
         "height": 1350,
-        "alt": "Another landscape view at Kavacha Garden.",
-        "title": "Garden 12",
+        "alt": "The timber-slatted boundary wall with the gold Kavacha crest, fronted by palms, lamp posts and flowerbeds along the road.",
+        "title": "Crest wall from the road",
         "hero": false
       },
       {
         "src": "/work/kavacha-garden/05-garden-19.jpg",
         "width": 2400,
         "height": 1350,
-        "alt": "A supporting still of Kavacha Garden.",
-        "title": "Garden 19",
+        "alt": "The entrance drive between timber pavilions and green walls, with a person walking in and a car parked at right.",
+        "title": "Entrance drive",
         "hero": false
       },
       {
         "src": "/work/kavacha-garden/06-garden-20.jpg",
         "width": 2400,
         "height": 1350,
-        "alt": "A further supporting still of Kavacha Garden.",
-        "title": "Garden 20",
+        "alt": "A top-down view of the site: the car park, the main building and the timber pavilions within a planted boundary.",
+        "title": "Site plan",
         "hero": false
       }
     ]
