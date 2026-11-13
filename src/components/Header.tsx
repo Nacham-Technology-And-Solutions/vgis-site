@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { company, nav } from "@/content/site";
 import { Logo } from "./Logo";
+import { MobileMenu } from "./MobileMenu";
 
 export function Header() {
   return (
@@ -41,26 +42,7 @@ export function Header() {
           <Link href="/contact" className="btn btn-primary !px-4 !py-2.5 text-sm">
             Start a project
           </Link>
-          {/* Mobile menu without client JS */}
-          <details className="relative lg:hidden">
-            <summary className="flex h-10 w-10 cursor-pointer list-none items-center justify-center border border-ink [&::-webkit-details-marker]:hidden" aria-label="Open menu">
-              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" strokeWidth="2" /></svg>
-            </summary>
-            <nav aria-label="Mobile" className="absolute right-0 top-12 w-56 border border-ink bg-paper shadow-lg">
-              <ul className="py-2">
-                {nav.map((n) => (
-                  <li key={n.href}>
-                    <Link href={n.href} className="block px-4 py-2.5 font-medium hover:bg-panel">
-                      {n.label}
-                    </Link>
-                  </li>
-                ))}
-                <li>
-                  <Link href="/contact" className="block px-4 py-2.5 font-medium hover:bg-panel">Contact</Link>
-                </li>
-              </ul>
-            </nav>
-          </details>
+          <MobileMenu items={[...nav, { href: "/contact", label: "Contact" }]} />
         </div>
       </div>
     </header>
