@@ -138,7 +138,7 @@ export function PortfolioGrid({ items }: { items: PortfolioItem[] }) {
     window.history.replaceState(null, "", url);
   };
 
-  const opts: { id: PortfolioCategory | "all"; label: string }[] = [{ id: "all", label: "All" }, ...categories];
+  const opts: { id: PortfolioCategory | "all"; label: string }[] = [{ id: "all", label: "All" }, ...categories.filter((c) => items.some((i) => i.category === c.id))];
   const shown = filter === "all" ? items : items.filter((i) => i.category === filter);
 
   return (

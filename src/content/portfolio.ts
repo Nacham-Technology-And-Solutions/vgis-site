@@ -104,10 +104,6 @@ const samples: PortfolioItem[] = [
     image: { src: "/samples/motion-billboard.jpg", width: 1024, height: 687, alt: "Blank roadside billboard under blue sky (sample image)" } },
 
   // ---- AI-assisted (never in hero or signature 3D projects) ----
-  { id: "ai-concept-1", title: "Concept mood study (sample)", category: "ai", aiAssisted: true, placeholder: true, service: "ai-assisted-content", source: own,
-    image: { src: "/samples/ai-concept-dusk.jpg", width: 1600, height: 1000, alt: "Abstract dusk-toned mood study (sample image)" } },
-  { id: "ai-concept-2", title: "Atmosphere study (sample)", category: "ai", aiAssisted: true, placeholder: true, service: "ai-assisted-content", source: own,
-    image: { src: "/samples/ai-concept-atrium.jpg", width: 1600, height: 1000, alt: "Abstract light-toned atmosphere study (sample image)" } },
 
   // ---- 2D Branding ----
   { id: "brand-system-1", title: "Brand system (sample)", category: "2d", featured: true, placeholder: true, service: "brand-identity", source: own,

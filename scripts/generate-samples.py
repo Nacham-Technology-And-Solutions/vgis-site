@@ -100,6 +100,4 @@ def abstract(fn, seed, palette):
         d.line([(i, 0), (i - 300, H)], fill=(255, 255, 255, 14), width=2)
     im.save(f"{OUT}/{fn}.jpg", quality=86)
 
-abstract("ai-concept-dusk", 7, [(18, 14, 30), (255, 120, 40), (120, 60, 200), (40, 120, 220), (250, 200, 120)])
-abstract("ai-concept-atrium", 21, [(232, 236, 240), (180, 200, 220), (255, 170, 110), (120, 140, 170), (250, 250, 250)])
 print("ok")
