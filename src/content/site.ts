@@ -62,7 +62,7 @@ export const company = {
     youtube: "https://www.youtube.com/@3DVGIS",
     linkedin: "https://www.linkedin.com/company/3d-vgis/",
     behance: "https://www.behance.net/gallery/223756599/Visual-Graphics-Illustration-Services-LTD",
-    tiktok: "https://www.tiktok.com/@3d.vgis",
+    tiktok: "https://www.tiktok.com/@3dvgis",
     x: "https://x.com/3dvgis",
   },
   behanceGalleries: [
