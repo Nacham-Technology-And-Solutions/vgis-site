@@ -169,7 +169,7 @@ const xrTiles: PortfolioItem[] =
           id: "skyframe-walkthrough",
           title: "Skyframe XR walkthrough",
           category: "xr",
-          image: { ...skyframe.media.mark, alt: "Skyframe XR logo: a VR headset in an orange-ringed circle above the word SKYFRAME" },
+          image: { src: "/skyframe/walkthrough-poster.jpg", width: 720, height: 1280, alt: "A client wearing a VR headset in a meeting room while colleagues watch the virtual walkthrough on a wall screen" },
           video: { mp4: skyframe.media.video.mp4 },
           placeholder: false,
           service: "skyframe-xr",

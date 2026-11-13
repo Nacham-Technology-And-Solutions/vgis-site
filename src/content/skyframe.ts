@@ -1,7 +1,7 @@
 import { manifestProjects, skyframeWalkthrough } from "./work.generated";
 
 /** Flip to true when the cleaned walkthrough video (no third-party logo) has been pushed. */
-export const SKYFRAME_VIDEO_CLEARED = false;
+export const SKYFRAME_VIDEO_CLEARED = true; // cleaned version merged 13 Nov 2026 (commit 3810e4d)
 
 function skyframeAsset(name: string) {
   const img = manifestProjects.find((m) => m.name === "Skyframe XR")?.images.find((i) => i.src.includes(`/skyframe/${name}`));
@@ -158,7 +158,7 @@ export const skyframe = {
     logo: skyframeAsset("logo-horizontal") ? { src: "/skyframe/logo-horizontal-web.png", width: 778, height: 148 } : undefined,
     // HOLD (owner, #117): the current walkthrough has a third-party logo burned in. Set SKYFRAME_VIDEO_CLEARED
     // to true only once the cleaned public/skyframe/walkthrough.mp4 has replaced it.
-    video: SKYFRAME_VIDEO_CLEARED && skyframeWalkthrough ? { mp4: skyframeWalkthrough } : undefined,
+    video: SKYFRAME_VIDEO_CLEARED && skyframeWalkthrough ? { mp4: skyframeWalkthrough, poster: "/skyframe/walkthrough-poster.jpg" } : undefined,
     /** Shown in the hero while there is no video. */
     mark: skyframeAsset("logo-stacked"),
   } as {

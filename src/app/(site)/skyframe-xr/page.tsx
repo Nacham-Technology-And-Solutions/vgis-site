@@ -76,7 +76,7 @@ export default function SkyframePage() {
               <Link href="/contact" className="btn btn-ghost"><span>Send your plans</span></Link>
             </div>
           </div>
-          <div className="relative aspect-video overflow-hidden bg-ink lg:aspect-square">
+          <div className={`relative overflow-hidden bg-ink ${video?.mp4 ? "mx-auto aspect-[9/16] w-full max-w-[340px]" : "aspect-video lg:aspect-square"}`}>
             {video?.youtubeId ? (
               <iframe
                 src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}?rel=0`}
