@@ -1,7 +1,9 @@
 import type { Discipline } from "./services";
 
 /**
- * Signature projects from the Company Profile.
+ * Projects from the Company Profile, updated with owner answers (13 Nov 2026, channel #111):
+ * Kavacha (not Cavacha); Down Town Castries = Castries Redevelopment; signature set =
+ * Down Town Castries, St Helen Hotel, White Avenue Real Estate (Cedarwood City and Colour Code are White Avenue work).
  * `images` is intentionally empty until the owner supplies verified VGIS renders/artwork.
  * Pages render a branded plan-sheet panel when no image exists.
  */
@@ -15,30 +17,65 @@ export type Project = {
   summary: string;
   services: string[]; // service slugs
   images: { src: string; alt: string; width: number; height: number }[];
+  /** Featured in the signature-work section. */
+  signature?: boolean;
+  location?: string;
+  client?: { name: string; url?: string };
+  /** Other names this project has been published under (kept for search and redirects). */
+  aka?: string[];
 };
 
 export const projects: Project[] = [
   {
-    slug: "castries-redevelopment",
-    name: "Castries Redevelopment",
+    slug: "down-town-castries",
+    name: "Down Town Castries",
+    aka: ["Castries Redevelopment"],
     year: 2026,
+    location: "Castries, Saint Lucia",
+    signature: true,
     discipline: "3d",
     category: "3D visualisation",
     scope: "Design, visualisation and complete structural rendering.",
     summary:
-      "A complete structural rendering programme for the Castries Redevelopment, taking the scheme from design through visualisation to a full set of rendered views.",
+      "The redevelopment of downtown Castries, Saint Lucia: a complete structural rendering programme taking the scheme from design through visualisation to a full set of rendered views.",
     services: ["architectural-visualization"],
     images: [],
   },
   {
-    slug: "cavacha-garden",
-    name: "Cavacha Garden",
+    slug: "st-helen-hotel",
+    name: "St Helen Hotel",
+    year: 2026,
+    signature: true,
+    discipline: "3d",
+    category: "Concept, design & 3D visualisation",
+    scope: "Concept, design and visualisation before construction.",
+    summary:
+      "A hotel taken from concept and design through to photorealistic visualisation, all before construction began.",
+    services: ["architectural-design", "architectural-visualization"],
+    images: [],
+  },
+  {
+    slug: "white-avenue-real-estate",
+    name: "White Avenue Real Estate",
+    signature: true,
+    client: { name: "White Avenue Real Estate", url: "https://whiteavenuegroup.com" },
+    discipline: "3d",
+    category: "3D visualisation",
+    scope: "Real estate rendering for White Avenue developments, including Cedarwood City and Colour Code.",
+    summary:
+      "Real estate visualisation for White Avenue Real Estate across its developments, including Cedarwood City and Colour Code.",
+    services: ["architectural-visualization"],
+    images: [],
+  },
+  {
+    slug: "kavacha-garden",
+    name: "Kavacha Garden",
     year: 2024,
     discipline: "3d",
     category: "3D visualisation",
     scope: "Design, architectural visualisation and high-fidelity rendering.",
     summary:
-      "Architectural visualisation and high-fidelity rendering for Cavacha Garden, from design development to final photorealistic views.",
+      "Architectural visualisation and high-fidelity rendering for Kavacha Garden, from design development to final photorealistic views.",
     services: ["architectural-visualization"],
     images: [],
   },
@@ -46,6 +83,7 @@ export const projects: Project[] = [
     slug: "cedarwood-city-estate",
     name: "Cedarwood City Estate",
     year: 2022,
+    client: { name: "White Avenue Real Estate", url: "https://whiteavenuegroup.com" },
     discipline: "3d",
     category: "3D visualisation",
     scope: "Design, visualisation, rendering and an interactive game walkthrough.",
@@ -97,4 +135,5 @@ export const projects: Project[] = [
 ];
 
 export const getProject = (slug: string) => projects.find((p) => p.slug === slug);
+export const signatureProjects = () => projects.filter((p) => p.signature);
 export const projectsForService = (slug: string) => projects.filter((p) => p.services.includes(slug));

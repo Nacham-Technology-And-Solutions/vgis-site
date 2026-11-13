@@ -35,6 +35,14 @@ export const companyFaqs: Faq[] = [
     a: "Every project starts with Discovery, where we study your idea, site and goals, followed by a Blueprint & agreement stage that fixes the plan, deliverables and terms. Send a brief through the contact page, WhatsApp +234 811 285 3404 or email 3d.vgis.ltd@gmail.com.",
   },
   {
+    q: "Does VGIS design buildings, or only visualise them?",
+    a: "Both. VGIS does the concept, the design and full working drawings (architectural, mechanical and electrical), and then the 3D visualisation. Some projects are the full package from one team.",
+  },
+  {
+    q: "How long does a project take?",
+    a: "Full plans, from concept to working drawings, typically take 2–4 days, and 3D visualisation typically takes 2–5 days. Timelines depend on the size and complexity of the project and are confirmed when we agree the scope.",
+  },
+  {
     q: "How much does 3D visualisation cost?",
     a: "Pricing depends on the scope: the number of views or the length of an animation, the level of detail, and whether interactivity is needed. VGIS confirms a fixed scope and quote in the Blueprint & agreement stage, before production begins.",
   },

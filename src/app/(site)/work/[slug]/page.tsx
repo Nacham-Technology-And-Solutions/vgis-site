@@ -55,6 +55,16 @@ export default async function ProjectPage({ params }: Props) {
         <dl className="h-fit divide-y divide-line border-y border-line text-sm">
           <div className="py-4"><dt className="eyebrow">Client project</dt><dd className="mt-1 text-base font-medium">{p.name}</dd></div>
           {p.year && <div className="py-4"><dt className="eyebrow">Year</dt><dd className="mt-1 text-base">{p.year}</dd></div>}
+          {p.location && <div className="py-4"><dt className="eyebrow">Location</dt><dd className="mt-1 text-base">{p.location}</dd></div>}
+          {p.client && (
+            <div className="py-4">
+              <dt className="eyebrow">Client</dt>
+              <dd className="mt-1 text-base">
+                {p.client.url ? <a href={p.client.url} target="_blank" rel="noopener noreferrer" className="link-underline">{p.client.name}</a> : p.client.name}
+              </dd>
+            </div>
+          )}
+          {p.aka && <div className="py-4"><dt className="eyebrow">Also known as</dt><dd className="mt-1 text-base">{p.aka.join(", ")}</dd></div>}
           <div className="py-4"><dt className="eyebrow">Service category</dt><dd className="mt-1 text-base">{p.category}</dd></div>
           <div className="py-4"><dt className="eyebrow">Scope of work</dt><dd className="mt-1 text-base">{p.scope}</dd></div>
           <div className="py-4">

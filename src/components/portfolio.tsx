@@ -231,7 +231,7 @@ export function BeforeAfterSlider({
             type="button"
             onClick={() => setT((i / segs) * 100)}
             aria-pressed={active === i}
-            className={`text-sm font-semibold ${active === i ? "text-ink link-underline" : "text-muted hover:text-ink"}`}
+            className={`text-sm font-semibold ${active === i ? "link-underline" : "opacity-60 hover:opacity-100"}`}
           >
             {s.label}
           </button>

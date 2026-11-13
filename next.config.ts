@@ -11,7 +11,10 @@ const legacy: [string, string][] = [
   ["/3d/index.html", "/services"],
   ["/3d/services.html", "/services"],
   ["/3d/portfolio.html", "/work"],
-  ["/3d/portfolio-story.html", "/work/castries-redevelopment"],
+  ["/3d/portfolio-story.html", "/work/down-town-castries"],
+  // Renamed projects (owner, 13 Nov 2026)
+  ["/work/castries-redevelopment", "/work/down-town-castries"],
+  ["/work/cavacha-garden", "/work/kavacha-garden"],
   ["/3d/team.html", "/about"],
   ["/3d/blog.html", "/faq"],
   ["/3d/blog-post.html", "/skyframe-xr"],

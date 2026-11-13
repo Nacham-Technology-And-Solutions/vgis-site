@@ -74,6 +74,9 @@ export default async function ServicePage({ params }: Props) {
                 </li>
               ))}
             </ul>
+            {s.turnaround && (
+              <p className="mt-6 border-l-4 border-orange bg-panel px-4 py-3 text-sm font-medium">{s.turnaround}</p>
+            )}
             <p className="mt-6 text-sm text-muted">
               Delivered from Abuja and Bida for clients in {company.areaServed.slice(0, -1).join(", ")} and {company.areaServed.at(-1)}.
             </p>

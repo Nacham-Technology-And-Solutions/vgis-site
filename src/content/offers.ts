@@ -57,7 +57,7 @@ export const offers: Offer[] = [
     ],
     includes: ["Photorealistic exterior renders", "Interior renders", "Masterplan and aerial views", "Sketch preview before final rendering", "Marketing-ready image files"],
     process: "3d",
-    projects: ["castries-redevelopment", "cavacha-garden", "cedarwood-city-estate"],
+    projects: ["down-town-castries", "kavacha-garden", "cedarwood-city-estate"],
     services: ["architectural-visualization"],
     faqs: [
       { q: "What do you need from me?", a: "Your architectural plans and elevations, or a 3D model if you have one, plus the site location and any reference images. We confirm the scope with you in the Blueprint & agreement stage." },
@@ -98,7 +98,7 @@ export const offers: Offer[] = [
     ],
     includes: ["Exterior flythrough", "Interior walkthrough", "Development or masterplan film", "Social media cut-downs", "Titles and motion graphics on request"],
     process: "3d",
-    projects: ["cedarwood-city-estate", "castries-redevelopment", "cavacha-garden"],
+    projects: ["cedarwood-city-estate", "down-town-castries", "kavacha-garden"],
     services: ["cinematic-walkthroughs", "motion-graphics"],
     faqs: [
       { q: "How is a walkthrough video different from VR?", a: "A walkthrough video follows a planned, cinematic camera path and plays on any screen. A VR or interactive walkthrough (Skyframe XR) lets the viewer move freely in real time." },
@@ -218,7 +218,7 @@ export const offers: Offer[] = [
     ],
     includes: ["Structural and site visualisation", "Aerial and context views", "Walkthrough or flythrough video", "Presentation and proposal graphics"],
     process: "3d",
-    projects: ["castries-redevelopment"],
+    projects: ["down-town-castries"],
     services: ["architectural-visualization", "cinematic-walkthroughs"],
     faqs: [
       { q: "What kinds of civil projects do you visualise?", a: "VGIS provides visual solutions for buildings, products and civil projects. Share your drawings and we will confirm the scope in the Discovery stage." },
@@ -297,7 +297,7 @@ export const offers: Offer[] = [
     ],
     includes: ["Photorealistic renders", "Cinematic walkthrough film", "Development name, logo and brand identity", "Brochure, signage and site hoarding design", "Social media and advert creatives", "Optional Skyframe XR experience"],
     process: "3d",
-    projects: ["cedarwood-city-estate", "castries-redevelopment", "cavacha-garden", "nacham"],
+    projects: ["cedarwood-city-estate", "down-town-castries", "kavacha-garden", "nacham"],
     services: ["architectural-visualization", "cinematic-walkthroughs", "brand-identity", "graphic-design", "motion-graphics"],
     faqs: [
       { q: "What does the package include?", a: "It is tailored to your launch. Typically renders, a walkthrough film, the development's brand identity, brochure and signage design, and social media creatives. Skyframe XR can be added." },

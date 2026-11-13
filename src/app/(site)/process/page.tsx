@@ -35,7 +35,7 @@ export default function ProcessPage() {
       {list.map((p, i) => (
         <section key={p.key} id={p.key} className="scroll-mt-24 border-b border-line">
           <div className="wrap py-20">
-            <SectionHead num={["I", "II", "III", "IV"][i]} eyebrow="Workflow" title={p.name} intro={p.summary} />
+            <SectionHead num={["I", "II", "III", "IV", "V"][i]} eyebrow="Workflow" title={p.name} intro={p.summary} />
             <div className="mt-10"><ProcessSteps process={p} /></div>
           </div>
         </section>

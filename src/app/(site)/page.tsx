@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { company } from "@/content/site";
 import { disciplineOrder, disciplines, servicesBy, serviceHref } from "@/content/services";
-import { projects } from "@/content/projects";
+import { signatureProjects } from "@/content/projects";
 import { companyFaqs } from "@/content/faqs";
 import { beforeAfter, featuredWork } from "@/content/portfolio";
 import { AnswerBox, CtaBand, FaqList, ProjectCard, SectionHead } from "@/components/blocks";
@@ -43,10 +43,21 @@ export default function HomePage() {
       <section className="band">
         <div className="wrap grid gap-10 py-16 sm:py-24 lg:grid-cols-[1fr_1.4fr] lg:items-center">
           <div>
-            <p className="eyebrow">From drawing to reality</p>
-            <h2 className="mt-3 text-5xl sm:text-7xl">Slide from plans to a photorealistic render.</h2>
-            <p className="mt-4 max-w-md text-ink-muted">
-              Every project moves from your drawings to a 3D model you review, then to final lighting, materials and rendering.
+            <p className="eyebrow">Concept to render, one team</p>
+            <h2 className="mt-3 text-5xl sm:text-7xl">We design it, draw it and visualise it.</h2>
+            <dl className="mt-6 grid max-w-md grid-cols-2 gap-4">
+              <div className="border-l-2 border-orange pl-4">
+                <dt className="text-xs uppercase tracking-[0.14em] text-ink-muted">Full plans</dt>
+                <dd className="font-display text-4xl">{company.turnaround.plans}</dd>
+              </div>
+              <div className="border-l-2 border-orange pl-4">
+                <dt className="text-xs uppercase tracking-[0.14em] text-ink-muted">3D visualisation</dt>
+                <dd className="font-display text-4xl">{company.turnaround.visualisation}</dd>
+              </div>
+            </dl>
+            <p className="mt-4 max-w-md text-sm text-ink-muted">
+              Concept, design and architectural, mechanical and electrical working drawings, then photorealistic 3D. Typical
+              turnarounds; confirmed when we agree the scope.
             </p>
             <Link href="/process" className="mt-6 hidden font-semibold link-underline sm:inline-block">How we work →</Link>
           </div>
@@ -80,12 +91,12 @@ export default function HomePage() {
         <AnswerBox question="What is VGIS?">{company.definition}</AnswerBox>
       </section>
 
-      {/* Signature projects: desktop only to keep mobile short (full list on /work) */}
-      <section className="hidden border-t border-line sm:block">
-        <div className="wrap py-24">
-          <SectionHead num="03" eyebrow="Signature projects" title="Hallmark projects" />
+      {/* Signature work */}
+      <section className="border-t border-line">
+        <div className="wrap py-16 sm:py-24">
+          <SectionHead num="03" eyebrow="Signature work" title="Hallmark projects" />
           <div className="mt-12 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-            {projects.slice(0, 3).map((p) => <ProjectCard key={p.slug} p={p} />)}
+            {signatureProjects().map((p) => <ProjectCard key={p.slug} p={p} />)}
           </div>
           <Link href="/work#signature" className="mt-12 inline-block font-semibold link-underline">All signature projects →</Link>
         </div>

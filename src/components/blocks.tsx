@@ -146,6 +146,11 @@ export function ProjectCard({ p }: { p: Project }) {
         <h3 className="text-3xl">{p.name}</h3>
         {p.year && <span className="text-sm text-muted">{p.year}</span>}
       </div>
+      {(p.location || p.client) && (
+        <p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-orange-ink">
+          {[p.location, p.client && p.client.name !== p.name ? `For ${p.client.name}` : undefined].filter(Boolean).join(" · ")}
+        </p>
+      )}
       <p className="mt-1 text-sm text-muted">{p.scope}</p>
     </Link>
   );

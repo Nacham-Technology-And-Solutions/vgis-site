@@ -1,6 +1,6 @@
 /** Delivery workflows, verbatim in substance from the Company Profile ("The VGIS Process"). */
 
-export type ProcessKey = "3d" | "xr" | "2d" | "campaign";
+export type ProcessKey = "design" | "3d" | "xr" | "2d" | "campaign";
 
 export type Process = {
   key: ProcessKey;
@@ -10,6 +10,18 @@ export type Process = {
 };
 
 export const processes: Record<ProcessKey, Process> = {
+  design: {
+    key: "design",
+    name: "Concept to visualisation (full package)",
+    summary: "From an idea to full plans in 2–4 days, then photorealistic 3D visualisation in 2–5 days.",
+    steps: [
+      { title: "Concept", body: "We develop the concept from your brief, site and budget." },
+      { title: "Design", body: "We design the building: layouts, elevations and the look of the finished project." },
+      { title: "Working drawings", body: "We produce full architectural, mechanical and electrical working drawings, typically in 2–4 days." },
+      { title: "3D visualisation", body: "We turn the design into photorealistic renders, typically in 2–5 days." },
+      { title: "Delivery", body: "You receive the complete package: drawings for construction and visuals to approve, present and market." },
+    ],
+  },
   "3d": {
     key: "3d",
     name: "Standard 3D visualisation",

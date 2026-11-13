@@ -20,14 +20,16 @@ export type Service = {
   forWho: string[];
   process: ProcessKey;
   faqs: Faq[];
+  /** Owner-stated typical turnaround (13 Nov 2026). */
+  turnaround?: string;
 };
 
 export const disciplines: Record<Discipline, { name: string; label: string; intro: string }> = {
   "3d": {
-    name: "3D visualisation",
+    name: "Design & 3D visualisation",
     label: "Core",
     intro:
-      "High-fidelity, immersive 3D for architecture, civil projects and products: advanced modelling, photorealistic rendering, cinematic walkthroughs and interactive AR and VR.",
+      "From concept, design and full working drawings to photorealistic rendering, cinematic walkthroughs and interactive AR and VR, for buildings, civil projects and products.",
   },
   "2d": {
     name: "2D branding & design",
@@ -48,6 +50,37 @@ export const disciplineOrder: Discipline[] = ["3d", "2d", "campaigns"];
 
 export const services: Service[] = [
   {
+    slug: "architectural-design",
+    discipline: "3d",
+    name: "Concept, design & working drawings",
+    seoTitle: "Architectural Design & Working Drawings, Abuja",
+    description:
+      "Architectural concept, design and full working drawings (architectural, mechanical, electrical) in 2–4 days, plus 3D visualisation, from VGIS in Abuja.",
+    answer:
+      "VGIS takes a project from idea to buildable plans: concept, design and full working drawings covering architectural, mechanical and electrical, typically in 2–4 days. The same team then visualises the design in photorealistic 3D, typically in 2–5 days, so you can approve, present and market it before construction.",
+    deliverables: [
+      "Concept development",
+      "Architectural design",
+      "Architectural working drawings",
+      "Mechanical working drawings",
+      "Electrical working drawings",
+      "Optional: 3D visualisation of the design (full package)",
+    ],
+    forWho: ["Property owners and developers", "Real estate companies", "Hotels, commercial and institutional projects"],
+    process: "design",
+    turnaround: "Full plans typically in 2–4 days; 3D visualisation typically in 2–5 days.",
+    faqs: [
+      {
+        q: "Do you only visualise existing plans?",
+        a: "No. VGIS also does the concept, the design and the working drawings (architectural, mechanical and electrical). Some projects are the full package: design, drawings and 3D visualisation from one team.",
+      },
+      {
+        q: "How long does it take?",
+        a: "Full plans, from concept to working drawings, typically take 2–4 days. 3D visualisation typically takes 2–5 days. Timelines depend on the size and complexity of the project and are confirmed when we agree the scope.",
+      },
+    ],
+  },
+  {
     slug: "architectural-visualization",
     discipline: "3d",
     name: "3D architectural visualisation",
@@ -65,6 +98,7 @@ export const services: Service[] = [
     ],
     forWho: ["Real estate developers", "Architects", "Civil engineers"],
     process: "3d",
+    turnaround: "3D visualisation typically in 2–5 days.",
     faqs: [
       {
         q: "What do you need from me to start an architectural render?",
