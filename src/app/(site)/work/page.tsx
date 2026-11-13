@@ -1,14 +1,16 @@
 import { projects } from "@/content/projects";
+import { portfolio } from "@/content/portfolio";
 import { company } from "@/content/site";
 import { CtaBand, PageHero, ProjectCard, SectionHead } from "@/components/blocks";
+import { PortfolioGrid } from "@/components/portfolio";
 import { JsonLd } from "@/components/JsonLd";
 import { graph, projectSchema, webPageSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
 
 const description =
-  "Signature VGIS projects: Castries Redevelopment, Cavacha Garden and Cedarwood City Estate in 3D, and brand identities for Nâcham, Gethsemane and more.";
+  "VGIS work: 3D architectural and product visualisation, Skyframe XR, adverts and motion, and 2D branding, plus signature projects such as Castries Redevelopment and Cedarwood City Estate.";
 
-export const metadata = pageMetadata({ title: "Signature Projects: 3D Visualisation & Branding", description, path: "/work" });
+export const metadata = pageMetadata({ title: "Work: 3D Visualisation, XR, Campaigns & Branding", description, path: "/work" });
 
 export default function WorkPage() {
   const groups = [
@@ -17,21 +19,32 @@ export default function WorkPage() {
   ];
   return (
     <>
-      <JsonLd data={graph(webPageSchema({ path: "/work", name: "VGIS signature projects", description, type: "CollectionPage" }), ...projects.map(projectSchema))} />
+      <JsonLd data={graph(webPageSchema({ path: "/work", name: "VGIS work", description, type: "CollectionPage" }), ...projects.map(projectSchema))} />
       <PageHero
-        eyebrow="Signature projects"
-        title="Work that shows both sides of VGIS."
-        lede="A selection of hallmark projects across 3D visualisation and 2D branding."
+        eyebrow="Work"
+        title="Work that shows every side of VGIS."
+        lede="3D visualisation, XR, adverts and motion, AI-assisted content and brand systems. Filter by discipline."
         crumbs={[{ name: "Work", path: "/work" }]}
       />
-      {groups.map((g, i) => (
-        <section key={g.key} className="wrap py-20">
-          <SectionHead num={String(i + 1).padStart(2, "0")} eyebrow={g.key.toUpperCase()} title={g.title} />
-          <div className="mt-10 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-            {g.items.map((p) => <ProjectCard key={p.slug} p={p} />)}
-          </div>
-        </section>
-      ))}
+
+      <section className="wrap py-16 sm:py-20">
+        <PortfolioGrid items={portfolio} />
+        <p className="mt-8 text-xs text-muted">
+          Items marked &ldquo;Sample&rdquo; are placeholder images shown while our portfolio is being updated. They are not client work.
+        </p>
+      </section>
+
+      <div id="signature" className="scroll-mt-24 border-t border-line">
+        {groups.map((g, i) => (
+          <section key={g.key} className="wrap py-16 sm:py-20">
+            <SectionHead num={String(i + 1).padStart(2, "0")} eyebrow="Signature projects" title={g.title} />
+            <div className="mt-10 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+              {g.items.map((p) => <ProjectCard key={p.slug} p={p} />)}
+            </div>
+          </section>
+        ))}
+      </div>
+
       <section className="wrap pb-20">
         <p className="text-muted">
           More of our portfolio is on{" "}

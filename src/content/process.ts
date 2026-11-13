@@ -1,6 +1,6 @@
 /** Delivery workflows, verbatim in substance from the Company Profile ("The VGIS Process"). */
 
-export type ProcessKey = "3d" | "xr" | "2d";
+export type ProcessKey = "3d" | "xr" | "2d" | "campaign";
 
 export type Process = {
   key: ProcessKey;
@@ -32,6 +32,18 @@ export const processes: Record<ProcessKey, Process> = {
       { title: "Scene modelling & composition", body: "We build the immersive environment and optimise 3D assets for real-time engines." },
       { title: "Development & post-production", body: "We programme interactivity, apply visual polish and run quality assurance." },
       { title: "Delivery", body: "We deploy the final interactive XR experience." },
+    ],
+  },
+  campaign: {
+    key: "campaign",
+    name: "Campaigns & motion",
+    summary: "Five stages take an advert or film from brief to finished files and cut-downs.",
+    steps: [
+      { title: "Brief", body: "We agree the goal, audience, message, channels and formats the campaign must deliver." },
+      { title: "Script & storyboard", body: "We write the script and storyboard the key frames, so you approve the story before production." },
+      { title: "Production", body: "We produce the 3D scenes, animation, motion graphics and any AI-assisted elements under one art direction." },
+      { title: "Edit", body: "We edit, grade and add sound, titles and your branding, with a review round on the cut." },
+      { title: "Delivery & cut-downs", body: "We deliver the master film plus cut-downs and formats for social media, TV, screens and adverts." },
     ],
   },
   "2d": {

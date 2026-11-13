@@ -1,6 +1,6 @@
 import type { ProcessKey } from "./process";
 
-export type Discipline = "3d" | "2d";
+export type Discipline = "3d" | "2d" | "campaigns";
 
 export type Faq = { q: string; a: string };
 
@@ -31,9 +31,18 @@ export const disciplines: Record<Discipline, { name: string; label: string; intr
     name: "2D branding & design",
     label: "Support",
     intro:
-      "Brand identity, graphic design, 2D ad animation and motion graphics, designed to package, present and sell the spaces and products we visualise.",
+      "Brand identity, graphic design and illustration, designed to package, present and sell the spaces and products we visualise.",
+  },
+  campaigns: {
+    name: "Campaigns & motion",
+    label: "Campaigns",
+    intro:
+      "Property adverts, concept and launch films, product adverts, motion graphics and AI-assisted content, produced to sell a project or product on screen.",
   },
 };
+
+/** Display order of the service groups. */
+export const disciplineOrder: Discipline[] = ["3d", "2d", "campaigns"];
 
 export const services: Service[] = [
   {
@@ -205,7 +214,7 @@ export const services: Service[] = [
   },
   {
     slug: "motion-graphics",
-    discipline: "2d",
+    discipline: "campaigns",
     name: "2D ad animation & motion graphics",
     seoTitle: "Motion Graphics & 2D Ad Animation",
     description:
@@ -214,11 +223,82 @@ export const services: Service[] = [
       "Motion graphics and 2D ad animation bring a brand or project to life on screen. VGIS produces animated adverts, logo animations, explainer sequences and social video that use your brand system, and can combine them with 3D renders and walkthroughs into one campaign.",
     deliverables: ["2D animated adverts", "Logo animation", "Social video", "Explainer animation"],
     forWho: ["Marketing teams", "Corporate organisations", "Product launches"],
-    process: "2d",
+    process: "campaign",
     faqs: [
       {
         q: "Can motion graphics be combined with 3D walkthroughs?",
         a: "Yes. We can integrate 2D titles, motion graphics and branding into 3D walkthrough films, so the campaign is delivered as one consistent piece.",
+      },
+    ],
+  },
+  {
+    slug: "property-adverts",
+    discipline: "campaigns",
+    name: "Property adverts & concept films",
+    seoTitle: "Property Adverts, Launch & Concept Films",
+    description:
+      "Concept films for building programmes, launch films and social and TV adverts for real estate, produced by VGIS from your plans and renders.",
+    answer:
+      "Property adverts and concept films show a development, or a whole building programme, on screen before it exists. VGIS combines photorealistic 3D, motion graphics and editing to produce concept films for stakeholders, launch films for sales events, and social media and TV adverts that drive enquiries.",
+    deliverables: [
+      "Concept films for building programmes",
+      "Launch films for sales events",
+      "Social media adverts and reels",
+      "TV and screen adverts",
+      "Cut-downs in every format you need",
+    ],
+    forWho: ["Real estate developers", "Government and programme sponsors", "Marketing teams"],
+    process: "campaign",
+    faqs: [
+      {
+        q: "What is a concept film?",
+        a: "A concept film presents a proposed development or building programme as a short film, using 3D visualisation and motion graphics, so stakeholders, investors and the public can understand it before construction.",
+      },
+      {
+        q: "Do you deliver versions for social media and TV?",
+        a: "Yes. Every campaign ends with a master film plus cut-downs and formats for social media, TV and screens.",
+      },
+    ],
+  },
+  {
+    slug: "product-adverts",
+    discipline: "campaigns",
+    name: "Product adverts",
+    seoTitle: "3D Product Adverts & Launch Videos",
+    description:
+      "3D product adverts and launch videos for manufacturers and brands: photorealistic product animation, motion graphics and social cut-downs by VGIS.",
+    answer:
+      "A 3D product advert presents a product in motion: materials, details and features shown exactly, without a film studio. VGIS builds the product in 3D, animates it with your brand's motion graphics, and delivers launch videos and adverts sized for social media, e-commerce and TV.",
+    deliverables: ["3D product animation", "Launch videos", "Social media adverts", "E-commerce loops", "TV and screen adverts"],
+    forWho: ["Product manufacturers", "Brands and marketing teams", "Retail and e-commerce"],
+    process: "campaign",
+    faqs: [
+      {
+        q: "Can a product advert be made before the product is manufactured?",
+        a: "Yes. We work from CAD files, drawings or reference photos, so the advert can be ready for launch day.",
+      },
+    ],
+  },
+  {
+    slug: "ai-assisted-content",
+    discipline: "campaigns",
+    name: "AI-assisted content",
+    seoTitle: "AI-Assisted Content, Art-Directed by VGIS",
+    description:
+      "AI-assisted concept imagery and campaign content, art-directed and finished by VGIS, for fast exploration and high-volume marketing needs.",
+    answer:
+      "AI-assisted content uses generative tools to speed up concept exploration and high-volume campaign content. At VGIS every AI-assisted piece is art-directed and finished by our team, checked against your brief and brand, and clearly labelled. It is never presented as a 3D render or a built project.",
+    deliverables: ["Concept and mood exploration", "Campaign and social content variations", "Storyboard frames", "Finishing and brand alignment by VGIS artists"],
+    forWho: ["Marketing teams", "Early-stage concepts", "High-volume social content"],
+    process: "campaign",
+    faqs: [
+      {
+        q: "How is AI-assisted content different from your 3D renders?",
+        a: "Our 3D renders are built from your plans with accurate geometry, materials and lighting. AI-assisted content is for concepts, mood and campaign variations. We label it clearly and never present it as a 3D render or a built project.",
+      },
+      {
+        q: "Who checks AI-assisted work?",
+        a: "Our artists art-direct and finish every piece, and check it against your brief and brand before delivery.",
       },
     ],
   },

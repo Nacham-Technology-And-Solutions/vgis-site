@@ -8,7 +8,7 @@ export const dynamic = "force-static";
 
 /** llms.txt (https://llmstxt.org): a plain-language map of the site for AI assistants and answer engines. */
 export function GET() {
-  const svc = (d: "3d" | "2d") =>
+  const svc = (d: "3d" | "2d" | "campaigns") =>
     services
       .filter((s) => s.discipline === d)
       .map((s) => `- [${s.name}](${SITE_URL}/services/${s.slug}): ${s.answer}`)
@@ -29,6 +29,9 @@ ${svc("3d")}
 
 ## ${disciplines["2d"].name} (support)
 ${svc("2d")}
+
+## ${disciplines.campaigns.name}
+${svc("campaigns")}
 
 ## Signature projects
 ${projects.map((p) => `- [${p.name}${p.year ? ` (${p.year})` : ""}](${SITE_URL}/work/${p.slug}): ${p.category}. ${p.scope}`).join("\n")}

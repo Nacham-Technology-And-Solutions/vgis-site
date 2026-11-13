@@ -5,7 +5,7 @@ import { graph, webPageSchema } from "@/lib/schema";
 import { pageMetadata, absoluteUrl } from "@/lib/seo";
 
 const description =
-  "How VGIS delivers 3D visualisation, Skyframe XR experiences and brand identity projects, stage by stage, from discovery to final delivery.";
+  "How VGIS delivers 3D visualisation, Skyframe XR experiences, brand identity and campaign films, stage by stage, from brief to final delivery.";
 
 export const metadata = pageMetadata({ title: "Our Process: How VGIS Delivers Projects", description, path: "/process" });
 
@@ -35,7 +35,7 @@ export default function ProcessPage() {
       {list.map((p, i) => (
         <section key={p.key} id={p.key} className="scroll-mt-24 border-b border-line">
           <div className="wrap py-20">
-            <SectionHead num={["I", "II", "III"][i]} eyebrow="Workflow" title={p.name} intro={p.summary} />
+            <SectionHead num={["I", "II", "III", "IV"][i]} eyebrow="Workflow" title={p.name} intro={p.summary} />
             <div className="mt-10"><ProcessSteps process={p} /></div>
           </div>
         </section>

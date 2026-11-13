@@ -87,11 +87,11 @@ export function AnswerBox({ question, children }: { question: string; children: 
 }
 
 /* ---------- FAQ list (native details/summary: accessible, no JS, crawlable) ---------- */
-export function FaqList({ faqs }: { faqs: Faq[] }) {
+export function FaqList({ faqs, mobileLimit }: { faqs: Faq[]; mobileLimit?: number }) {
   return (
     <div className="divide-y divide-line border-y border-line">
-      {faqs.map((f) => (
-        <details key={f.q} className="group py-5">
+      {faqs.map((f, i) => (
+        <details key={f.q} className={`group py-5 ${mobileLimit !== undefined && i >= mobileLimit ? "hidden sm:block" : ""}`}>
           <summary className="flex cursor-pointer list-none items-start justify-between gap-6 text-lg font-semibold [&::-webkit-details-marker]:hidden">
             <h3 className="font-sans text-lg font-semibold leading-snug tracking-normal">{f.q}</h3>
             <span className="mt-1 text-orange-ink transition-transform group-open:rotate-45" aria-hidden="true">+</span>

@@ -1,4 +1,4 @@
-import { disciplines, servicesBy } from "@/content/services";
+import { disciplineOrder, disciplines, servicesBy } from "@/content/services";
 import { CtaBand, PageHero, SectionHead, ServiceCard } from "@/components/blocks";
 import { JsonLd } from "@/components/JsonLd";
 import { graph, serviceListSchema, webPageSchema } from "@/lib/schema";
@@ -19,7 +19,7 @@ export default function ServicesPage() {
         lede="3D visualisation is our core. 2D branding and design support it, so the renders and the marketing come from one team."
         crumbs={[{ name: "Services", path: "/services" }]}
       />
-      {(["3d", "2d"] as const).map((d, i) => (
+      {disciplineOrder.map((d, i) => (
         <section key={d} className="wrap py-20">
           <SectionHead num={String(i + 1).padStart(2, "0")} eyebrow={disciplines[d].label} title={disciplines[d].name} intro={disciplines[d].intro} />
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

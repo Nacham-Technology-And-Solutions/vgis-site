@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import { getService, services, disciplines } from "@/content/services";
 import { processes } from "@/content/process";
 import { projectsForService } from "@/content/projects";
+import { portfolio } from "@/content/portfolio";
+import { PortfolioTile } from "@/components/portfolio";
 import { company } from "@/content/site";
 import { AnswerBox, CtaBand, FaqList, PageHero, ProcessSteps, ProjectCard, SectionHead, ServiceCard } from "@/components/blocks";
 import { JsonLd } from "@/components/JsonLd";
@@ -30,6 +32,8 @@ export default async function ServicePage({ params }: Props) {
   const related = projectsForService(s.slug);
   const siblings = services.filter((x) => x.slug !== s.slug && x.discipline === s.discipline).slice(0, 3);
   const process = processes[s.process];
+  // Related visual work; AI-assisted pieces only ever appear on the AI-assisted service.
+  const work = portfolio.filter((w) => w.service === s.slug && (!w.aiAssisted || s.slug === "ai-assisted-content")).slice(0, 3);
 
   return (
     <>
@@ -74,6 +78,17 @@ export default async function ServicePage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {work.length > 0 && (
+        <section className="border-t border-line">
+          <div className="wrap py-20">
+            <SectionHead eyebrow="Work" title="Examples" />
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {work.map((w) => <PortfolioTile key={w.id} item={w} />)}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="border-t border-line">
         <div className="wrap py-20">
