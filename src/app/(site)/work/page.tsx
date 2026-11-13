@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { projects } from "@/content/projects";
 import { portfolio } from "@/content/portfolio";
 import { company } from "@/content/site";
@@ -14,10 +15,8 @@ export const metadata = pageMetadata({ title: "Work: 3D Visualisation, XR, Campa
 
 export default function WorkPage() {
   const signature = projects.filter((p) => p.signature);
-  const groups = [
-    { key: "3d", title: "More 3D projects", items: projects.filter((p) => p.discipline === "3d" && !p.signature) },
-    { key: "2d", title: "2D branding", items: projects.filter((p) => p.discipline === "2d") },
-  ];
+  /** Projects without images yet (listed as text so they stay discoverable). */
+  const textOnly = projects.filter((p) => !p.images.length && !p.signature);
   return (
     <>
       <JsonLd data={graph(webPageSchema({ path: "/work", name: "VGIS work", description, type: "CollectionPage" }), ...projects.map(projectSchema))} />
@@ -39,20 +38,23 @@ export default function WorkPage() {
         <SectionHead num="02" eyebrow="Portfolio" title="Browse by discipline" />
         <div className="mt-10"><PortfolioGrid items={portfolio} /></div>
         <p className="mt-8 text-xs text-muted">
-          Items marked &ldquo;Sample&rdquo; are placeholder images shown while our portfolio is being updated. They are not client work.
+          Items marked &ldquo;Sample&rdquo; are placeholders, not client work.
         </p>
       </section>
 
-      <div className="border-t border-line">
-        {groups.map((g, i) => (
-          <section key={g.key} className="wrap py-16 sm:py-20">
-            <SectionHead num={String(i + 3).padStart(2, "0")} eyebrow="Projects" title={g.title} />
-            <div className="mt-10 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-              {g.items.map((p) => <ProjectCard key={p.slug} p={p} />)}
-            </div>
-          </section>
-        ))}
-      </div>
+      {textOnly.length > 0 && (
+        <section className="wrap border-t border-line py-16">
+          <p className="eyebrow">Also from VGIS</p>
+          <ul className="mt-6 grid gap-x-6 gap-y-4 sm:grid-cols-2 lg:grid-cols-3">
+            {textOnly.map((p) => (
+              <li key={p.slug}>
+                <Link href={`/work/${p.slug}`} className="font-display text-2xl hover:link-underline">{p.name}</Link>
+                <p className="text-sm text-muted">{p.scope}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <section className="wrap pb-20">
         <p className="text-muted">

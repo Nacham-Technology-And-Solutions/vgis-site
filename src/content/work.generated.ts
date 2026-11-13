@@ -5,6 +5,1594 @@ export type ManifestProject = {
   client: string | null; credit: string | null; signature: boolean; youtubeIds: string[]; images: ManifestImage[];
 };
 
-export const manifestProjects: ManifestProject[] = [];
+export const manifestProjects: ManifestProject[] = [
+  {
+    "name": "Down Town Castries",
+    "folder": "down-town-castries",
+    "category": "3d",
+    "year": 2026,
+    "scope": [
+      "visualization"
+    ],
+    "client": "Justking Solutions",
+    "credit": "Justking Solutions",
+    "signature": true,
+    "youtubeIds": [],
+    "images": [
+      {
+        "src": "/work/down-town-castries/01-park-view-2.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A courtyard between mid-rise residential blocks, with palms, purple and green planting, people on balconies, and a glimpse of water and hills beyond.",
+        "title": "Park View 2",
+        "hero": true
+      },
+      {
+        "src": "/work/down-town-castries/02-harbour-rooftops.jpg",
+        "width": 2400,
+        "height": 1340,
+        "alt": "An elevated view over mid-rise apartments with rooftop terraces, a pool and shade sails, looking out to a harbour with cruise ships, yachts and green hills.",
+        "title": "Harbour rooftops",
+        "hero": false
+      },
+      {
+        "src": "/work/down-town-castries/03-pensioners-corner.jpg",
+        "width": 2400,
+        "height": 1340,
+        "alt": "A street-level view of a mixed-use block with a ground-floor shopfront lettered Pensioners Corner, vertical timber cladding, planters and pedestrians on the pavement.",
+        "title": "Pensioners Corner",
+        "hero": false
+      },
+      {
+        "src": "/work/down-town-castries/04-lewis-street.jpg",
+        "width": 2400,
+        "height": 1340,
+        "alt": "A narrow street with shopfronts under awnings, signs reading Castries and Lewis, and a window lettered Ma’s Town Cafe beside a brick corner in the foreground.",
+        "title": "Lewis Street",
+        "hero": false
+      },
+      {
+        "src": "/work/down-town-castries/05-park-view-1.jpg",
+        "width": 2400,
+        "height": 1340,
+        "alt": "A sidewalk and linear park with palms, purple planting, a shallow pool, a person on a wooden bench and mid-rise residences behind.",
+        "title": "Park View 1",
+        "hero": false
+      },
+      {
+        "src": "/work/down-town-castries/06-luxury-to-convention-center.jpg",
+        "width": 2400,
+        "height": 1340,
+        "alt": "A daytime view from a balcony toward residential terraces and a red-and-glass civic building.",
+        "title": "Luxury to Convention Center",
+        "hero": false
+      },
+      {
+        "src": "/work/down-town-castries/07-convention-center-night.jpg",
+        "width": 2400,
+        "height": 1340,
+        "alt": "The same balcony view at dusk, with string lights, occupied terraces and the glazed civic building lit from inside.",
+        "title": "Convention Center at night",
+        "hero": false
+      },
+      {
+        "src": "/work/down-town-castries/08-rooftop-gaming-lounge.jpg",
+        "width": 2400,
+        "height": 1340,
+        "alt": "A rooftop bar with a poker table, slot machines and a slim pool, with a plaque reading The Rooftop Gaming Lounge.",
+        "title": "Hotel rooftop concept",
+        "hero": false
+      },
+      {
+        "src": "/work/down-town-castries/09-convention-center-entrance.jpg",
+        "width": 2400,
+        "height": 1340,
+        "alt": "An entrance canopy lettered Convention Center, with red walls, a glazed lobby and people at the doors.",
+        "title": "Convention Center entrance",
+        "hero": false
+      },
+      {
+        "src": "/work/down-town-castries/10-map-new-castries.jpg",
+        "width": 2400,
+        "height": 1340,
+        "alt": "An aerial photograph of a waterfront town with the proposed block composited into the existing street grid and the harbour at upper left.",
+        "title": "Map of New Castries",
+        "hero": false
+      },
+      {
+        "src": "/work/down-town-castries/11-aerial-massing.jpg",
+        "width": 2400,
+        "height": 1907,
+        "alt": "A top-down massing of the block, with a courtyard pool and garden ringed by buildings and the surrounding streets shown as simple mass.",
+        "title": "Aerial massing",
+        "hero": false
+      },
+      {
+        "src": "/work/down-town-castries/12-lewis-street-corner.jpg",
+        "width": 1376,
+        "height": 768,
+        "alt": "A street of mid-rise apartments and shopfronts, with green signs reading Castries Market and Lewis St, a Pensioners Corner fascia, cars and pedestrians.",
+        "title": "Lewis Street at Castries Market",
+        "hero": false
+      },
+      {
+        "src": "/work/down-town-castries/13-lewis-street-axis.jpg",
+        "width": 2400,
+        "height": 1340,
+        "alt": "A straight view down Lewis Street between facing mid-rise blocks with timber balcony soffits, potted palms, parked cars and a hill town at the end of the road.",
+        "title": "Lewis Street axis",
+        "hero": false
+      },
+      {
+        "src": "/work/down-town-castries/14-rooftop-lap-pool.jpg",
+        "width": 2400,
+        "height": 1340,
+        "alt": "A rooftop lap pool and tiled spa, with timber decking, shade sails, palms and a view over the harbour and hills.",
+        "title": "Rooftop lap pool",
+        "hero": false
+      },
+      {
+        "src": "/work/down-town-castries/15-rooftop-lounge-pool.jpg",
+        "width": 2400,
+        "height": 1340,
+        "alt": "A curved rooftop pool beside a timber deck with loungers, cabanas and a bar, looking out to the harbour, a cruise ship and green hills.",
+        "title": "Rooftop lounge pool",
+        "hero": false
+      }
+    ]
+  },
+  {
+    "name": "St Helen Hotel",
+    "folder": "st-helen-hotel",
+    "category": "3d",
+    "year": 2026,
+    "scope": [
+      "concept",
+      "design",
+      "visualization"
+    ],
+    "client": "Justking Solutions",
+    "credit": "Justking Solutions",
+    "signature": true,
+    "youtubeIds": [],
+    "images": [
+      {
+        "src": "/work/st-helen-hotel/01-establishing-exterior.jpg",
+        "width": 2400,
+        "height": 1340,
+        "alt": "An elevated three-quarter view of a long hotel with terracotta upper cladding, pale stone end frames, glass stair towers, a rooftop pool and pergola, and Banquet Hall lettering at street level.",
+        "title": "Establishing exterior",
+        "hero": true
+      },
+      {
+        "src": "/work/st-helen-hotel/02-rooftop-pool.jpg",
+        "width": 2400,
+        "height": 1340,
+        "alt": "A rooftop pool deck under a timber pergola, with a teak floor, wicker lounge chairs, a drinks table, planters, a glass balustrade and a distant town.",
+        "title": "Rooftop pool",
+        "hero": false
+      },
+      {
+        "src": "/work/st-helen-hotel/03-rooftop-pool-length.jpg",
+        "width": 2400,
+        "height": 1340,
+        "alt": "A lengthwise view of the same rooftop pool, with an orange-and-cream wall at left and loungers and a pergola at right.",
+        "title": "Rooftop pool lengthwise",
+        "hero": false
+      },
+      {
+        "src": "/work/st-helen-hotel/04-street-facade.jpg",
+        "width": 2400,
+        "height": 1340,
+        "alt": "A street facade with a double-height glazed corner looking into a lounge, then a white ground floor lettered Restaurant and Gym, with terracotta panels above.",
+        "title": "Street facade",
+        "hero": false
+      },
+      {
+        "src": "/work/st-helen-hotel/05-reception-entrance.jpg",
+        "width": 2400,
+        "height": 1340,
+        "alt": "A close view of the entrance, with Reception over glazed doors, two people with suitcases, and Banquet Hall further along the facade.",
+        "title": "Reception entrance",
+        "hero": false
+      },
+      {
+        "src": "/work/st-helen-hotel/06-corner-banquet-hall.jpg",
+        "width": 2400,
+        "height": 1340,
+        "alt": "A corner view with a tall glass stair volume, terracotta mid-facade, a Banquet Hall entrance and planting along the kerb.",
+        "title": "Corner and banquet hall",
+        "hero": false
+      },
+      {
+        "src": "/work/st-helen-hotel/07-banquet-hall-band.jpg",
+        "width": 2400,
+        "height": 1340,
+        "alt": "A banquet hall set for dinner, with round tables, chandeliers, a band on a lit stage with a gold backdrop, and a dance floor in the centre.",
+        "title": "Banquet hall band setup",
+        "hero": false
+      },
+      {
+        "src": "/work/st-helen-hotel/08-guest-room-208.jpg",
+        "width": 1672,
+        "height": 941,
+        "alt": "A guest-room doorway with a plaque reading 208, a staff member holding folded towels, and inside a bed, blue patterned carpet, two blue chairs at the window and a small kitchenette.",
+        "title": "Guest room 208",
+        "hero": false
+      }
+    ]
+  },
+  {
+    "name": "Cedarwood City",
+    "folder": "cedarwood-city",
+    "category": "3d",
+    "year": null,
+    "scope": [
+      "visualization"
+    ],
+    "client": "White Avenue Real Estate",
+    "credit": null,
+    "signature": true,
+    "youtubeIds": [
+      "bIE4Q3VNdTI"
+    ],
+    "images": [
+      {
+        "src": "/work/cedarwood-city/01-estate-park.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "An estate park with gazebos, a playground, paths and a skate or slide deck in the foreground, with houses and hills beyond.",
+        "title": "Estate park",
+        "hero": true
+      },
+      {
+        "src": "/work/cedarwood-city/02-street-of-houses.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A street of contemporary white houses with yellow and dark accents, parked cars and a cloudy sky.",
+        "title": "Street of houses",
+        "hero": false
+      },
+      {
+        "src": "/work/cedarwood-city/03-pergola-and-court.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A timber pergola over cobbles, with a basketball court fence at left.",
+        "title": "Pergola and court",
+        "hero": false
+      },
+      {
+        "src": "/work/cedarwood-city/04-set1-7.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A further view of the Cedarwood estate grounds, paths and neighbouring houses.",
+        "title": "Estate view 7",
+        "hero": false
+      },
+      {
+        "src": "/work/cedarwood-city/05-set2-13.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A landscaped view of the Cedarwood estate with houses, planting and paved paths.",
+        "title": "Estate view 13",
+        "hero": false
+      },
+      {
+        "src": "/work/cedarwood-city/06-set2-15.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "Another landscaped view of the Cedarwood estate, with houses set among planting.",
+        "title": "Estate view 15",
+        "hero": false
+      },
+      {
+        "src": "/work/cedarwood-city/07-aerial-estate.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "An overview of the Cedarwood estate layout, showing houses, roads and open landscape.",
+        "title": "Estate overview",
+        "hero": false
+      }
+    ]
+  },
+  {
+    "name": "Colour Code",
+    "folder": "colour-code",
+    "category": "3d",
+    "year": null,
+    "scope": [
+      "visualization"
+    ],
+    "client": "White Avenue Real Estate",
+    "credit": null,
+    "signature": true,
+    "youtubeIds": [
+      "bIE4Q3VNdTI"
+    ],
+    "images": [
+      {
+        "src": "/work/colour-code/01-mixed-facade-row.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A row of four contemporary houses with a shared balcony line and ground-level accents in green, blue, red and terracotta.",
+        "title": "Mixed facade row",
+        "hero": true
+      },
+      {
+        "src": "/work/colour-code/02-mixed-facade-angle.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "An angled view of the same row of contemporary houses with mixed ground-floor colour accents.",
+        "title": "Mixed facade angle",
+        "hero": false
+      },
+      {
+        "src": "/work/colour-code/03-all-blue.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "The same row of houses with a consistent blue colour treatment across the facades.",
+        "title": "All-blue colourway",
+        "hero": false
+      },
+      {
+        "src": "/work/colour-code/04-all-orange.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "The same row of houses with a consistent orange or terracotta colour treatment across the facades.",
+        "title": "All-orange colourway",
+        "hero": false
+      }
+    ]
+  },
+  {
+    "name": "Swahili Village DC",
+    "folder": "swahili-village-dc",
+    "category": "3d",
+    "year": 2024,
+    "scope": [
+      "signage-permit",
+      "space-design",
+      "visualization"
+    ],
+    "client": "Justking Solutions",
+    "credit": "Justking Solutions",
+    "signature": false,
+    "youtubeIds": [
+      "ycldrBMGe7U"
+    ],
+    "images": [
+      {
+        "src": "/work/swahili-village-dc/01-day-shot-1.jpg",
+        "width": 1920,
+        "height": 1080,
+        "alt": "A corner restaurant with red Swahili Village signage, outdoor seating under a canopy and people on the sidewalk.",
+        "title": "Day shot 1",
+        "hero": true
+      },
+      {
+        "src": "/work/swahili-village-dc/02-day-shot-2.jpg",
+        "width": 1920,
+        "height": 1080,
+        "alt": "A daytime street view of the refaced Swahili Village restaurant, with red signage, outdoor seating and a neighbouring sidewalk.",
+        "title": "Day shot 2",
+        "hero": false
+      },
+      {
+        "src": "/work/swahili-village-dc/03-day-shot-4.jpg",
+        "width": 1920,
+        "height": 1080,
+        "alt": "Another daytime angle of the Swahili Village shopfront and outdoor sit-out.",
+        "title": "Day shot 4",
+        "hero": false
+      },
+      {
+        "src": "/work/swahili-village-dc/04-night-shot.jpg",
+        "width": 1920,
+        "height": 1080,
+        "alt": "The Swahili Village corner at night, with the red neon-style signage lit and seating visible under the canopy.",
+        "title": "Night shot",
+        "hero": false
+      },
+      {
+        "src": "/work/swahili-village-dc/05-before.jpg",
+        "width": 1365,
+        "height": 921,
+        "alt": "A before photograph of the existing Swahili Village frontage, shown for comparison with the proposed reface.",
+        "title": "Before",
+        "hero": false
+      }
+    ]
+  },
+  {
+    "name": "Swahili Village Newark",
+    "folder": "swahili-village-newark",
+    "category": "3d",
+    "year": 2024,
+    "scope": [
+      "signage-permit",
+      "visualization"
+    ],
+    "client": "Justking Solutions",
+    "credit": "Justking Solutions",
+    "signature": false,
+    "youtubeIds": [],
+    "images": [
+      {
+        "src": "/work/swahili-village-newark/01-curved-glass-corner.jpg",
+        "width": 1280,
+        "height": 720,
+        "alt": "A curved glass corner with a brick and orange facade, revolving doors, blue awnings and Swahili Village lettered in red.",
+        "title": "Curved glass corner",
+        "hero": true
+      },
+      {
+        "src": "/work/swahili-village-newark/02-v2-5.jpg",
+        "width": 1280,
+        "height": 720,
+        "alt": "A further view of the Newark Swahili Village facade, with brick, orange panels and red signage.",
+        "title": "Facade view 5",
+        "hero": false
+      },
+      {
+        "src": "/work/swahili-village-newark/03-v2-9.jpg",
+        "width": 1280,
+        "height": 720,
+        "alt": "Another angle of the Newark Swahili Village shopfront and corner glazing.",
+        "title": "Facade view 9",
+        "hero": false
+      },
+      {
+        "src": "/work/swahili-village-newark/04-v2-10.jpg",
+        "width": 1280,
+        "height": 720,
+        "alt": "A closer or alternate view of the Newark Swahili Village entrance and signage.",
+        "title": "Facade view 10",
+        "hero": false
+      }
+    ]
+  },
+  {
+    "name": "Royal Assisted Living",
+    "folder": "royal-assisted-living",
+    "category": "3d",
+    "year": 2024,
+    "scope": [
+      "design",
+      "visualization",
+      "interior"
+    ],
+    "client": "Royal Assisted Living Inc",
+    "credit": "Justking Solutions",
+    "signature": false,
+    "youtubeIds": [
+      "AUlDXZ77hNU"
+    ],
+    "images": [
+      {
+        "src": "/work/royal-assisted-living/01-entrance-exterior.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A white gabled house with a porch, a ramp, parking and people at the entrance, with signage reading Royal Assisted Living, Inc.",
+        "title": "Entrance exterior",
+        "hero": true
+      },
+      {
+        "src": "/work/royal-assisted-living/02-exteriors-7.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A further exterior view of the Royal Assisted Living house, grounds and approach.",
+        "title": "Exterior 7",
+        "hero": false
+      },
+      {
+        "src": "/work/royal-assisted-living/03-exteriors-9.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "Another exterior angle of the Royal Assisted Living building and landscaping.",
+        "title": "Exterior 9",
+        "hero": false
+      },
+      {
+        "src": "/work/royal-assisted-living/04-exteriors-10.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A supporting exterior view of the Royal Assisted Living property.",
+        "title": "Exterior 10",
+        "hero": false
+      },
+      {
+        "src": "/work/royal-assisted-living/05-bedroom.jpg",
+        "width": 1920,
+        "height": 1080,
+        "alt": "A bedroom with grey bedding, framed photos and an adjacent shower.",
+        "title": "Bedroom",
+        "hero": false
+      },
+      {
+        "src": "/work/royal-assisted-living/06-interiors-9.jpg",
+        "width": 1920,
+        "height": 1080,
+        "alt": "An interior living or common space at Royal Assisted Living.",
+        "title": "Interior 9",
+        "hero": false
+      },
+      {
+        "src": "/work/royal-assisted-living/07-interiors-11.jpg",
+        "width": 1920,
+        "height": 1080,
+        "alt": "A further interior view at Royal Assisted Living.",
+        "title": "Interior 11",
+        "hero": false
+      }
+    ]
+  },
+  {
+    "name": "Hajara's Kitchen",
+    "folder": "hajaras-kitchen",
+    "category": "3d",
+    "year": 2024,
+    "scope": [
+      "signage-permit",
+      "visualization"
+    ],
+    "client": "Hajara's Kitchen",
+    "credit": "Justking Solutions",
+    "signature": false,
+    "youtubeIds": [],
+    "images": [
+      {
+        "src": "/work/hajaras-kitchen/01-shopfront.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A brick shopfront with a green metal awning, red fascia lettering reading Hajara’s Kitchen, Authentic Taste of West African Cuisine, and a car at the kerb.",
+        "title": "Shopfront",
+        "hero": true
+      },
+      {
+        "src": "/work/hajaras-kitchen/02-shopfront-2.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A further view of the Hajara’s Kitchen shopfront, awning and signage.",
+        "title": "Shopfront 2",
+        "hero": false
+      },
+      {
+        "src": "/work/hajaras-kitchen/03-shopfront-3.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "Another angle of the Hajara’s Kitchen fascia and street frontage.",
+        "title": "Shopfront 3",
+        "hero": false
+      }
+    ]
+  },
+  {
+    "name": "Michael Nwosu",
+    "folder": "michael-nwosu",
+    "category": "3d",
+    "year": 2024,
+    "scope": [
+      "visualization"
+    ],
+    "client": "Michael Nwosu",
+    "credit": "Justking Solutions",
+    "signature": false,
+    "youtubeIds": [],
+    "images": [
+      {
+        "src": "/work/michael-nwosu/01-front-exterior.jpg",
+        "width": 1920,
+        "height": 1080,
+        "alt": "A two-storey house with a glass balcony, flower beds, a wet driveway and a white sports car.",
+        "title": "Front exterior",
+        "hero": true
+      },
+      {
+        "src": "/work/michael-nwosu/02-exterior-2.jpg",
+        "width": 1920,
+        "height": 1080,
+        "alt": "A further exterior view of the two-storey house, driveway and planting.",
+        "title": "Exterior 2",
+        "hero": false
+      },
+      {
+        "src": "/work/michael-nwosu/03-exterior-3.jpg",
+        "width": 1920,
+        "height": 1080,
+        "alt": "Another angle of the house exterior and approach.",
+        "title": "Exterior 3",
+        "hero": false
+      },
+      {
+        "src": "/work/michael-nwosu/04-exterior-15.jpg",
+        "width": 1920,
+        "height": 1080,
+        "alt": "A supporting exterior view of the house.",
+        "title": "Exterior 15",
+        "hero": false
+      }
+    ]
+  },
+  {
+    "name": "Spicy Kingdom",
+    "folder": "spicy-kingdom",
+    "category": "3d",
+    "year": 2025,
+    "scope": [
+      "concept",
+      "design",
+      "working-drawings",
+      "visualization"
+    ],
+    "client": "Spicy Kingdom",
+    "credit": null,
+    "signature": false,
+    "youtubeIds": [
+      "7gzZxbAmEDo"
+    ],
+    "images": [
+      {
+        "src": "/work/spicy-kingdom/01-dining-day.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A dining room with orange chairs, clustered pendant lights, a service counter with timber slats and large windows.",
+        "title": "Dining room by day",
+        "hero": true
+      },
+      {
+        "src": "/work/spicy-kingdom/02-dining-day-17.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A further daytime view of the Spicy Kingdom dining room and service area.",
+        "title": "Dining room by day 17",
+        "hero": false
+      },
+      {
+        "src": "/work/spicy-kingdom/03-dining-day-24.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "Another daytime interior of the restaurant, showing seating and the service counter.",
+        "title": "Dining room by day 24",
+        "hero": false
+      },
+      {
+        "src": "/work/spicy-kingdom/04-dining-day-37.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A supporting daytime still of the Spicy Kingdom interior.",
+        "title": "Dining room by day 37",
+        "hero": false
+      },
+      {
+        "src": "/work/spicy-kingdom/05-dining-night.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "The same dining room at dusk, with pendant lights on and the windows darkened.",
+        "title": "Dining room at dusk",
+        "hero": false
+      },
+      {
+        "src": "/work/spicy-kingdom/06-dining-night-17.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A further dusk view of the Spicy Kingdom dining room.",
+        "title": "Dining room at dusk 17",
+        "hero": false
+      },
+      {
+        "src": "/work/spicy-kingdom/07-dining-night-38.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A supporting night still of the restaurant interior.",
+        "title": "Dining room at dusk 38",
+        "hero": false
+      }
+    ]
+  },
+  {
+    "name": "Lucian Afri-Complex",
+    "folder": "lucian-afri-complex",
+    "category": "3d",
+    "year": 2025,
+    "scope": [
+      "space-design",
+      "working-drawings",
+      "visualization"
+    ],
+    "client": "Lucian Afri-Complex",
+    "credit": "Justking Solutions",
+    "signature": false,
+    "youtubeIds": [
+      "Rz3Wcjm2esc"
+    ],
+    "images": [
+      {
+        "src": "/work/lucian-afri-complex/01-beauty-shopfront.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A shopfront lettered Beauty, with glass doors, a marble floor, product shelving and people at a counter.",
+        "title": "Beauty shopfront",
+        "hero": true
+      },
+      {
+        "src": "/work/lucian-afri-complex/02-interior-2.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A further interior of the Beauty shop, with shelving, flooring and the service counter.",
+        "title": "Interior 2",
+        "hero": false
+      },
+      {
+        "src": "/work/lucian-afri-complex/03-interior-5.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "Another view of the retail interior and product displays.",
+        "title": "Interior 5",
+        "hero": false
+      },
+      {
+        "src": "/work/lucian-afri-complex/04-interior-13.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A supporting still of the Lucian Afri-Complex retail space.",
+        "title": "Interior 13",
+        "hero": false
+      },
+      {
+        "src": "/work/lucian-afri-complex/05-interior-15.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A further supporting still of the retail interior.",
+        "title": "Interior 15",
+        "hero": false
+      }
+    ]
+  },
+  {
+    "name": "Coco Jerk",
+    "folder": "coco-jerk",
+    "category": "3d",
+    "year": 2025,
+    "scope": [
+      "space-design",
+      "visualization",
+      "permit"
+    ],
+    "client": "Coco Jerk",
+    "credit": "Justking Solutions",
+    "signature": false,
+    "youtubeIds": [
+      "0r-qt-4VQ-c"
+    ],
+    "images": [
+      {
+        "src": "/work/coco-jerk/01-service-counter.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A service counter with a palm-tree wall graphic, teal tile, thatch pendants and a point-of-sale, under a wall mark reading Coco Jerk, Caribbean Street Food.",
+        "title": "Service counter",
+        "hero": true
+      },
+      {
+        "src": "/work/coco-jerk/02-interior-2.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A further interior of Coco Jerk, showing seating, finishes and the service area.",
+        "title": "Interior 2",
+        "hero": false
+      },
+      {
+        "src": "/work/coco-jerk/03-interior-5.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "Another view of the Coco Jerk restaurant interior.",
+        "title": "Interior 5",
+        "hero": false
+      },
+      {
+        "src": "/work/coco-jerk/04-interior-6.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A supporting still of the Coco Jerk space.",
+        "title": "Interior 6",
+        "hero": false
+      }
+    ]
+  },
+  {
+    "name": "Josh",
+    "folder": "josh",
+    "category": "3d",
+    "year": 2025,
+    "scope": [
+      "space-design",
+      "visualization",
+      "renovation"
+    ],
+    "client": "Josh",
+    "credit": "Justking Solutions",
+    "signature": false,
+    "youtubeIds": [],
+    "images": [
+      {
+        "src": "/work/josh/01-open-living-kitchen.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "An open living and kitchen space designed for a residential renovation.",
+        "title": "Open living and kitchen",
+        "hero": true
+      },
+      {
+        "src": "/work/josh/02-open-living-kitchen-3.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A further view of the open living and kitchen interior.",
+        "title": "Open living and kitchen 3",
+        "hero": false
+      },
+      {
+        "src": "/work/josh/03-main-kitchen.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "The main kitchen interior, with worktops, cabinets and adjacent living space.",
+        "title": "Main kitchen",
+        "hero": false
+      },
+      {
+        "src": "/work/josh/04-sitting-area.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A living corner with a dark lounge chair, a TV, a media console and a plant.",
+        "title": "Sitting area",
+        "hero": false
+      },
+      {
+        "src": "/work/josh/05-master-room-3.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A further view of the master-room or sitting area.",
+        "title": "Master room 3",
+        "hero": false
+      },
+      {
+        "src": "/work/josh/06-master-bathroom.jpg",
+        "width": 1350,
+        "height": 2400,
+        "alt": "The master bathroom interior.",
+        "title": "Master bathroom",
+        "hero": false
+      }
+    ]
+  },
+  {
+    "name": "Akaboukwu Residence",
+    "folder": "akaboukwu-residence",
+    "category": "3d",
+    "year": 2026,
+    "scope": [
+      "visualization"
+    ],
+    "client": "Akaboukwu Residence",
+    "credit": null,
+    "signature": false,
+    "youtubeIds": [],
+    "images": [
+      {
+        "src": "/work/akaboukwu-residence/01-main-house.jpg",
+        "width": 2400,
+        "height": 1340,
+        "alt": "A two-storey beige house with verandas and a lawn, and a gate sign reading Akaboukwu Residence, Umuorie Street, Nigeria, beside a sign to Akaboukwu Health Post.",
+        "title": "Main house",
+        "hero": true
+      },
+      {
+        "src": "/work/akaboukwu-residence/02-dining.jpg",
+        "width": 2400,
+        "height": 1340,
+        "alt": "A dining interior in the Akaboukwu Residence.",
+        "title": "Dining room",
+        "hero": false
+      },
+      {
+        "src": "/work/akaboukwu-residence/03-ground-floor-living.jpg",
+        "width": 2400,
+        "height": 1340,
+        "alt": "The ground-floor living room of the Akaboukwu Residence.",
+        "title": "Ground-floor living room",
+        "hero": false
+      },
+      {
+        "src": "/work/akaboukwu-residence/04-first-floor-living.jpg",
+        "width": 2400,
+        "height": 1340,
+        "alt": "The first-floor living room of the Akaboukwu Residence.",
+        "title": "First-floor living room",
+        "hero": false
+      },
+      {
+        "src": "/work/akaboukwu-residence/05-first-floor-passage.jpg",
+        "width": 2400,
+        "height": 1340,
+        "alt": "A first-floor passage inside the Akaboukwu Residence.",
+        "title": "First-floor passage",
+        "hero": false
+      }
+    ]
+  },
+  {
+    "name": "Alafia Adult Day Care",
+    "folder": "alafia-adult-day-care",
+    "category": "3d",
+    "year": null,
+    "scope": [
+      "concept",
+      "visualization"
+    ],
+    "client": "Alafia Adult Day Care",
+    "credit": "Justking Solutions",
+    "signature": false,
+    "youtubeIds": [],
+    "images": [
+      {
+        "src": "/work/alafia-adult-day-care/01-street-corner.jpg",
+        "width": 2400,
+        "height": 1340,
+        "alt": "A brick corner building with lit windows, a ramp to glazed doors, parked cars and trees, and fascia lettering reading Alafia Adult Day Care.",
+        "title": "Street corner",
+        "hero": true
+      },
+      {
+        "src": "/work/alafia-adult-day-care/02-exterior-2.jpg",
+        "width": 2400,
+        "height": 1340,
+        "alt": "A further street view of the Alafia Adult Day Care building.",
+        "title": "Exterior 2",
+        "hero": false
+      },
+      {
+        "src": "/work/alafia-adult-day-care/03-exterior-3.jpg",
+        "width": 2400,
+        "height": 1340,
+        "alt": "Another exterior angle of the Alafia Adult Day Care frontage.",
+        "title": "Exterior 3",
+        "hero": false
+      },
+      {
+        "src": "/work/alafia-adult-day-care/04-exterior-4.jpg",
+        "width": 2400,
+        "height": 1340,
+        "alt": "A supporting exterior of the Alafia Adult Day Care property.",
+        "title": "Exterior 4",
+        "hero": false
+      }
+    ]
+  },
+  {
+    "name": "Cape Studio",
+    "folder": "cape-studio",
+    "category": "3d",
+    "year": null,
+    "scope": [
+      "interior"
+    ],
+    "client": null,
+    "credit": null,
+    "signature": false,
+    "youtubeIds": [],
+    "images": [
+      {
+        "src": "/work/cape-studio/01-living-room.jpg",
+        "width": 2304,
+        "height": 2304,
+        "alt": "A living room with brown sofas, a marble floor, a wall-mounted TV, a chandelier and a dining table at left.",
+        "title": "Living room",
+        "hero": true
+      },
+      {
+        "src": "/work/cape-studio/02-dining.jpg",
+        "width": 2304,
+        "height": 2304,
+        "alt": "A dining interior at Cape Studio.",
+        "title": "Dining room",
+        "hero": false
+      },
+      {
+        "src": "/work/cape-studio/03-kitchen.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A kitchen interior at Cape Studio.",
+        "title": "Kitchen",
+        "hero": false
+      },
+      {
+        "src": "/work/cape-studio/04-master-bedroom.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "The master bedroom interior at Cape Studio.",
+        "title": "Master bedroom",
+        "hero": false
+      },
+      {
+        "src": "/work/cape-studio/05-interior-5.jpg",
+        "width": 1024,
+        "height": 858,
+        "alt": "A further interior view at Cape Studio.",
+        "title": "Interior 5",
+        "hero": false
+      }
+    ]
+  },
+  {
+    "name": "Greenbelt",
+    "folder": "greenbelt",
+    "category": "3d",
+    "year": null,
+    "scope": [
+      "concept",
+      "visualization"
+    ],
+    "client": "Greenbelt",
+    "credit": "Justking Solutions",
+    "signature": false,
+    "youtubeIds": [],
+    "images": [
+      {
+        "src": "/work/greenbelt/01-dusk-exterior.jpg",
+        "width": 2400,
+        "height": 1340,
+        "alt": "A dusk view of a restaurant-like building with outdoor lounge seating, parking and a city building in the distance, and a green butterfly emblem on the facade.",
+        "title": "Dusk exterior",
+        "hero": true
+      },
+      {
+        "src": "/work/greenbelt/02-exterior-2.jpg",
+        "width": 2400,
+        "height": 1340,
+        "alt": "A further exterior of the Greenbelt building and outdoor area.",
+        "title": "Exterior 2",
+        "hero": false
+      },
+      {
+        "src": "/work/greenbelt/03-interior-2.jpg",
+        "width": 2400,
+        "height": 1340,
+        "alt": "An interior of the Greenbelt space.",
+        "title": "Interior 2",
+        "hero": false
+      },
+      {
+        "src": "/work/greenbelt/04-interior-3.jpg",
+        "width": 2400,
+        "height": 1340,
+        "alt": "A further interior of the Greenbelt space.",
+        "title": "Interior 3",
+        "hero": false
+      }
+    ]
+  },
+  {
+    "name": "Hebron City",
+    "folder": "hebron-city",
+    "category": "3d",
+    "year": null,
+    "scope": [
+      "visualization"
+    ],
+    "client": null,
+    "credit": null,
+    "signature": false,
+    "youtubeIds": [
+      "TEF01EG6-S4"
+    ],
+    "images": [
+      {
+        "src": "/work/hebron-city/01-courtyard-pool.jpg",
+        "width": 1920,
+        "height": 1080,
+        "alt": "A top-down courtyard with a rectangular pool, a timber deck, white pergolas, stepping stones and hedges.",
+        "title": "Courtyard pool",
+        "hero": true
+      },
+      {
+        "src": "/work/hebron-city/02-pergola-seating.jpg",
+        "width": 1920,
+        "height": 1080,
+        "alt": "Pergola seating on grass with stepping stones and an orange-roofed shade beyond.",
+        "title": "Pergola seating",
+        "hero": false
+      },
+      {
+        "src": "/work/hebron-city/03-landscape-3.jpg",
+        "width": 1920,
+        "height": 1080,
+        "alt": "A further landscape or courtyard view at Hebron City.",
+        "title": "Landscape 3",
+        "hero": false
+      },
+      {
+        "src": "/work/hebron-city/04-landscape-ss01.jpg",
+        "width": 1920,
+        "height": 1080,
+        "alt": "A supporting landscape still from Hebron City.",
+        "title": "Landscape SS01",
+        "hero": false
+      },
+      {
+        "src": "/work/hebron-city/05-top-down-mixed.jpg",
+        "width": 1920,
+        "height": 1080,
+        "alt": "A top-down mixed view of the Hebron City landscape and buildings.",
+        "title": "Top-down mixed",
+        "hero": false
+      }
+    ]
+  },
+  {
+    "name": "Victoria Mansions",
+    "folder": "victoria-mansions",
+    "category": "3d",
+    "year": null,
+    "scope": [
+      "visualization"
+    ],
+    "client": null,
+    "credit": null,
+    "signature": false,
+    "youtubeIds": [
+      "-koyJNnva7c"
+    ],
+    "images": [
+      {
+        "src": "/work/victoria-mansions/01-dusk-terrace.jpg",
+        "width": 1920,
+        "height": 1080,
+        "alt": "A dusk view of a blue-and-navy terrace of houses, with lit balconies, driveways and people in the court.",
+        "title": "Dusk terrace",
+        "hero": true
+      },
+      {
+        "src": "/work/victoria-mansions/02-exterior-6.jpg",
+        "width": 1920,
+        "height": 1080,
+        "alt": "A further exterior of the Victoria Mansions terrace.",
+        "title": "Exterior 6",
+        "hero": false
+      },
+      {
+        "src": "/work/victoria-mansions/03-exterior-9.jpg",
+        "width": 1920,
+        "height": 1080,
+        "alt": "Another exterior angle of Victoria Mansions.",
+        "title": "Exterior 9",
+        "hero": false
+      },
+      {
+        "src": "/work/victoria-mansions/04-exterior-12.jpg",
+        "width": 1920,
+        "height": 1080,
+        "alt": "A supporting exterior of Victoria Mansions.",
+        "title": "Exterior 12",
+        "hero": false
+      }
+    ]
+  },
+  {
+    "name": "Kavacha Garden",
+    "folder": "kavacha-garden",
+    "category": "3d",
+    "year": null,
+    "scope": [
+      "concept",
+      "design",
+      "visualization"
+    ],
+    "client": "Kavacha Garden",
+    "credit": "Justking Solutions",
+    "signature": false,
+    "youtubeIds": [
+      "awoQ71d9FA4"
+    ],
+    "images": [
+      {
+        "src": "/work/kavacha-garden/01-pavilion-walk.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A paved walk between timber-clad pavilions, with planters of birds of paradise and a person walking toward red planting.",
+        "title": "Pavilion walk",
+        "hero": true
+      },
+      {
+        "src": "/work/kavacha-garden/02-lion-crest.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A timber screen wall with a gold lion crest lettered Kavacha, palms, flowers and a white car.",
+        "title": "Lion crest",
+        "hero": false
+      },
+      {
+        "src": "/work/kavacha-garden/03-garden-2.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A further view of the Kavacha Garden pavilions and planting.",
+        "title": "Garden 2",
+        "hero": false
+      },
+      {
+        "src": "/work/kavacha-garden/04-garden-12.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "Another landscape view at Kavacha Garden.",
+        "title": "Garden 12",
+        "hero": false
+      },
+      {
+        "src": "/work/kavacha-garden/05-garden-19.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A supporting still of Kavacha Garden.",
+        "title": "Garden 19",
+        "hero": false
+      },
+      {
+        "src": "/work/kavacha-garden/06-garden-20.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A further supporting still of Kavacha Garden.",
+        "title": "Garden 20",
+        "hero": false
+      }
+    ]
+  },
+  {
+    "name": "L-Shaped",
+    "folder": "l-shaped",
+    "category": "3d",
+    "year": null,
+    "scope": [
+      "visualization"
+    ],
+    "client": null,
+    "credit": null,
+    "signature": false,
+    "youtubeIds": [
+      "JntxnlI-05Q"
+    ],
+    "images": [
+      {
+        "src": "/work/l-shaped/01-courtyard-houses.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A row of contemporary courtyard houses with white and black volumes, wood cladding, rooftop planters, parked cars and a lawn in front.",
+        "title": "Courtyard houses",
+        "hero": true
+      },
+      {
+        "src": "/work/l-shaped/02-courtyard-houses-3.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A further view of the L-shaped courtyard houses.",
+        "title": "Courtyard houses 3",
+        "hero": false
+      },
+      {
+        "src": "/work/l-shaped/03-panorama.jpg",
+        "width": 2400,
+        "height": 1200,
+        "alt": "A panoramic view of the L-shaped house scheme.",
+        "title": "Panorama",
+        "hero": false
+      }
+    ]
+  },
+  {
+    "name": "Windi",
+    "folder": "windi",
+    "category": "3d",
+    "year": null,
+    "scope": [
+      "visualization"
+    ],
+    "client": null,
+    "credit": null,
+    "signature": false,
+    "youtubeIds": [
+      "4R3iCfezymk"
+    ],
+    "images": [
+      {
+        "src": "/work/windi/01-living-room.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A formal living room with spiral crystal pendants, a TV wall with timber shelves, pale sofas, and sheer and mustard curtains.",
+        "title": "Living room",
+        "hero": true
+      },
+      {
+        "src": "/work/windi/02-living-room-9.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A further view of the Windi living room.",
+        "title": "Living room 9",
+        "hero": false
+      },
+      {
+        "src": "/work/windi/03-kitchen.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A white shaker kitchen with a marble island and worktops and a black range and hood.",
+        "title": "Kitchen",
+        "hero": false
+      },
+      {
+        "src": "/work/windi/04-walk-in-closet.jpg",
+        "width": 2400,
+        "height": 1350,
+        "alt": "A walk-in closet interior from the Windi project.",
+        "title": "Walk-in closet",
+        "hero": false
+      }
+    ]
+  },
+  {
+    "name": "Tusnny",
+    "folder": "tusnny",
+    "category": "2d",
+    "year": null,
+    "scope": [],
+    "client": "Tusnny",
+    "credit": null,
+    "signature": false,
+    "youtubeIds": [],
+    "images": [
+      {
+        "src": "/work/tusnny/01-billboard-mockup.jpg",
+        "width": 2400,
+        "height": 1800,
+        "alt": "A teal billboard on a sunlit brick wall, expanding the Tusnny acronym as Technology-Unified Solutions for Networking and Nurturing Youth and showing tusnny.com.",
+        "title": "Billboard mockup",
+        "hero": true
+      },
+      {
+        "src": "/work/tusnny/02-primary-logo.png",
+        "width": 2000,
+        "height": 500,
+        "alt": "The Tusnny wordmark in teal on black, with the letter t drawn as a raised fist holding a bar.",
+        "title": "Primary logo",
+        "hero": false
+      },
+      {
+        "src": "/work/tusnny/03-primary-logo-2.png",
+        "width": 2000,
+        "height": 500,
+        "alt": "An alternate treatment of the Tusnny primary logo.",
+        "title": "Primary logo alternate",
+        "hero": false
+      },
+      {
+        "src": "/work/tusnny/04-secondary-logo.png",
+        "width": 2000,
+        "height": 600,
+        "alt": "The Tusnny secondary logo.",
+        "title": "Secondary logo",
+        "hero": false
+      },
+      {
+        "src": "/work/tusnny/05-colors.png",
+        "width": 1250,
+        "height": 1000,
+        "alt": "The Tusnny colour board.",
+        "title": "Colour board",
+        "hero": false
+      },
+      {
+        "src": "/work/tusnny/06-stationery-mockup.jpg",
+        "width": 2400,
+        "height": 1800,
+        "alt": "A branded stationery set for Tusnny, including a folder, letterhead, tape, a key ring, cards and illustrated prints on a pale grey background.",
+        "title": "Stationery mockup",
+        "hero": false
+      }
+    ]
+  },
+  {
+    "name": "Infra-Tech Capital",
+    "folder": "infra-tech-capital",
+    "category": "2d",
+    "year": null,
+    "scope": [],
+    "client": "Infra-Tech Capital Services Limited",
+    "credit": null,
+    "signature": false,
+    "youtubeIds": [],
+    "images": [
+      {
+        "src": "/work/infra-tech-capital/01-logo-horizontal.png",
+        "width": 2000,
+        "height": 2000,
+        "alt": "The Infra-Tech Capital Services Limited horizontal lockup, with an ITC monogram and a red bar through the T, on black.",
+        "title": "Horizontal logo",
+        "hero": true
+      },
+      {
+        "src": "/work/infra-tech-capital/02-logo-vertical.png",
+        "width": 2000,
+        "height": 2000,
+        "alt": "The Infra-Tech Capital Services Limited vertical lockup.",
+        "title": "Vertical logo",
+        "hero": false
+      },
+      {
+        "src": "/work/infra-tech-capital/03-symbol.png",
+        "width": 2000,
+        "height": 2000,
+        "alt": "The Infra-Tech Capital symbol on its own.",
+        "title": "Symbol",
+        "hero": false
+      },
+      {
+        "src": "/work/infra-tech-capital/04-business-card-front.jpg",
+        "width": 2116,
+        "height": 1216,
+        "alt": "The front of an Infra-Tech Capital business card, showing the ITC logo and company name on a repeating monogram pattern, with no contact details.",
+        "title": "Business card front",
+        "hero": false
+      }
+    ]
+  },
+  {
+    "name": "Graphics Design Portfolio",
+    "folder": "graphics-design-portfolio",
+    "category": "2d",
+    "year": null,
+    "scope": [],
+    "client": null,
+    "credit": null,
+    "signature": false,
+    "youtubeIds": [],
+    "images": [
+      {
+        "src": "/work/graphics-design-portfolio/01-cover.jpg",
+        "width": 2400,
+        "height": 1351,
+        "alt": "A textured cover page titled Portfolio, 2024–25, with a quill mark and the categories Logofolio, Branding, Social Media and Motion.",
+        "title": "Cover",
+        "hero": true
+      },
+      {
+        "src": "/work/graphics-design-portfolio/02-index.jpg",
+        "width": 2400,
+        "height": 1351,
+        "alt": "An index page listing four sections: Logofolio, Branding, Social Media Design and Motion.",
+        "title": "Index",
+        "hero": false
+      },
+      {
+        "src": "/work/graphics-design-portfolio/03-logofolio-opener.jpg",
+        "width": 2400,
+        "height": 1351,
+        "alt": "A section opener titled Logofolio, covering wordmark, icon and typography, numbered 01.",
+        "title": "Logofolio opener",
+        "hero": false
+      },
+      {
+        "src": "/work/graphics-design-portfolio/04-logo-grid.jpg",
+        "width": 2400,
+        "height": 1351,
+        "alt": "A grid of nine logos, including GSOM, Gethsemane, Leads Glazing, 3D VGIS, Faith Flavours, Peniel Barber Shop, Prodserv, Arwin Business School and BN Build Now.",
+        "title": "Logo grid",
+        "hero": false
+      },
+      {
+        "src": "/work/graphics-design-portfolio/05-branding-opener.jpg",
+        "width": 2400,
+        "height": 1351,
+        "alt": "A section opener titled Branding, listing business card, letterhead, ID card, envelope, billboard, mug and flyer.",
+        "title": "Branding opener",
+        "hero": false
+      },
+      {
+        "src": "/work/graphics-design-portfolio/06-custom-elements.jpg",
+        "width": 2400,
+        "height": 1351,
+        "alt": "A spread of custom title treatments and typographic elements used across projects, including The House of Prayer and related church graphics.",
+        "title": "Custom elements",
+        "hero": false
+      },
+      {
+        "src": "/work/graphics-design-portfolio/07-faith-flavours.jpg",
+        "width": 2400,
+        "height": 1351,
+        "alt": "A table-top mockup of Faith Flavours bakery branding, with a paper bag, menu, card and packaging among pastries, cookies and a rolling pin.",
+        "title": "Faith Flavours branding",
+        "hero": false
+      },
+      {
+        "src": "/work/graphics-design-portfolio/08-leads-glazing.jpg",
+        "width": 2400,
+        "height": 1351,
+        "alt": "A flat-lay of Leads Glazing stationery and a mug, arranged with workshop tools on a concrete surface.",
+        "title": "Leads Glazing stationery",
+        "hero": false
+      },
+      {
+        "src": "/work/graphics-design-portfolio/09-social-media-opener.jpg",
+        "width": 2400,
+        "height": 1351,
+        "alt": "A section opener titled Social Media Designs, listing programme and event flyers, job ads and posts.",
+        "title": "Social media opener",
+        "hero": false
+      },
+      {
+        "src": "/work/graphics-design-portfolio/10-white-avenue-flyers.jpg",
+        "width": 2400,
+        "height": 1351,
+        "alt": "A collage of social flyers for White Avenue Real Estates, including hiring posts, Workers’ Day, Eid and Independence Day designs.",
+        "title": "White Avenue social flyers",
+        "hero": false
+      },
+      {
+        "src": "/work/graphics-design-portfolio/11-gethsemane-flyers.jpg",
+        "width": 2400,
+        "height": 1351,
+        "alt": "A grid of event flyers for Gethsemane Kingdom Network International, including communion, Sunday experience and birthday designs.",
+        "title": "Gethsemane flyers",
+        "hero": false
+      },
+      {
+        "src": "/work/graphics-design-portfolio/12-fbi-awards.jpg",
+        "width": 2400,
+        "height": 1351,
+        "alt": "A set of social graphics for the FBI Awards for Influence, including winner announcements, category boards and certificate layouts.",
+        "title": "FBI Awards social flyers",
+        "hero": false
+      },
+      {
+        "src": "/work/graphics-design-portfolio/13-motion-opener.jpg",
+        "width": 2400,
+        "height": 1351,
+        "alt": "A section opener titled Motion, covering animated elements, animated logos and basic motion graphics.",
+        "title": "Motion opener",
+        "hero": false
+      }
+    ]
+  },
+  {
+    "name": "Skyframe XR",
+    "folder": "skyframe",
+    "category": "xr",
+    "year": null,
+    "scope": [],
+    "client": null,
+    "credit": null,
+    "signature": false,
+    "youtubeIds": [],
+    "images": [
+      {
+        "src": "/skyframe/cover.jpg",
+        "width": 1697,
+        "height": 2400,
+        "alt": "A dotted cover page with the Skyframe XR wordmark, the line Real Estate Technology, and Powered By Arkfield & VGIS at the foot.",
+        "title": "Cover",
+        "hero": true
+      },
+      {
+        "src": "/skyframe/logo-horizontal.png",
+        "width": 1000,
+        "height": 1000,
+        "alt": "The Skyframe XR horizontal mark: a black bar with a white headset icon and orange XR lettering.",
+        "title": "Horizontal logo",
+        "hero": false
+      },
+      {
+        "src": "/skyframe/logo-stacked.png",
+        "width": 1000,
+        "height": 1000,
+        "alt": "The stacked Skyframe logo: a white line drawing of an XR headset in a black circle with an orange ring, above the word Skyframe.",
+        "title": "Stacked logo",
+        "hero": false
+      }
+    ]
+  }
+];
 
-export const skyframeWalkthrough: string | null = null;
+export const skyframeWalkthrough: string | null = "/skyframe/walkthrough.mp4";

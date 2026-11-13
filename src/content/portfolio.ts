@@ -167,7 +167,7 @@ const xrTiles: PortfolioItem[] = skyframeWalkthrough
         id: "skyframe-walkthrough",
         title: "Skyframe XR walkthrough",
         category: "xr",
-        image: { src: "/skyframe/cover.jpg", width: 1200, height: 1600, alt: "Skyframe XR cover: the Skyframe XR wordmark with the line Real Estate Technology" },
+        image: { src: "/skyframe/cover.jpg", width: 1697, height: 2400, alt: "Skyframe XR cover: the Skyframe XR wordmark with the line Real Estate Technology" },
         video: { mp4: skyframeWalkthrough },
         placeholder: false,
         service: "skyframe-xr",

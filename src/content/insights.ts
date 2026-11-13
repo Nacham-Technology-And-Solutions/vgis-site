@@ -31,7 +31,7 @@ export const insights: Insight[] = [
     date: "2026-11-13",
     service: "architectural-visualization",
     related: ["skyframe-xr"],
-    image: "residential-exterior-1",
+    image: "p-st-helen-hotel",
     readingMinutes: 5,
     intro:
       "A construction project begins as drawings: plans, sections and elevations that professionals can read and most clients cannot. Photorealistic 3D visualisation closes that gap. It shows the finished building, in its setting, before a single block is laid, so every decision that follows is made with the result in view.",
@@ -77,7 +77,7 @@ export const insights: Insight[] = [
     date: "2026-11-13",
     service: "architectural-visualization",
     related: ["cinematic-walkthroughs", "brand-identity"],
-    image: "living-interior-1",
+    image: "p-white-avenue-real-estate",
     readingMinutes: 5,
     intro:
       "Selling off-plan means asking buyers and investors to commit to a building they cannot visit. Floor plans and artist's sketches leave too much to the imagination. Photorealistic visualisation gives them something concrete to commit to: the finished home, its interiors, its amenities and its surroundings.",
@@ -120,7 +120,7 @@ export const insights: Insight[] = [
     date: "2026-11-13",
     service: "cinematic-walkthroughs",
     related: ["property-adverts", "skyframe-xr"],
-    image: "launch-film",
+    image: "v-royal-assisted-living-0",
     readingMinutes: 4,
     intro:
       "A still render answers the question: what does it look like? A walkthrough film answers a different one: what is it like to move through it? For developments, hospitality projects and complex buildings, that second question often decides the sale.",
@@ -156,7 +156,7 @@ export const insights: Insight[] = [
     date: "2026-11-13",
     service: "skyframe-xr",
     related: ["cinematic-walkthroughs", "architectural-visualization"],
-    image: "xr-experience",
+    image: "skyframe-walkthrough",
     readingMinutes: 4,
     intro:
       "A walkthrough film follows a path chosen by the director. An interactive experience hands control to the viewer. With Skyframe XR, a partnership between Arkfield Realty and VGIS, buyers, investors and clients explore a building at their own pace, in virtual or augmented reality, and look closely at what matters to them.",
@@ -230,7 +230,7 @@ export const insights: Insight[] = [
     date: "2026-11-13",
     service: "brand-identity",
     related: ["graphic-design", "architectural-visualization"],
-    image: "brand-system-1",
+    image: "p-tusnny",
     readingMinutes: 4,
     intro:
       "A development is a product, and buyers judge products by how they are presented. A name and a logo are a start. A brand identity (narrative, logo, typography, colour and the rules that hold them together) is what makes every brochure, hoarding, advert and render feel like it belongs to the same serious, organised project.",
@@ -272,7 +272,7 @@ export const insights: Insight[] = [
     date: "2026-11-13",
     service: "property-adverts",
     related: ["motion-graphics", "cinematic-walkthroughs"],
-    image: "concept-film",
+    image: "v-spicy-kingdom-0",
     readingMinutes: 4,
     intro:
       "A visualisation project produces a 3D model of the development. From that one model, a campaign can draw stills, carousels, reels, walkthrough clips, concept films, billboards and presentation material. Planning the campaign at the start gets far more from the same investment.",

@@ -151,7 +151,8 @@ export const skyframe = {
 
   /** Media from the owner's asset PR (public/skyframe/...), picked up automatically from the manifest import. */
   media: {
-    logo: skyframeAsset("logo-horizontal"),
+    // Trimmed web copy of the owner's horizontal logo (original keeps 1000x1000 canvas padding).
+    logo: skyframeAsset("logo-horizontal") ? { src: "/skyframe/logo-horizontal-web.png", width: 778, height: 148 } : undefined,
     video: skyframeWalkthrough ? { mp4: skyframeWalkthrough, poster: skyframeAsset("cover")?.src } : undefined,
   } as {
     logo?: { src: string; width: number; height: number };

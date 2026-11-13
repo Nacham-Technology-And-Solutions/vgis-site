@@ -63,7 +63,7 @@ export default function SkyframePage() {
             <Breadcrumbs items={[{ name: "Skyframe XR", path }]} />
             {x.media.logo ? (
               <span className="mt-10 inline-block bg-paper px-4 py-3">
-                <Image src={x.media.logo.src} alt="Skyframe XR" width={x.media.logo.width} height={x.media.logo.height} priority className="h-12 w-auto" />
+                <Image src={x.media.logo.src} alt="Skyframe XR" width={x.media.logo.width} height={x.media.logo.height} priority className="h-10 w-auto sm:h-12" />
               </span>
             ) : (
               <p className="mt-10 font-display text-4xl tracking-wide">
