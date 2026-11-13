@@ -28,7 +28,7 @@ export const companyFaqs: Faq[] = [
   },
   {
     q: "What is Skyframe XR?",
-    a: "Skyframe XR is a real estate virtual experience, a partnership between Arkfield Realty and VGIS. Clients walk through an off-plan development or a bare plot in AR or VR, in its completed form, before a single block is laid.",
+    a: "Skyframe XR by VGIS is a real estate virtual experience. Clients walk through an off-plan development or a bare plot in AR or VR, in its completed form, before a single block is laid.",
   },
   {
     q: "How does a VGIS project start?",

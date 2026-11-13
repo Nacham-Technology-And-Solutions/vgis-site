@@ -1,5 +1,8 @@
 import { manifestProjects, skyframeWalkthrough } from "./work.generated";
 
+/** Flip to true when the cleaned walkthrough video (no third-party logo) has been pushed. */
+export const SKYFRAME_VIDEO_CLEARED = false;
+
 function skyframeAsset(name: string) {
   const img = manifestProjects.find((m) => m.name === "Skyframe XR")?.images.find((i) => i.src.includes(`/skyframe/${name}`));
   return img ? { src: img.src, width: img.width, height: img.height } : undefined;
@@ -10,7 +13,8 @@ function skyframeAsset(name: string) {
  *
  * Source: the Skyframe XR brief Geburah compiled from Precious's files (Arkfield brochure, Skyframe XR 2.0
  * pitch deck, Real Forte proposal, cover, logos), 13 Nov 2026, channel messages #95-#98, plus the owner's
- * instruction (#99/#100) to present it as a PARTNERSHIP of Arkfield Realty and VGIS, credited equally.
+ * owner correction (#117, 13 Nov 2026): VGIS is the SOLE owner. Present it as "Skyframe XR by VGIS" and do not
+ * mention any other company. The cover artwork is not used (it carries third-party branding).
  *
  * Rules: public-safe content only. No figures (market size, client counts, LOIs), client names,
  * pricing/commercial terms, investor material or team members beyond what the owner approves.
@@ -20,9 +24,8 @@ function skyframeAsset(name: string) {
 
 export const skyframe = {
   name: "Skyframe XR",
-  partnership: "A partnership between Arkfield Realty & VGIS",
-  partnershipLong:
-    "Skyframe XR is a partnership between Arkfield Realty and Visual Graphics Illustration Services Ltd (VGIS).",
+  byline: "by VGIS®",
+  ownership: "Skyframe XR is developed and owned by Visual Graphics Illustration Services Ltd (VGIS).",
   category: "Real Estate Technology", // cover subtitle
 
   /** Pitch deck tagline (verbatim). */
@@ -129,11 +132,11 @@ export const skyframe = {
   faqs: [
     {
       q: "What is Skyframe XR?",
-      a: "Skyframe XR is a real estate virtual experience that lets clients preview a property, whether an off-plan development or a bare plot, in its completed form before a single block is laid. It is a partnership between Arkfield Realty and VGIS.",
+      a: "Skyframe XR by VGIS is a real estate virtual experience that lets clients preview a property, whether an off-plan development or a bare plot, in its completed form before a single block is laid.",
     },
     {
       q: "Who is behind Skyframe XR?",
-      a: "Skyframe XR is a partnership between Arkfield Realty and Visual Graphics Illustration Services Ltd (VGIS).",
+      a: "Skyframe XR is developed and owned by Visual Graphics Illustration Services Ltd (VGIS), the Abuja-based design and 3D visualisation studio.",
     },
     {
       q: "What equipment do clients need?",
@@ -153,9 +156,14 @@ export const skyframe = {
   media: {
     // Trimmed web copy of the owner's horizontal logo (original keeps 1000x1000 canvas padding).
     logo: skyframeAsset("logo-horizontal") ? { src: "/skyframe/logo-horizontal-web.png", width: 778, height: 148 } : undefined,
-    video: skyframeWalkthrough ? { mp4: skyframeWalkthrough, poster: skyframeAsset("cover")?.src } : undefined,
+    // HOLD (owner, #117): the current walkthrough has a third-party logo burned in. Set SKYFRAME_VIDEO_CLEARED
+    // to true only once the cleaned public/skyframe/walkthrough.mp4 has replaced it.
+    video: SKYFRAME_VIDEO_CLEARED && skyframeWalkthrough ? { mp4: skyframeWalkthrough } : undefined,
+    /** Shown in the hero while there is no video. */
+    mark: skyframeAsset("logo-stacked"),
   } as {
     logo?: { src: string; width: number; height: number };
+    mark?: { src: string; width: number; height: number };
     video?: { mp4?: string; youtubeId?: string; poster?: string };
   },
 };

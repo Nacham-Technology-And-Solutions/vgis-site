@@ -173,9 +173,9 @@ export const services: Service[] = [
     name: "Skyframe XR: interactive AR & VR",
     seoTitle: "Skyframe XR: AR & VR Real Estate Walkthroughs",
     description:
-      "Skyframe XR, a partnership between Arkfield Realty & VGIS, lets buyers walk through off-plan developments and bare land in AR and VR before construction.",
+      "Skyframe XR by VGIS lets buyers walk through off-plan developments and bare land in AR and VR before construction.",
     answer:
-      "Skyframe XR is a real estate virtual experience that enables live, on-the-go previews of property offerings, whether off-plan developments or bare plots. It gives clients a firsthand, 360° experience of the project in its completed form before a single block is laid. Skyframe XR is a partnership between Arkfield Realty and VGIS.",
+      "Skyframe XR is a real estate virtual experience that enables live, on-the-go previews of property offerings, whether off-plan developments or bare plots. It gives clients a firsthand, 360° experience of the project in its completed form before a single block is laid. Skyframe XR is developed and owned by VGIS.",
     deliverables: [
       "On-site AR/VR walkthroughs on the actual land",
       "1:1 scale virtual walkthroughs",
@@ -188,7 +188,7 @@ export const services: Service[] = [
     faqs: [
       {
         q: "What is Skyframe XR?",
-        a: "Skyframe XR is a real estate virtual experience that lets clients preview a property, whether an off-plan development or a bare plot, in its completed form before a single block is laid. It is a partnership between Arkfield Realty and VGIS.",
+        a: "Skyframe XR is a real estate virtual experience that lets clients preview a property, whether an off-plan development or a bare plot, in its completed form before a single block is laid. Skyframe XR is developed and owned by VGIS.",
       },
       {
         q: "Can buyers abroad use it?",

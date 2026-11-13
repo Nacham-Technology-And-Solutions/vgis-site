@@ -9,7 +9,7 @@ import { AnswerBox, Breadcrumbs, CtaBand, FaqList, ProjectCard, SectionHead } fr
 import { SampleBadge } from "@/components/portfolio";
 import { WhatsAppIcon, WhatsAppLink } from "@/components/WhatsApp";
 import { JsonLd } from "@/components/JsonLd";
-import { faqSchema, graph, ids, serviceSchema, webPageSchema } from "@/lib/schema";
+import { faqSchema, graph, serviceSchema, webPageSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
 
 /**
@@ -19,7 +19,7 @@ import { pageMetadata } from "@/lib/seo";
 const s = getService("skyframe-xr")!;
 const path = serviceHref(s);
 const description =
-  "Skyframe XR, a partnership between Arkfield Realty & VGIS: on-site AR/VR and 1:1 virtual walkthroughs that let buyers experience a property before a single block is laid.";
+  "Skyframe XR by VGIS: on-site AR/VR and 1:1 virtual walkthroughs that let buyers experience a property before a single block is laid.";
 
 export const metadata = pageMetadata({ title: "Skyframe XR: Walk Through Tomorrow, Today", description, path });
 
@@ -49,8 +49,6 @@ export default function SkyframePage() {
           {
             ...serviceSchema(s),
             brand: { "@type": "Brand", name: x.name, slogan: x.tagline },
-            // Partnership: both parties credited equally.
-            provider: [{ "@type": "Organization", name: "Arkfield Realty" }, { "@id": ids.org }],
           },
           faqSchema(x.faqs),
         )}
@@ -70,7 +68,7 @@ export default function SkyframePage() {
                 SKYFRAME <span className="text-orange">XR</span>
               </p>
             )}
-            <p className="mt-3 text-sm font-semibold uppercase tracking-[0.14em] text-ink-muted">{x.partnership}</p>
+            <p className="mt-3 text-sm font-semibold uppercase tracking-[0.14em] text-ink-muted">{x.name} {x.byline}</p>
             <h1 className="mt-6 text-6xl sm:text-8xl">{x.tagline}</h1>
             <p className="mt-6 max-w-xl text-lg text-ink-muted">{x.hooks.imagine}</p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -89,6 +87,10 @@ export default function SkyframePage() {
               />
             ) : video?.mp4 ? (
               <video src={video.mp4} poster={video.poster} controls playsInline preload="metadata" className="absolute inset-0 h-full w-full object-cover" />
+            ) : x.media.mark ? (
+              <div className="absolute inset-0 bg-paper">
+                <Image src={x.media.mark.src} alt="Skyframe XR logo" fill priority sizes="(min-width: 1024px) 40vw, 100vw" className="object-contain" />
+              </div>
             ) : (
               sample && (
                 <>
@@ -196,17 +198,11 @@ export default function SkyframePage() {
         </div>
       </section>
 
-      {/* Partnership */}
+      {/* Ownership */}
       <section className="band">
-        <div className="wrap grid gap-8 py-16 sm:py-20 lg:grid-cols-[1fr_1.2fr] lg:items-center">
-          <div>
-            <p className="eyebrow">The partnership</p>
-            <h2 className="mt-3 text-5xl sm:text-6xl">Arkfield Realty & VGIS</h2>
-          </div>
-          <div>
-            <p className="text-lg text-ink-muted">{x.partnershipLong}</p>
-            <p className="mt-4 font-display text-3xl">&ldquo;{x.hooks.trust}&rdquo;</p>
-          </div>
+        <div className="wrap py-14">
+          <p className="max-w-3xl text-lg text-ink-muted">{x.ownership}</p>
+          <p className="mt-4 font-display text-3xl">&ldquo;{x.hooks.trust}&rdquo;</p>
         </div>
       </section>
 

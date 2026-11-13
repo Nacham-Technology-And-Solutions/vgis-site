@@ -1,5 +1,5 @@
 import { projects } from "./projects";
-import { skyframeWalkthrough } from "./work.generated";
+import { skyframe } from "./skyframe";
 
 /**
  * PORTFOLIO: the single file for all visual work on the site.
@@ -161,19 +161,21 @@ const videoTiles: PortfolioItem[] = realProjects
     })),
   );
 
-const xrTiles: PortfolioItem[] = skyframeWalkthrough
-  ? [
-      {
-        id: "skyframe-walkthrough",
-        title: "Skyframe XR walkthrough",
-        category: "xr",
-        image: { src: "/skyframe/cover.jpg", width: 1697, height: 2400, alt: "Skyframe XR cover: the Skyframe XR wordmark with the line Real Estate Technology" },
-        video: { mp4: skyframeWalkthrough },
-        placeholder: false,
-        service: "skyframe-xr",
-      },
-    ]
-  : [];
+// Held with the video (owner, #117). The cover artwork is never used: it carries third-party branding.
+const xrTiles: PortfolioItem[] =
+  skyframe.media.video?.mp4 && skyframe.media.mark
+    ? [
+        {
+          id: "skyframe-walkthrough",
+          title: "Skyframe XR walkthrough",
+          category: "xr",
+          image: { ...skyframe.media.mark, alt: "Skyframe XR logo: a VR headset in an orange-ringed circle above the word SKYFRAME" },
+          video: { mp4: skyframe.media.video.mp4 },
+          placeholder: false,
+          service: "skyframe-xr",
+        },
+      ]
+    : [];
 
 const real = [...projectTiles, ...videoTiles, ...xrTiles];
 const hasReal = (c: PortfolioCategory) => real.some((r) => r.category === c);

@@ -125,7 +125,7 @@ export const offers: Offer[] = [
     slug: "vr-property-tours",
     name: "Skyframe XR: AR & VR property walkthroughs",
     audience: "Developers and real estate companies",
-    eyebrow: "Skyframe XR · Arkfield Realty & VGIS",
+    eyebrow: "Skyframe XR by VGIS",
     headline: "Walk through tomorrow, today.",
     subhead:
       "Skyframe XR lets clients stand on bare land, or step into an off-plan home, and see the finished development at life size in AR or VR, before a single block is laid.",
@@ -141,24 +141,24 @@ export const offers: Offer[] = [
     projects: ["cedarwood-city-estate"],
     services: ["skyframe-xr"],
     faqs: [
-      { q: "What is Skyframe XR?", a: "Skyframe XR is a real estate virtual experience, a partnership between Arkfield Realty and VGIS. Clients preview an off-plan development or a bare plot in its completed form before a single block is laid." },
+      { q: "What is Skyframe XR?", a: "Skyframe XR by VGIS is a real estate virtual experience. Clients preview an off-plan development or a bare plot in its completed form before a single block is laid." },
       { q: "What do you need from me?", a: "Your architectural plans and a written description of any special specifications you want captured. We agree the deliverables with you before development begins." },
       { q: "What is Skyframe XR 2.0?", a: "The new standalone platform: properties are optimised and hosted in the cloud, and clients tour them on a Meta Quest 3 headset with a unique Property Code. Ask us about availability for your project." },
     ],
     meta: {
-      title: "Skyframe XR: AR & VR Walkthroughs for Developers | Arkfield & VGIS",
-      description: "Let buyers walk through off-plan developments and bare land at life size in AR and VR. Skyframe XR, a partnership of Arkfield Realty & VGIS.",
+      title: "Skyframe XR: AR & VR Walkthroughs for Developers | VGIS®",
+      description: "Let buyers walk through off-plan developments and bare land at life size in AR and VR. Skyframe XR by VGIS.",
     },
     ads: {
       keywords: ["vr property tour", "virtual reality real estate nigeria", "off plan virtual walkthrough", "ar real estate", "vr walkthrough estate", "virtual site visit nigeria"],
       audiences: ["Job titles: developer, sales director, marketing director (real estate)", "Interests: virtual reality, proptech, real estate investment", "Real estate companies and architectural firms in Lagos and Abuja", "Diaspora investors: UK, US, Canada"],
-      headlines: ["Walk Through Tomorrow, Today", "Skyframe XR: Arkfield & VGIS", "See Your Estate on Bare Land", "1:1 Scale VR Walkthroughs", "AR & VR for Developers", "No More Selling Promises", "Book a Skyframe XR Demo", "Virtual Site Visits Abroad"],
+      headlines: ["Walk Through Tomorrow, Today", "Skyframe XR by VGIS", "See Your Estate on Bare Land", "1:1 Scale VR Walkthroughs", "AR & VR for Developers", "No More Selling Promises", "Book a Skyframe XR Demo", "Virtual Site Visits Abroad"],
       descriptions: [
         "Clients stand on bare land and see the finished estate at life size in AR or VR.",
         "1:1 walkthroughs and estate masterplans before a single block is laid.",
-        "Skyframe XR, a partnership of Arkfield Realty & VGIS. Message us on WhatsApp.",
+        "Skyframe XR by VGIS. Message us on WhatsApp to book a demo.",
       ],
-      primaryText: "Imagine standing on bare land… and seeing the future built before your eyes. Skyframe XR, a partnership of Arkfield Realty & VGIS, lets your buyers walk through your development at life size before construction. Message us for a demo.",
+      primaryText: "Imagine standing on bare land… and seeing the future built before your eyes. Skyframe XR by VGIS lets your buyers walk through your development at life size before construction. Message us for a demo.",
     },
   },
   {
