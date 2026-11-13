@@ -14,7 +14,9 @@ import { faqSchema, graph, serviceSchema, webPageSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
 
 /**
- * Skyframe XR product area. Owner decision (13 Nov 2026): Skyframe XR lives on the main site,
+ * Skyframe XR product area. PROVISIONAL: the owner will supply Skyframe XR specifics; until then
+ * every claim must trace to the company profile or the 80-reasons knowledge base. No invented
+ * features, pricing or clients. Owner decision (13 Nov 2026): Skyframe XR lives on the main site,
  * not on a subdomain. Copy draws on the service record and the 80-reasons knowledge base.
  */
 const s = getService("skyframe-xr")!;
@@ -25,7 +27,7 @@ const description =
 export const metadata = pageMetadata({ title: "Skyframe XR: Interactive VR & AR Walkthroughs", description, path });
 
 const experiences = [
-  { title: "Interactive VR walkthroughs", body: "Put on a headset and walk through the finished building at true scale, room by room, at your own pace." },
+  { title: "Interactive VR walkthroughs", body: "Walk through the finished building in virtual reality, at your own pace." },
   { title: "Augmented reality", body: "Place the proposed building or interior into the real world, so it can be judged in its real context." },
   { title: "Real-time 3D environments", body: "Explore freely on a screen, with no fixed camera path, and look closely at what matters to you." },
   { title: "Sales-suite walkthroughs", body: "Game-engine walkthroughs built for sales offices, showrooms and launch events." },
