@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getOffer, offers } from "@/content/offers";
 import { getProject } from "@/content/projects";
-import { getService } from "@/content/services";
+import { getService, serviceHref } from "@/content/services";
 import { processes } from "@/content/process";
 import { company } from "@/content/site";
 import { FaqList, ProjectCard, ProcessSteps } from "@/components/blocks";
@@ -158,7 +158,7 @@ export default async function OfferPage({ params }: Props) {
               More detail:{" "}
               {svcs.map((s, i) => (
                 <span key={s.slug}>
-                  <Link href={`/services/${s.slug}`} className="link-underline">{s.name}</Link>
+                  <Link href={serviceHref(s)} className="link-underline">{s.name}</Link>
                   {i < svcs.length - 1 ? ", " : ""}
                 </span>
               ))}

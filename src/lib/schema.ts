@@ -1,6 +1,6 @@
 import { SITE_URL, company, sameAs } from "@/content/site";
 import { leadership } from "@/content/team";
-import { services, type Faq, type Service } from "@/content/services";
+import { serviceHref, services, type Faq, type Service } from "@/content/services";
 import type { Project } from "@/content/projects";
 
 /** Stable @id values let every page reference the same entities (entity consistency for search/AI). */
@@ -105,11 +105,11 @@ export function websiteSchema() {
 export function serviceSchema(s: Service) {
   return {
     "@type": "Service",
-    "@id": `${SITE_URL}/services/${s.slug}#service`,
+    "@id": `${SITE_URL}${serviceHref(s)}#service`,
     name: s.name,
     serviceType: s.name,
     description: s.answer,
-    url: `${SITE_URL}/services/${s.slug}`,
+    url: `${SITE_URL}${serviceHref(s)}`,
     provider: { "@id": ids.org },
     areaServed: company.areaServed.map((name) => ({ "@type": "Country", name })),
     audience: s.forWho.map((a) => ({ "@type": "BusinessAudience", audienceType: a })),
@@ -131,7 +131,7 @@ export function serviceListSchema() {
     itemListElement: services.map((s, i) => ({
       "@type": "ListItem",
       position: i + 1,
-      url: `${SITE_URL}/services/${s.slug}`,
+      url: `${SITE_URL}${serviceHref(s)}`,
       name: s.name,
     })),
   };

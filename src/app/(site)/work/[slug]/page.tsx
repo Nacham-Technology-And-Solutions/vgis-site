@@ -3,7 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getProject, projects } from "@/content/projects";
-import { getService } from "@/content/services";
+import { getService, serviceHref } from "@/content/services";
 import { CtaBand, PageHero, ProjectCard, ProjectVisual, SectionHead } from "@/components/blocks";
 import { JsonLd } from "@/components/JsonLd";
 import { graph, projectSchema, webPageSchema } from "@/lib/schema";
@@ -61,7 +61,7 @@ export default async function ProjectPage({ params }: Props) {
             <dt className="eyebrow">Services</dt>
             <dd className="mt-1 space-y-1">
               {svc.map((s) => (
-                <Link key={s.slug} href={`/services/${s.slug}`} className="block text-base link-underline">{s.name}</Link>
+                <Link key={s.slug} href={serviceHref(s)} className="block text-base link-underline">{s.name}</Link>
               ))}
             </dd>
           </div>

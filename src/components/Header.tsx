@@ -20,8 +20,8 @@ export function Header() {
           </span>
         </Link>
 
-        <nav aria-label="Main" className="hidden md:block">
-          <ul className="flex items-center gap-7 text-[15px] font-medium">
+        <nav aria-label="Main" className="hidden lg:block">
+          <ul className="flex items-center gap-6 whitespace-nowrap text-[15px] font-medium xl:gap-7">
             {nav.map((n) => (
               <li key={n.href}>
                 <Link href={n.href} className="hover:link-underline">
@@ -42,7 +42,7 @@ export function Header() {
             Start a project
           </Link>
           {/* Mobile menu without client JS */}
-          <details className="relative md:hidden">
+          <details className="relative lg:hidden">
             <summary className="flex h-10 w-10 cursor-pointer list-none items-center justify-center border border-ink [&::-webkit-details-marker]:hidden" aria-label="Open menu">
               <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" strokeWidth="2" /></svg>
             </summary>

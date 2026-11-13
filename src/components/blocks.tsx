@@ -8,6 +8,7 @@ import { JsonLd } from "./JsonLd";
 import { breadcrumbSchema, graph } from "@/lib/schema";
 import { company, whatsapp } from "@/content/site";
 import { WhatsAppLink } from "./WhatsApp";
+import { serviceHref } from "@/content/services";
 
 /* ---------- Breadcrumbs (visible + BreadcrumbList schema) ---------- */
 export function Breadcrumbs({ items }: { items: { name: string; path: string }[] }) {
@@ -106,7 +107,7 @@ export function FaqList({ faqs, mobileLimit }: { faqs: Faq[]; mobileLimit?: numb
 /* ---------- Service card ---------- */
 export function ServiceCard({ s, index }: { s: Service; index: number }) {
   return (
-    <Link href={`/services/${s.slug}`} className="group flex h-full flex-col border border-line p-6 transition-colors hover:border-ink">
+    <Link href={serviceHref(s)} className="group flex h-full flex-col border border-line p-6 transition-colors hover:border-ink">
       <span className="font-display text-3xl text-orange-ink">{String(index + 1).padStart(2, "0")}</span>
       <h3 className="mt-6 text-3xl">{s.name}</h3>
       <p className="mt-3 flex-1 text-sm text-muted">{s.description}</p>

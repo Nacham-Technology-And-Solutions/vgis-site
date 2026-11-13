@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { services } from "@/content/services";
+import { services, serviceHref } from "@/content/services";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
@@ -18,7 +18,7 @@ export default function NotFound() {
           <li><Link href="/work" className="link-underline">Signature projects</Link></li>
           <li><Link href="/contact" className="link-underline">Contact</Link></li>
           {services.map((s) => (
-            <li key={s.slug}><Link href={`/services/${s.slug}`} className="link-underline">{s.name}</Link></li>
+            <li key={s.slug}><Link href={serviceHref(s)} className="link-underline">{s.name}</Link></li>
           ))}
         </ul>
       </div>

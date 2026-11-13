@@ -1,5 +1,5 @@
 import { SITE_URL, company, whatsapp } from "@/content/site";
-import { services, disciplines } from "@/content/services";
+import { services, disciplines, serviceHref } from "@/content/services";
 import { projects } from "@/content/projects";
 import { leadership } from "@/content/team";
 import { companyFaqs } from "@/content/faqs";
@@ -12,7 +12,7 @@ export function GET() {
   const svc = (d: "3d" | "2d" | "campaigns") =>
     services
       .filter((s) => s.discipline === d)
-      .map((s) => `- [${s.name}](${SITE_URL}/services/${s.slug}): ${s.answer}`)
+      .map((s) => `- [${s.name}](${SITE_URL}${serviceHref(s)}): ${s.answer}`)
       .join("\n");
 
   const body = `# ${company.shortName}® (${company.legalName})

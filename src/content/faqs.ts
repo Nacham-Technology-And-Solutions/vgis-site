@@ -1,5 +1,5 @@
 import type { Faq } from "./services";
-import { services } from "./services";
+import { services, serviceHref } from "./services";
 
 /**
  * Company-level questions. Answers are written answer-first (the first sentence answers
@@ -51,5 +51,5 @@ export const companyFaqs: Faq[] = [
 /** All FAQs on the site, grouped. Used by /faq and llms.txt. */
 export const allFaqGroups = [
   { title: "About VGIS", faqs: companyFaqs },
-  ...services.map((s) => ({ title: s.name, faqs: s.faqs, href: `/services/${s.slug}` })),
+  ...services.map((s) => ({ title: s.name, faqs: s.faqs, href: serviceHref(s) })),
 ];

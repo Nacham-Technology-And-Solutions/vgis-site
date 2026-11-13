@@ -36,7 +36,7 @@ and the Company Profile PDF. Owner decision (13 Nov 2026): use **®**, not ™.
 /services/architectural-visualization
 /services/product-visualization
 /services/cinematic-walkthroughs
-/services/skyframe-xr
+/skyframe-xr                        Skyframe XR product area (old /services/skyframe-xr redirects here)
 /services/brand-identity
 /services/graphic-design
 /services/motion-graphics
@@ -92,7 +92,7 @@ Phase 2 (after launch):
 2. **Project details:** location, client type, a one-line brief and outcome per project, and years for the 2D projects.
 3. **Leadership photos** (real, approved) for `/about`.
 4. **Testimonials:** genuine and attributable only.
-5. **Skyframe XR:** should `skyframexr.3dvgis.com` stay a separate site, or redirect to `/services/skyframe-xr`? Should `2d.3dvgis.com` redirect to `/services`? (Recommended: redirect both, to consolidate authority.)
+5. **Subdomains (decided 13 Nov):** `2d.3dvgis.com` and `skyframexr.3dvgis.com` are not pointed anywhere or added in Vercel. Precious handles `skyframexr` himself. Skyframe XR is a product area on the main site at `/skyframe-xr`.
 6. Opening hours for GBP and schema. (TikTok @3dvgis and X @3dvgis confirmed by Geburah on 13 Nov and added.)
 7. A **logo master** as a transparent PNG or SVG (current file is a flattened PNG).
 
@@ -107,7 +107,7 @@ Phase 2 (after launch):
    Make sure the Namecheap proxy is turned off for the apex, so Vercel can issue the certificate.
 5. Add `3dvgis.com` and `www.3dvgis.com` in Vercel. Set **apex as primary** and redirect `www` → apex.
 6. At the DNS host (cPanel or registrar): apex `A` → `76.76.21.21`, and `www` `CNAME` → `cname.vercel-dns.com`, or whatever Vercel shows. **Keep the MX, SPF, DKIM and DMARC records unchanged** so `info@3dvgis.com` email keeps working.
-7. Subdomains: point `2d` to Vercel and redirect to `/services`, if approved. Leave `skyframexr` until decided.
+7. Subdomains: no changes. Only `A @` and `www` change at cutover (owner decision, 13 Nov).
 8. After DNS propagates: check HTTPS, spot-check the legacy redirects, submit the sitemap in Search Console and Bing, and request indexing for the home and service pages.
 9. Disable the cPanel rsync workflow in `vgis-web` (`.github/workflows/deploy.yml`) and archive the repo.
 10. Watch Search Console coverage and 404s for 4 weeks. Add redirects for any old URLs that appear.

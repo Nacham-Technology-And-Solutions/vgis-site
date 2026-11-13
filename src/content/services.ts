@@ -6,6 +6,8 @@ export type Faq = { q: string; a: string };
 
 export type Service = {
   slug: string;
+  /** Override the default /services/<slug> URL (Skyframe XR lives at /skyframe-xr as a product area). */
+  path?: string;
   discipline: Discipline;
   name: string;
   /** Title-tag keyword phrase. Keep under ~45 chars; the layout appends " | VGIS". */
@@ -132,6 +134,7 @@ export const services: Service[] = [
   },
   {
     slug: "skyframe-xr",
+    path: "/skyframe-xr",
     discipline: "3d",
     name: "Skyframe XR: interactive AR & VR",
     seoTitle: "Skyframe XR: VR & AR Real Estate Experiences",
@@ -305,4 +308,6 @@ export const services: Service[] = [
 ];
 
 export const getService = (slug: string) => services.find((s) => s.slug === slug);
+/** Canonical URL path for a service. Always use this instead of building /services/<slug>. */
+export const serviceHref = (s: Pick<Service, "slug" | "path">) => s.path ?? `/services/${s.slug}`;
 export const servicesBy = (d: Discipline) => services.filter((s) => s.discipline === d);

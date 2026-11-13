@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 import { getInsight, insights } from "@/content/insights";
 import { reason } from "@/content/knowledge/80-reasons";
 import { portfolio } from "@/content/portfolio";
-import { getService } from "@/content/services";
+import { getService, serviceHref } from "@/content/services";
 import { company, whatsapp } from "@/content/site";
 import { Breadcrumbs } from "@/components/blocks";
 import { SampleBadge } from "@/components/portfolio";
@@ -59,7 +59,7 @@ export default async function InsightPage({ params }: Props) {
           author: { "@id": ids.org },
           publisher: { "@id": ids.org },
           mainEntityOfPage: absoluteUrl(path),
-          about: { "@id": `${absoluteUrl(`/services/${svc.slug}`)}#service` },
+          about: { "@id": `${absoluteUrl(serviceHref(svc))}#service` },
           ...(img ? { image: absoluteUrl(img.image.src) } : {}),
           inLanguage: "en",
         })}
@@ -69,7 +69,7 @@ export default async function InsightPage({ params }: Props) {
         <div className="wrap max-w-4xl pb-14 pt-10">
           <Breadcrumbs items={[{ name: "Insights", path: "/insights" }, { name: p.title, path }]} />
           <p className="eyebrow mt-10">
-            <Link href={`/services/${svc.slug}`} className="hover:text-paper">{svc.name}</Link>
+            <Link href={serviceHref(svc)} className="hover:text-paper">{svc.name}</Link>
           </p>
           <h1 className="mt-4 text-5xl sm:text-7xl">{p.title}</h1>
           <p className="mt-6 text-sm text-ink-muted">
@@ -122,7 +122,7 @@ export default async function InsightPage({ params }: Props) {
             <WhatsAppLink offerSlug={`insight-${p.slug}`} message={`Hello VGIS, I read "${p.title}" and I'd like to discuss ${svc.name.toLowerCase()}.`} className="btn border-[#25D366] bg-[#25D366] text-white hover:bg-[#1da851]">
               <WhatsAppIcon size={20} /> <span>WhatsApp {whatsapp.display}</span>
             </WhatsAppLink>
-            <Link href={`/services/${svc.slug}`} className="btn btn-ghost"><span>About this service</span></Link>
+            <Link href={serviceHref(svc)} className="btn btn-ghost"><span>About this service</span></Link>
             <Link href="/contact" className="btn btn-primary">Send a brief →</Link>
           </div>
           {related.length > 0 && (
@@ -130,7 +130,7 @@ export default async function InsightPage({ params }: Props) {
               Related:{" "}
               {related.map((r, i) => (
                 <span key={r.slug}>
-                  <Link href={`/services/${r.slug}`} className="link-underline">{r.name}</Link>
+                  <Link href={serviceHref(r)} className="link-underline">{r.name}</Link>
                   {i < related.length - 1 ? ", " : ""}
                 </span>
               ))}

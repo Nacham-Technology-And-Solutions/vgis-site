@@ -14,7 +14,7 @@ const legacy: [string, string][] = [
   ["/3d/portfolio-story.html", "/work/castries-redevelopment"],
   ["/3d/team.html", "/about"],
   ["/3d/blog.html", "/faq"],
-  ["/3d/blog-post.html", "/services/skyframe-xr"],
+  ["/3d/blog-post.html", "/skyframe-xr"],
   ["/3d/contact.html", "/contact"],
   // 2D studio
   ["/2d", "/services"],
@@ -47,12 +47,8 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      // Retired subdomains fold into the main site (active once their DNS points to Vercel
-      // and the domains are added to this project).
-      { source: "/:path*", has: [{ type: "host", value: "skyframexr.3dvgis.com" }], destination: "https://3dvgis.com/services/skyframe-xr", permanent: true },
-      { source: "/portfolio:rest(.*)", has: [{ type: "host", value: "2d.3dvgis.com" }], destination: "https://3dvgis.com/work?filter=2d", permanent: true },
-      { source: "/contact:rest(.*)", has: [{ type: "host", value: "2d.3dvgis.com" }], destination: "https://3dvgis.com/contact", permanent: true },
-      { source: "/:path*", has: [{ type: "host", value: "2d.3dvgis.com" }], destination: "https://3dvgis.com/services#2d", permanent: true },
+      // Skyframe XR is a product area on the main site.
+      { source: "/services/skyframe-xr", destination: "/skyframe-xr", permanent: true },
       ...legacy.flatMap(([from, to]) => [
         { source: from, destination: to, permanent: true },
         // also catch trailing-slash variants (e.g. /3d/)

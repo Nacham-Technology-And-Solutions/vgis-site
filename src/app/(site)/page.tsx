@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { company } from "@/content/site";
-import { disciplineOrder, disciplines, servicesBy } from "@/content/services";
+import { disciplineOrder, disciplines, servicesBy, serviceHref } from "@/content/services";
 import { projects } from "@/content/projects";
 import { companyFaqs } from "@/content/faqs";
 import { beforeAfter, featuredWork } from "@/content/portfolio";
@@ -66,7 +66,7 @@ export default function HomePage() {
               <ul className="mt-6 space-y-2">
                 {servicesBy(d).map((s) => (
                   <li key={s.slug}>
-                    <Link href={`/services/${s.slug}`} className="font-medium hover:link-underline">{s.name} →</Link>
+                    <Link href={serviceHref(s)} className="font-medium hover:link-underline">{s.name} →</Link>
                   </li>
                 ))}
               </ul>

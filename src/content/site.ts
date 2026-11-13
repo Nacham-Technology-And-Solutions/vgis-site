@@ -118,6 +118,7 @@ export const sameAs = [
 
 export const nav = [
   { href: "/services", label: "Services" },
+  { href: "/skyframe-xr", label: "Skyframe XR" },
   { href: "/work", label: "Work" },
   { href: "/process", label: "Process" },
   { href: "/insights", label: "Insights" },

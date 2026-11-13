@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { company, whatsapp } from "@/content/site";
 import { WhatsAppLink } from "./WhatsApp";
-import { services } from "@/content/services";
+import { services, serviceHref } from "@/content/services";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -16,7 +16,7 @@ export function Footer() {
             <ul className="mt-4 space-y-2 text-sm text-ink-muted">
               {services.map((s) => (
                 <li key={s.slug}>
-                  <Link className="hover:text-paper" href={`/services/${s.slug}`}>{s.name}</Link>
+                  <Link className="hover:text-paper" href={serviceHref(s)}>{s.name}</Link>
                 </li>
               ))}
             </ul>
