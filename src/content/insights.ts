@@ -152,14 +152,14 @@ export const insights: Insight[] = [
     slug: "interactive-vr-walkthroughs-skyframe-xr",
     title: "Interactive VR walkthroughs: letting clients explore before construction",
     description:
-      "How Skyframe XR, VGIS's interactive VR and AR service, lets buyers, investors and clients walk through a building freely before it is built.",
+      "How Skyframe XR, a partnership between Arkfield Realty & VGIS, lets buyers, investors and clients walk through a building freely before it is built.",
     date: "2026-11-13",
     service: "skyframe-xr",
     related: ["cinematic-walkthroughs", "architectural-visualization"],
     image: "xr-experience",
     readingMinutes: 4,
     intro:
-      "A walkthrough film follows a path chosen by the director. An interactive experience hands control to the viewer. With Skyframe XR, buyers, investors and clients explore a building at their own pace, in virtual or augmented reality, and look closely at what matters to them.",
+      "A walkthrough film follows a path chosen by the director. An interactive experience hands control to the viewer. With Skyframe XR, a partnership between Arkfield Realty and VGIS, buyers, investors and clients explore a building at their own pace, in virtual or augmented reality, and look closely at what matters to them.",
     sections: [
       {
         heading: "From viewers to participants",
