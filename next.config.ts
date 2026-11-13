@@ -51,6 +51,8 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       // Skyframe XR is a product area on the main site.
+      // The production vercel.app alias duplicates the site: send it to the real domain (previews keep their own hosts).
+      { source: "/:path*", has: [{ type: "host", value: "vgis-site.vercel.app" }], destination: "https://3dvgis.com/:path*", permanent: true },
       { source: "/services/skyframe-xr", destination: "/skyframe-xr", permanent: true },
       ...legacy.flatMap(([from, to]) => [
         { source: from, destination: to, permanent: true },
