@@ -6,7 +6,12 @@
     "category": "xr",
     "title": "Skyframe XR walkthrough",
     "bytes": 11601064,
-    "note": "Cleaned walkthrough: intro and outro Besitz Group cards trimmed; corner Besitz logo removed and replaced with a Skyframe XR watermark. The 'WE ARE SET INTRODUCE VIRTUAL REALITY INSPECTION' caption is retained. Skyframe XR is a VGIS product. 11.1 MB, under the 25 MB cap."
+    "note": "Cleaned walkthrough: intro and outro Besitz Group cards trimmed; corner Besitz logo removed and replaced with a Skyframe XR watermark. The 'WE ARE SET INTRODUCE VIRTUAL REALITY INSPECTION' caption is retained. Skyframe XR is a VGIS product. 11.1 MB, under the 25 MB cap. The VR demo uses the Spicy Kingdom project as its sample, so feature this video on the Spicy Kingdom project page as well.",
+    "featuredIn": [
+      "Skyframe XR",
+      "Spicy Kingdom"
+    ],
+    "sampleProject": "Spicy Kingdom (client: Spicy Palace, Ebuka Ugah, Bida, Niger State)"
   },
   "images": [
     {
@@ -1089,7 +1094,7 @@
       "title": "Dining room by day",
       "alt": "A dining room with orange chairs, clustered pendant lights, a service counter with timber slats and large windows.",
       "year": 2025,
-      "client": "Spicy Kingdom",
+      "client": "Spicy Palace",
       "credit": null,
       "scope": [
         "concept",
@@ -1101,7 +1106,10 @@
       "youtubeId": "7gzZxbAmEDo",
       "signature": false,
       "hero": true,
-      "clientPublic": true
+      "clientPublic": true,
+      "clientContact": "Ebuka Ugah",
+      "location": "Bida, Niger State, Nigeria",
+      "relatedVideo": "public/skyframe/walkthrough.mp4"
     },
     {
       "path": "public/work/spicy-kingdom/02-dining-day-17.jpg",
@@ -1110,7 +1118,7 @@
       "title": "Dining room by day 17",
       "alt": "A further daytime view of the Spicy Kingdom dining room and service area.",
       "year": 2025,
-      "client": "Spicy Kingdom",
+      "client": "Spicy Palace",
       "credit": null,
       "scope": [
         "concept",
@@ -1122,7 +1130,10 @@
       "youtubeId": "7gzZxbAmEDo",
       "signature": false,
       "hero": false,
-      "clientPublic": true
+      "clientPublic": true,
+      "clientContact": "Ebuka Ugah",
+      "location": "Bida, Niger State, Nigeria",
+      "relatedVideo": "public/skyframe/walkthrough.mp4"
     },
     {
       "path": "public/work/spicy-kingdom/03-dining-day-24.jpg",
@@ -1131,7 +1142,7 @@
       "title": "Dining room by day 24",
       "alt": "Another daytime interior of the restaurant, showing seating and the service counter.",
       "year": 2025,
-      "client": "Spicy Kingdom",
+      "client": "Spicy Palace",
       "credit": null,
       "scope": [
         "concept",
@@ -1143,7 +1154,10 @@
       "youtubeId": "7gzZxbAmEDo",
       "signature": false,
       "hero": false,
-      "clientPublic": true
+      "clientPublic": true,
+      "clientContact": "Ebuka Ugah",
+      "location": "Bida, Niger State, Nigeria",
+      "relatedVideo": "public/skyframe/walkthrough.mp4"
     },
     {
       "path": "public/work/spicy-kingdom/04-dining-day-37.jpg",
@@ -1152,7 +1166,7 @@
       "title": "Dining room by day 37",
       "alt": "A supporting daytime still of the Spicy Kingdom interior.",
       "year": 2025,
-      "client": "Spicy Kingdom",
+      "client": "Spicy Palace",
       "credit": null,
       "scope": [
         "concept",
@@ -1164,7 +1178,10 @@
       "youtubeId": "7gzZxbAmEDo",
       "signature": false,
       "hero": false,
-      "clientPublic": true
+      "clientPublic": true,
+      "clientContact": "Ebuka Ugah",
+      "location": "Bida, Niger State, Nigeria",
+      "relatedVideo": "public/skyframe/walkthrough.mp4"
     },
     {
       "path": "public/work/spicy-kingdom/05-dining-night.jpg",
@@ -1173,7 +1190,7 @@
       "title": "Dining room at dusk",
       "alt": "The same dining room at dusk, with pendant lights on and the windows darkened.",
       "year": 2025,
-      "client": "Spicy Kingdom",
+      "client": "Spicy Palace",
       "credit": null,
       "scope": [
         "concept",
@@ -1185,7 +1202,10 @@
       "youtubeId": "7gzZxbAmEDo",
       "signature": false,
       "hero": false,
-      "clientPublic": true
+      "clientPublic": true,
+      "clientContact": "Ebuka Ugah",
+      "location": "Bida, Niger State, Nigeria",
+      "relatedVideo": "public/skyframe/walkthrough.mp4"
     },
     {
       "path": "public/work/spicy-kingdom/06-dining-night-17.jpg",
@@ -1194,7 +1214,7 @@
       "title": "Dining room at dusk 17",
       "alt": "A further dusk view of the Spicy Kingdom dining room.",
       "year": 2025,
-      "client": "Spicy Kingdom",
+      "client": "Spicy Palace",
       "credit": null,
       "scope": [
         "concept",
@@ -1206,7 +1226,10 @@
       "youtubeId": "7gzZxbAmEDo",
       "signature": false,
       "hero": false,
-      "clientPublic": true
+      "clientPublic": true,
+      "clientContact": "Ebuka Ugah",
+      "location": "Bida, Niger State, Nigeria",
+      "relatedVideo": "public/skyframe/walkthrough.mp4"
     },
     {
       "path": "public/work/spicy-kingdom/07-dining-night-38.jpg",
@@ -1215,7 +1238,7 @@
       "title": "Dining room at dusk 38",
       "alt": "A supporting night still of the restaurant interior.",
       "year": 2025,
-      "client": "Spicy Kingdom",
+      "client": "Spicy Palace",
       "credit": null,
       "scope": [
         "concept",
@@ -1227,7 +1250,10 @@
       "youtubeId": "7gzZxbAmEDo",
       "signature": false,
       "hero": false,
-      "clientPublic": true
+      "clientPublic": true,
+      "clientContact": "Ebuka Ugah",
+      "location": "Bida, Niger State, Nigeria",
+      "relatedVideo": "public/skyframe/walkthrough.mp4"
     },
     {
       "path": "public/work/lucian-afri-complex/01-beauty-shopfront.jpg",
