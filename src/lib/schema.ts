@@ -85,6 +85,7 @@ export function personSchemas() {
     name: p.name,
     jobTitle: p.role,
     description: p.bio,
+    ...(p.photo ? { image: `${SITE_URL}${p.photo}` } : {}),
     worksFor: { "@id": ids.org },
   }));
 }

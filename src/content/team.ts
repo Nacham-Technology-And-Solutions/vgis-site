@@ -12,6 +12,7 @@ export const leadership: Person[] = [
     id: "precious-chikezie",
     name: "Precious Ebubechukwu Chikezie",
     role: "Director / CEO",
+    photo: "/team/precious-chikezie.jpg",
     bio: "Combines high-end 3D visualisation expertise with full-stack technical architecture to lead VGIS's digital and visual deployments.",
   },
   {

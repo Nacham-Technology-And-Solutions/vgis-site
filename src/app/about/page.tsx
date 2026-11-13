@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { company } from "@/content/site";
 import { leadership } from "@/content/team";
 import { AnswerBox, CtaBand, PageHero, SectionHead } from "@/components/blocks";
@@ -62,7 +63,13 @@ export default function AboutPage() {
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {leadership.map((p) => (
               <article key={p.id} id={p.id} className="scroll-mt-24 border border-line p-6">
-                <div className="band flex h-20 w-20 items-center justify-center font-display text-4xl" aria-hidden="true">{initials(p.name)}</div>
+                {p.photo ? (
+                  <div className="relative aspect-[4/5] w-full overflow-hidden bg-panel">
+                    <Image src={p.photo} alt={p.name} fill sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" className="object-cover" />
+                  </div>
+                ) : (
+                  <div className="band flex aspect-[4/5] w-full items-center justify-center font-display text-7xl" aria-hidden="true">{initials(p.name)}</div>
+                )}
                 <h3 className="mt-6 text-3xl">{p.name}</h3>
                 <p className="eyebrow mt-1">{p.role}</p>
                 <p className="mt-3 text-sm text-muted">{p.bio}</p>
