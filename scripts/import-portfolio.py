@@ -8,7 +8,7 @@ Run from the repo root after adding or changing portfolio images:
 - Reads real pixel dimensions from each file (Pillow), so next/image gets correct sizes.
 - Groups images by project; hero image first.
 - Publishes only public-safe fields. `scopeNote` is internal and is NEVER written out.
-- Client names are kept only when clientPublic is true. `clientContact` (a private person) is never written out.
+- Client names, and the client contact person (`clientContact`), are kept only when clientPublic is true.
 - `location` and `relatedVideo` (a local MP4, e.g. the Skyframe XR demo) are carried per project.
 """
 import json
@@ -46,6 +46,7 @@ for item in data["images"]:
             "year": item.get("year"),
             "scope": item.get("scope") or [],
             "client": item.get("client") if item.get("clientPublic") else None,
+            "contact": item.get("clientContact") if item.get("clientPublic") else None,
             "credit": item.get("credit"),
             "signature": bool(item.get("signature")),
             "youtubeIds": [],
@@ -89,7 +90,7 @@ header = (
     "export type ManifestImage = { src: string; width: number; height: number; alt: string; title: string; hero: boolean };\n"
     "export type ManifestProject = {\n"
     "  name: string; folder: string; category: string; year: number | null; scope: string[];\n"
-    "  client: string | null; credit: string | null; signature: boolean; youtubeIds: string[];\n"
+    "  client: string | null; contact: string | null; credit: string | null; signature: boolean; youtubeIds: string[];\n"
     "  videos: string[]; location: string | null; images: ManifestImage[];\n"
     "};\n"
 )

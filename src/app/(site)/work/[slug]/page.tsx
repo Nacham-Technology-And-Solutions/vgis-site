@@ -102,6 +102,7 @@ export default async function ProjectPage({ params }: Props) {
               <dt className="eyebrow">Client</dt>
               <dd className="mt-1 text-base">
                 {p.client.url ? <a href={p.client.url} target="_blank" rel="noopener noreferrer" className="link-underline">{p.client.name}</a> : p.client.name}
+                {p.client.contact && <span className="block text-sm text-muted">Contact: {p.client.contact}</span>}
               </dd>
             </div>
           )}

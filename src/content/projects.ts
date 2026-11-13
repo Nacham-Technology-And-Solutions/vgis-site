@@ -21,7 +21,7 @@ export type Project = {
   /** Featured in the signature-work section. */
   signature?: boolean;
   location?: string;
-  client?: { name: string; url?: string };
+  client?: { name: string; url?: string; contact?: string };
   /** Other names this project has been published under (kept for search and redirects). */
   aka?: string[];
   /** YouTube walkthrough/film IDs (@3DVGIS). */
@@ -214,7 +214,7 @@ function attach(p: Project, m: ManifestProject): Project {
             : { mp4, title: "Project video" },
         )
       : p.videos,
-    client: p.client ?? (m.client && m.client !== m.name ? { name: m.client } : undefined),
+    client: p.client ?? (m.client && m.client !== m.name ? { name: m.client, ...(m.contact ? { contact: m.contact } : {}) } : undefined),
   };
 }
 

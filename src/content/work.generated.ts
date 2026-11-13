@@ -2,7 +2,7 @@
 export type ManifestImage = { src: string; width: number; height: number; alt: string; title: string; hero: boolean };
 export type ManifestProject = {
   name: string; folder: string; category: string; year: number | null; scope: string[];
-  client: string | null; credit: string | null; signature: boolean; youtubeIds: string[];
+  client: string | null; contact: string | null; credit: string | null; signature: boolean; youtubeIds: string[];
   videos: string[]; location: string | null; images: ManifestImage[];
 };
 
@@ -16,6 +16,7 @@ export const manifestProjects: ManifestProject[] = [
       "visualization"
     ],
     "client": "Justking Solutions",
+    "contact": null,
     "credit": "Justking Solutions",
     "signature": true,
     "youtubeIds": [],
@@ -155,6 +156,7 @@ export const manifestProjects: ManifestProject[] = [
       "visualization"
     ],
     "client": "Justking Solutions",
+    "contact": null,
     "credit": "Justking Solutions",
     "signature": true,
     "youtubeIds": [],
@@ -236,6 +238,7 @@ export const manifestProjects: ManifestProject[] = [
       "visualization"
     ],
     "client": "White Avenue Real Estate",
+    "contact": null,
     "credit": null,
     "signature": true,
     "youtubeIds": [
@@ -311,6 +314,7 @@ export const manifestProjects: ManifestProject[] = [
       "visualization"
     ],
     "client": "White Avenue Real Estate",
+    "contact": null,
     "credit": null,
     "signature": true,
     "youtubeIds": [
@@ -364,6 +368,7 @@ export const manifestProjects: ManifestProject[] = [
       "visualization"
     ],
     "client": "Justking Solutions",
+    "contact": null,
     "credit": "Justking Solutions",
     "signature": false,
     "youtubeIds": [
@@ -424,6 +429,7 @@ export const manifestProjects: ManifestProject[] = [
       "visualization"
     ],
     "client": "Justking Solutions",
+    "contact": null,
     "credit": "Justking Solutions",
     "signature": false,
     "youtubeIds": [],
@@ -475,6 +481,7 @@ export const manifestProjects: ManifestProject[] = [
       "interior"
     ],
     "client": "Royal Assisted Living Inc",
+    "contact": null,
     "credit": "Justking Solutions",
     "signature": false,
     "youtubeIds": [
@@ -551,6 +558,7 @@ export const manifestProjects: ManifestProject[] = [
       "visualization"
     ],
     "client": "Hajara's Kitchen",
+    "contact": null,
     "credit": "Justking Solutions",
     "signature": false,
     "youtubeIds": [],
@@ -592,6 +600,7 @@ export const manifestProjects: ManifestProject[] = [
       "visualization"
     ],
     "client": "Michael Nwosu",
+    "contact": null,
     "credit": "Justking Solutions",
     "signature": false,
     "youtubeIds": [],
@@ -644,6 +653,7 @@ export const manifestProjects: ManifestProject[] = [
       "visualization"
     ],
     "client": "Spicy Palace",
+    "contact": "Ebuka Ugah",
     "credit": null,
     "signature": false,
     "youtubeIds": [
@@ -723,6 +733,7 @@ export const manifestProjects: ManifestProject[] = [
       "visualization"
     ],
     "client": "Lucian Afri-Complex",
+    "contact": null,
     "credit": "Justking Solutions",
     "signature": false,
     "youtubeIds": [
@@ -784,6 +795,7 @@ export const manifestProjects: ManifestProject[] = [
       "permit"
     ],
     "client": "Coco Jerk",
+    "contact": null,
     "credit": "Justking Solutions",
     "signature": false,
     "youtubeIds": [
@@ -837,6 +849,7 @@ export const manifestProjects: ManifestProject[] = [
       "renovation"
     ],
     "client": "Josh",
+    "contact": null,
     "credit": "Justking Solutions",
     "signature": false,
     "youtubeIds": [],
@@ -902,6 +915,7 @@ export const manifestProjects: ManifestProject[] = [
       "visualization"
     ],
     "client": "Akaboukwu Residence",
+    "contact": null,
     "credit": null,
     "signature": false,
     "youtubeIds": [],
@@ -960,6 +974,7 @@ export const manifestProjects: ManifestProject[] = [
       "visualization"
     ],
     "client": "Alafia Adult Day Care",
+    "contact": null,
     "credit": "Justking Solutions",
     "signature": false,
     "youtubeIds": [],
@@ -1009,6 +1024,7 @@ export const manifestProjects: ManifestProject[] = [
       "interior"
     ],
     "client": null,
+    "contact": null,
     "credit": null,
     "signature": false,
     "youtubeIds": [],
@@ -1067,6 +1083,7 @@ export const manifestProjects: ManifestProject[] = [
       "visualization"
     ],
     "client": "Greenbelt",
+    "contact": null,
     "credit": "Justking Solutions",
     "signature": false,
     "youtubeIds": [],
@@ -1116,6 +1133,7 @@ export const manifestProjects: ManifestProject[] = [
       "visualization"
     ],
     "client": null,
+    "contact": null,
     "credit": null,
     "signature": false,
     "youtubeIds": [
@@ -1175,6 +1193,7 @@ export const manifestProjects: ManifestProject[] = [
       "visualization"
     ],
     "client": null,
+    "contact": null,
     "credit": null,
     "signature": false,
     "youtubeIds": [
@@ -1228,6 +1247,7 @@ export const manifestProjects: ManifestProject[] = [
       "visualization"
     ],
     "client": "Kavacha Garden",
+    "contact": null,
     "credit": "Justking Solutions",
     "signature": false,
     "youtubeIds": [
@@ -1295,6 +1315,7 @@ export const manifestProjects: ManifestProject[] = [
       "visualization"
     ],
     "client": null,
+    "contact": null,
     "credit": null,
     "signature": false,
     "youtubeIds": [
@@ -1338,6 +1359,7 @@ export const manifestProjects: ManifestProject[] = [
       "visualization"
     ],
     "client": null,
+    "contact": null,
     "credit": null,
     "signature": false,
     "youtubeIds": [
@@ -1387,6 +1409,7 @@ export const manifestProjects: ManifestProject[] = [
     "year": null,
     "scope": [],
     "client": "Tusnny",
+    "contact": null,
     "credit": null,
     "signature": false,
     "youtubeIds": [],
@@ -1450,6 +1473,7 @@ export const manifestProjects: ManifestProject[] = [
     "year": null,
     "scope": [],
     "client": "Infra-Tech Capital Services Limited",
+    "contact": null,
     "credit": null,
     "signature": false,
     "youtubeIds": [],
@@ -1497,6 +1521,7 @@ export const manifestProjects: ManifestProject[] = [
     "year": null,
     "scope": [],
     "client": null,
+    "contact": null,
     "credit": null,
     "signature": false,
     "youtubeIds": [],
@@ -1616,20 +1641,13 @@ export const manifestProjects: ManifestProject[] = [
     "year": null,
     "scope": [],
     "client": null,
+    "contact": null,
     "credit": null,
     "signature": false,
     "youtubeIds": [],
     "videos": [],
     "location": null,
     "images": [
-      {
-        "src": "/skyframe/cover.jpg",
-        "width": 1697,
-        "height": 2400,
-        "alt": "A dotted cover page with the Skyframe XR wordmark, the line Real Estate Technology, and Powered By Arkfield & VGIS at the foot.",
-        "title": "Cover",
-        "hero": true
-      },
       {
         "src": "/skyframe/logo-horizontal.png",
         "width": 1000,

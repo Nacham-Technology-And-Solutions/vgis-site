@@ -2664,22 +2664,6 @@
       "clientPublic": true
     },
     {
-      "path": "public/skyframe/cover.jpg",
-      "project": "Skyframe XR",
-      "category": "xr",
-      "title": "Cover",
-      "alt": "A dotted cover page with the Skyframe XR wordmark, the line Real Estate Technology, and Powered By Arkfield & VGIS at the foot.",
-      "year": null,
-      "client": null,
-      "credit": null,
-      "scope": [],
-      "scopeNote": "Skyframe XR is a VGIS product. The current cover artwork still carries a 'Powered By Arkfield & VGIS' line at the foot; treat Skyframe as solely owned by VGIS.",
-      "youtubeId": null,
-      "signature": false,
-      "hero": true,
-      "clientPublic": true
-    },
-    {
       "path": "public/skyframe/logo-horizontal.png",
       "project": "Skyframe XR",
       "category": "xr",
