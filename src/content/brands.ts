@@ -36,6 +36,8 @@ export type BrandCase = {
   family?: BrandImage[];
   /** Large mockups (billboards, stationery), shown full width under the board. */
   mockups?: BrandImage[];
+  /** The brand's live website, when it has one. */
+  website?: string;
   /** The /work project page for this brand, when there is one. */
   project?: string;
   /** What the identity system includes, from the brand's files. */
@@ -52,6 +54,7 @@ export type BrandFont = "jakarta" | "montserrat" | "inter" | "intertight" | "ins
 export const brandCases: BrandCase[] = [
   {
     slug: "nacham",
+    website: "https://nachamtns.com",
     project: "nacham",
     name: "Nâcham Technology & Solutions",
     sector: "Software and enterprise technology",
@@ -141,6 +144,7 @@ export const brandCases: BrandCase[] = [
   },
   {
     slug: "gethsemane",
+    website: "https://app.gethsemaneglobal.org",
     project: "gethsemane",
     name: "Gethsemane Global",
     sector: "Ministry and education",
@@ -176,6 +180,7 @@ export const brandCases: BrandCase[] = [
   },
   {
     slug: "bliss-mental-health-clinic",
+    website: "https://www.blissmentalhealthc.com",
     project: "bliss-mental-health-clinic",
     name: "Bliss Mental Health Clinic",
     sector: "Healthcare",
@@ -204,6 +209,7 @@ export const brandCases: BrandCase[] = [
   },
   {
     slug: "saint-lucia-consulate",
+    website: "https://consulstlucia.ng",
     name: "Consulate of Saint Lucia in Nigeria",
     sector: "Diplomatic mission",
     tagline: "Bridging the Caribbean and West Africa.",

@@ -97,6 +97,13 @@ function BrandBoard({ b, linkProject }: { b: BrandCase; linkProject: boolean }) 
 
         {b.credit && <p className="mt-5 text-xs text-muted">{b.credit}</p>}
 
+        {b.website && (
+          <p className="mt-5 text-sm">
+            <a href={b.website} target="_blank" rel="noopener" className="font-semibold link-underline">
+              Visit {b.website.replace(/^https?:\/\/(www\.)?/, "")} ↗
+            </a>
+          </p>
+        )}
         {linkProject && b.project && (
           <p className="mt-5 text-sm"><Link href={`/work/${b.project}`} className="font-semibold link-underline">See the full {b.name} project →</Link></p>
         )}
