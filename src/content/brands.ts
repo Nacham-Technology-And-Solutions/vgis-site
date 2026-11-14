@@ -9,6 +9,7 @@
  * - ComfortEdu: the ComfortEdu Brand Guidelines v1.0 (logos, tokens, README).
  * - Infra-Tech Capital and Tusnny: the owner's portfolio files (docs/portfolio-manifest.json, public/work/*).
  *   Infra-Tech colours are sampled from its logo files; Tusnny's come from its own colour board.
+ * - Gethsemane Global (GKNI) and Bliss Mental Health Clinic: their design systems (logos, tokens, README).
  * - VGIS: the VGIS Brand Guidelines (Nov 2026) and public/brand/vgis-logo.png.
  * Colours are the brands' exact hex values. Logos are the brands' own files, never redrawn.
  */
@@ -31,6 +32,8 @@ export type BrandCase = {
   swatches: BrandSwatch[];
   /** Typefaces named in the brand guide; `font` is the CSS variable loaded for the specimen. Empty when the files don't name them. */
   type: { family: string; role: string; font: BrandFont }[];
+  /** A family of related marks (sub-brands), shown as a row of logos on the board. */
+  family?: BrandImage[];
   /** Large mockups (billboards, stationery), shown full width under the board. */
   mockups?: BrandImage[];
   /** The /work project page for this brand, when there is one. */
@@ -44,7 +47,7 @@ export type BrandCase = {
   href?: string;
 };
 
-export type BrandFont = "jakarta" | "montserrat" | "inter" | "intertight" | "instrument" | "bebas" | "barlow" | "dmsans";
+export type BrandFont = "jakarta" | "montserrat" | "inter" | "intertight" | "instrument" | "bebas" | "barlow" | "dmsans" | "rubik" | "garamond" | "robotoslab" | "poppins";
 
 export const brandCases: BrandCase[] = [
   {
@@ -134,6 +137,69 @@ export const brandCases: BrandCase[] = [
     mockups: [
       { src: "/work/tusnny/01-billboard-mockup.jpg", width: 2400, height: 1800, alt: "A teal Tusnny billboard on a sunlit brick wall, spelling out what the name stands for" },
       { src: "/work/tusnny/06-stationery-mockup.jpg", width: 2400, height: 1800, alt: "Tusnny stationery set: folder, letterheads, business cards, ID badge, lanyard and gift box" },
+    ],
+  },
+  {
+    slug: "gethsemane",
+    project: "gethsemane",
+    name: "Gethsemane Global",
+    sector: "Ministry and education",
+    tagline: "The Witness | The Fire | The Presence",
+    summary:
+      "The brand of Gethsemane Kingdom Network International (GKNI). Gethsemane means oil press, so the identity grows from the olive tree, its roots and the drop of oil: death that becomes life. One master badge leads a family of marks for the fellowship, the two schools and the media arm.",
+    logo: { src: "/brands/gethsemane/gkni-badge.png", width: 697, height: 482, alt: "GKNI badge: an olive tree above the GETHSEMANE name frame, with its roots below" },
+    ground: "#F8F0D0",
+    family: [
+      { src: "/brands/gethsemane/gethsemane-fellowship.png", width: 400, height: 69, alt: "Gethsemane Fellowship mark with the olive sprig" },
+      { src: "/brands/gethsemane/gsom.png", width: 367, height: 400, alt: "Gethsemane School of Ministry (GSOM) mark" },
+      { src: "/brands/gethsemane/esg.png", width: 376, height: 400, alt: "Episcopal School of Gethsemane (ESG) seal" },
+      { src: "/brands/gethsemane/gkni-media.png", width: 400, height: 123, alt: "GKNI Media mark" },
+    ],
+    swatches: [
+      { name: "Gethsemane Brown", hex: "#784814", role: "The brand colour" },
+      { name: "Root Brown", hex: "#64381C", role: "Roots and deep bands" },
+      { name: "Leaf Green", hex: "#306800", role: "Foliage and headings" },
+      { name: "Oil Gold", hex: "#F8D058", role: "Highlights on dark" },
+    ],
+    type: [
+      { family: "Montserrat", role: "Titles and headings", font: "montserrat" },
+      { family: "Rubik", role: "Running text", font: "rubik" },
+      { family: "EB Garamond", role: "Scripture, italic", font: "garamond" },
+    ],
+    system: [
+      "Brand architecture: a master badge and marks for each ministry arm, each in colour, greyscale and white",
+      "The Signatures of God icon set: the Witness, the Fire and the Presence",
+      "Earth-and-olive colour system with Paper and Night themes",
+      "Manuals, lecture notes and handbooks",
+      "Certificates, statements of result, letterhead, ID cards and email templates",
+    ],
+  },
+  {
+    slug: "bliss-mental-health-clinic",
+    project: "bliss-mental-health-clinic",
+    name: "Bliss Mental Health Clinic",
+    sector: "Healthcare",
+    tagline: "Your path to wellness begins here.",
+    summary:
+      "An outpatient psychiatric and behavioural-health practice in Washington, DC. The mark is a brain in soft rounded lobes, shaded from magenta to orchid, holding a cyan medical cross: medical care for the mind, in one picture. Logo by VGIS; website built by Nâcham.",
+    logo: { src: "/brands/bliss/bliss-logo-white.png", width: 1200, height: 337, alt: "Bliss Mental Health Clinic logo, reversed in white on navy, with the cyan cross" },
+    ground: "#2A2871",
+    swatches: [
+      { name: "Bliss Navy", hex: "#2A2871", role: "Wordmark and headings" },
+      { name: "Magenta", hex: "#F1076C", role: "Top of the brain, calls to action" },
+      { name: "Orchid", hex: "#BF2FA0", role: "Bottom of the brain" },
+      { name: "Cyan", hex: "#44C2EC", role: "The cross" },
+    ],
+    type: [
+      { family: "Roboto Slab", role: "Headlines", font: "robotoslab" },
+      { family: "Poppins", role: "Body and interface", font: "poppins" },
+    ],
+    system: [
+      "Logo in full colour, white and navy, plus the brain icon on its own",
+      "Colour system with accessible button and text colours",
+      "Headline and body typography",
+      "Warm, reassuring voice guidelines",
+      "Business card, letterhead, email signature, booking banner and social post layouts",
     ],
   },
   {

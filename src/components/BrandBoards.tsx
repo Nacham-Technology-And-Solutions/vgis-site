@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Barlow_Condensed, DM_Sans, Inter, Inter_Tight, Instrument_Serif, Montserrat, Plus_Jakarta_Sans } from "next/font/google";
+import { Barlow_Condensed, DM_Sans, EB_Garamond, Inter, Inter_Tight, Instrument_Serif, Montserrat, Plus_Jakarta_Sans, Poppins, Roboto_Slab, Rubik } from "next/font/google";
 import type { BrandCase, BrandFont } from "@/content/brands";
 
 const jakarta = Plus_Jakarta_Sans({ weight: ["800"], subsets: ["latin"], variable: "--font-brand-jakarta", display: "swap" });
@@ -10,7 +10,15 @@ const interTight = Inter_Tight({ weight: ["600"], subsets: ["latin"], variable: 
 const instrument = Instrument_Serif({ weight: ["400"], style: ["italic"], subsets: ["latin"], variable: "--font-brand-instrument", display: "swap" });
 const barlow = Barlow_Condensed({ weight: ["700"], subsets: ["latin"], variable: "--font-brand-barlow", display: "swap" });
 const dmsans = DM_Sans({ weight: ["500"], subsets: ["latin"], variable: "--font-brand-dmsans", display: "swap" });
+const rubik = Rubik({ weight: ["500"], subsets: ["latin"], variable: "--font-brand-rubik", display: "swap" });
+const garamond = EB_Garamond({ weight: ["400"], style: ["italic"], subsets: ["latin"], variable: "--font-brand-garamond", display: "swap" });
+const robotoSlab = Roboto_Slab({ weight: ["700"], subsets: ["latin"], variable: "--font-brand-robotoslab", display: "swap" });
+const poppins = Poppins({ weight: ["500"], subsets: ["latin"], variable: "--font-brand-poppins", display: "swap" });
 const fontVar: Record<BrandFont, string> = {
+  rubik: "var(--font-brand-rubik)",
+  garamond: "var(--font-brand-garamond)",
+  robotoslab: "var(--font-brand-robotoslab)",
+  poppins: "var(--font-brand-poppins)",
   barlow: "var(--font-brand-barlow)",
   dmsans: "var(--font-brand-dmsans)",
   jakarta: "var(--font-brand-jakarta)",
@@ -36,6 +44,15 @@ function BrandBoard({ b, linkProject }: { b: BrandCase; linkProject: boolean }) 
           sizes="340px"
           className={`mx-auto h-auto ${b.logo.height > b.logo.width ? "w-40" : "w-full max-w-[340px]"}`}
         />
+        {b.family && (
+          <ul className="grid grid-cols-2 items-center gap-6 sm:grid-cols-4" aria-label={`${b.name} family of marks`}>
+            {b.family.map((f) => (
+              <li key={f.src} className="flex justify-center">
+                <Image src={f.src} alt={f.alt} width={f.width} height={f.height} sizes="160px" className="h-auto max-h-24 w-auto max-w-full object-contain" />
+              </li>
+            ))}
+          </ul>
+        )}
         {b.applications && (
           <ul className="grid grid-cols-3 items-end gap-3" aria-label={`${b.name} stationery`}>
             {b.applications.map((a) => (
@@ -66,7 +83,7 @@ function BrandBoard({ b, linkProject }: { b: BrandCase; linkProject: boolean }) 
         {b.type.length > 0 && <div className="mt-6 flex flex-wrap gap-6">
           {b.type.map((t) => (
             <div key={t.family} className="flex items-baseline gap-3">
-              <span className={`text-4xl leading-none ${t.font === "instrument" ? "italic" : ""}`} style={{ fontFamily: fontVar[t.font] }} aria-hidden="true">Aa</span>
+              <span className={`text-4xl leading-none ${t.font === "instrument" || t.font === "garamond" ? "italic" : ""}`} style={{ fontFamily: fontVar[t.font] }} aria-hidden="true">Aa</span>
               <span className="text-sm"><span className="font-semibold">{t.family}</span><span className="block text-muted">{t.role}</span></span>
             </div>
           ))}
@@ -101,7 +118,7 @@ function BrandBoard({ b, linkProject }: { b: BrandCase; linkProject: boolean }) 
   );
 }
 
-const fontVars = `${jakarta.variable} ${montserrat.variable} ${inter.variable} ${interTight.variable} ${instrument.variable} ${barlow.variable} ${dmsans.variable}`;
+const fontVars = `${jakarta.variable} ${montserrat.variable} ${inter.variable} ${interTight.variable} ${instrument.variable} ${barlow.variable} ${dmsans.variable} ${rubik.variable} ${garamond.variable} ${robotoSlab.variable} ${poppins.variable}`;
 
 /** Brand boards. `linkProject` adds a link to each brand's /work page (off on the project page itself). */
 export function BrandBoards({ brands, linkProject = true }: { brands: BrandCase[]; linkProject?: boolean }) {
