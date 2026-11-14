@@ -91,7 +91,7 @@ export default async function ServicePage({ params }: Props) {
       {brands.length > 0 && (
         <section className="border-t border-line">
           <div className="wrap py-20">
-            <SectionHead eyebrow="Work" title="Brand identities by VGIS" intro="Each identity is a complete system: logo suite, colour, typography and the guidelines that keep it consistent." />
+            <SectionHead eyebrow="Work" title="Brand identities by VGIS" intro="Including our own. Each identity is a complete system: logo suite, colour, typography and the guidelines that keep it consistent." />
             <div className="mt-10"><BrandBoards brands={brands} /></div>
           </div>
         </section>

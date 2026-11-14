@@ -4,9 +4,12 @@
  * Facts only, taken from each brand's own design system or guide:
  * - FluraVest: the FluraVest design system (logos, tokens.json, README).
  * - Skyframe XR: docs/skyframe-brand/ (brand guide, tokens.json, logo files).
+ * - Nâcham Technology & Solutions: the Nâcham design system and stationery (logos, tokens, README, print previews).
+ * - VGIS: the VGIS Brand Guidelines (Nov 2026) and public/brand/vgis-logo.png.
  * Colours are the brands' exact hex values. Logos are the brands' own files, never redrawn.
  */
 
+export type BrandImage = { src: string; width: number; height: number; alt: string };
 export type BrandSwatch = { name: string; hex: string; role: string };
 
 export type BrandCase = {
@@ -18,18 +21,56 @@ export type BrandCase = {
   /** One or two plain sentences on what the brand is and what the identity has to do. */
   summary: string;
   /** Logo shown on the board, on `ground`. */
-  logo: { src: string; width: number; height: number; alt: string };
+  logo: BrandImage;
   /** Board background behind the logo: a colour from the brand's own palette. */
   ground: string;
   swatches: BrandSwatch[];
   /** Typefaces named in the brand guide; `font` is the CSS variable loaded for the specimen. */
-  type: { family: string; role: string; font: "jakarta" | "montserrat" | "inter" }[];
+  type: { family: string; role: string; font: BrandFont }[];
   /** What the identity system includes, from the brand's files. */
   system: string[];
+  /** Applications from the brand's own files (stationery, cards), shown under the board. */
+  applications?: BrandImage[];
   href?: string;
 };
 
+export type BrandFont = "jakarta" | "montserrat" | "inter" | "intertight" | "instrument" | "bebas";
+
 export const brandCases: BrandCase[] = [
+  {
+    slug: "nacham",
+    name: "Nâcham Technology & Solutions",
+    sector: "Software and enterprise technology",
+    tagline: "Your vision, engineered.",
+    summary:
+      "Nâcham builds intelligent software, enterprise networks and industry platforms from Abuja. The name means a deep sigh of relief, so the identity has to feel calm, exact and quietly confident: a gear around a lightbulb, coloured with the Tabernacle gradient.",
+    logo: { src: "/brands/nacham/nacham-reverse-horizontal.png", width: 1200, height: 342, alt: "Nâcham Technology & Solutions logo, reversed on ink" },
+    ground: "#07060B",
+    swatches: [
+      { name: "Scarlet", hex: "#A60067", role: "Tabernacle gradient, left" },
+      { name: "Royal Purple", hex: "#5B00A4", role: "Tabernacle gradient, middle" },
+      { name: "Infrastructure Blue", hex: "#1000C7", role: "Tabernacle gradient, right" },
+      { name: "Magenta", hex: "#E2136E", role: "Screen accent" },
+    ],
+    type: [
+      { family: "Inter Tight", role: "Headlines", font: "intertight" },
+      { family: "Inter", role: "Body", font: "inter" },
+      { family: "Instrument Serif", role: "Italic accent", font: "instrument" },
+    ],
+    system: [
+      "Logo suite: colour, reverse, white and black versions in horizontal, vertical, wordmark and icon forms, plus an app icon",
+      "The Tabernacle gradient and a screen palette for the website and apps",
+      "Typography for screen, with fallbacks for Word, Docs and email",
+      "Voice and terminology: Comfort Discovery, the Nâcham Methodology, Artisan Precision",
+      "Stationery: business cards, staff and visitor ID cards, letterhead, invoice, compliment slip, envelope and email signature",
+      "Brand pattern, imagery and iconography rules",
+    ],
+    applications: [
+      { src: "/brands/nacham/business-card-front.jpg", width: 674, height: 386, alt: "Nâcham business card, front: ink with the magenta mark and the tagline" },
+      { src: "/brands/nacham/letterhead.jpg", width: 900, height: 1271, alt: "Nâcham letterhead with an example letter" },
+      { src: "/brands/nacham/id-card-staff.jpg", width: 410, height: 650, alt: "Nâcham staff ID card with a magenta band" },
+    ],
+  },
   {
     slug: "fluravest",
     name: "FluraVest",
@@ -82,5 +123,31 @@ export const brandCases: BrandCase[] = [
       "Applications: pitch deck, website, in-headset app, sales gallery, social and print",
     ],
     href: "/skyframe-xr",
+  },
+  {
+    slug: "vgis",
+    name: "VGIS",
+    sector: "Our own identity",
+    tagline: "Bridging the gap between imagination and reality.",
+    summary:
+      "Visual Graphics Illustration Services: high-end 3D visualisation alongside 2D illustration, branding and motion. The identity is built on Artisan Precision: black and white dominate, orange stays a small accent, and the voice is authoritative and exact.",
+    logo: { src: "/brand/vgis-logo.png", width: 490, height: 640, alt: "VGIS official logo: geometric 3D mark above the VGIS wordmark" },
+    ground: "#000000",
+    swatches: [
+      { name: "Obsidian Black", hex: "#000000", role: "Primary" },
+      { name: "Pure White", hex: "#FFFFFF", role: "Primary" },
+      { name: "VGIS Orange", hex: "#FF6600", role: "Accent" },
+    ],
+    type: [
+      { family: "Bebas Neue", role: "Headings", font: "bebas" },
+      { family: "Inter", role: "Body", font: "inter" },
+    ],
+    system: [
+      "Official logo with clear-space and usage rules",
+      "Black, white and VGIS Orange colour system",
+      "Typography: Bebas Neue headings, Inter body",
+      "Brand voice, imagery rules and a pre-publish checklist",
+      "This website, built on the same system",
+    ],
   },
 ];
