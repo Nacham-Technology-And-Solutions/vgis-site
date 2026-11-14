@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { projects, signatureProjects } from "@/content/projects";
 import { portfolio } from "@/content/portfolio";
+import { brandForProject } from "@/content/brands";
 import { company } from "@/content/site";
 import { CtaBand, PageHero, ProjectCard, SectionHead } from "@/components/blocks";
 import { PortfolioGrid } from "@/components/portfolio";
@@ -16,7 +17,7 @@ export const metadata = pageMetadata({ title: "Work: 3D Visualisation, XR, Campa
 export default function WorkPage() {
   const signature = signatureProjects();
   /** Projects without images yet (listed as text so they stay discoverable). */
-  const textOnly = projects.filter((p) => !p.images.length && !p.signature);
+  const textOnly = projects.filter((p) => !p.images.length && !p.signature && !brandForProject(p.slug));
   return (
     <>
       <JsonLd data={graph(webPageSchema({ path: "/work", name: "VGIS work", description, type: "CollectionPage" }), ...projects.map(projectSchema))} />

@@ -65,14 +65,30 @@ export function PortfolioTile({ item, sizes = "(min-width: 1024px) 33vw, (min-wi
           />
         ) : (
           <>
-            <Image
-              src={item.image.src}
-              alt={item.image.alt}
-              fill
-              sizes={sizes}
-              priority={priority}
-              className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-            />
+            {item.ground ? (
+              <div className="absolute inset-0 p-[12%]" style={{ background: item.ground }}>
+                <div className="relative h-full w-full">
+                  <Image
+                    src={item.image.src}
+                    alt={item.image.alt}
+                    fill
+                    sizes={sizes}
+                    priority={priority}
+                    unoptimized={item.image.src.endsWith(".svg")}
+                    className="object-contain transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                </div>
+              </div>
+            ) : (
+              <Image
+                src={item.image.src}
+                alt={item.image.alt}
+                fill
+                sizes={sizes}
+                priority={priority}
+                className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              />
+            )}
             {v?.previewMp4 && (
               <video
                 ref={vidRef}

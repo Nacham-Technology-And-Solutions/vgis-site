@@ -22,9 +22,10 @@ const fontVar: Record<BrandFont, string> = {
 };
 
 /** A brand board: logo on the brand's own ground, palette, type specimen and what the system includes. */
-function BrandBoard({ b }: { b: BrandCase }) {
+function BrandBoard({ b, linkProject }: { b: BrandCase; linkProject: boolean }) {
   return (
-    <article className="grid border border-line lg:grid-cols-[1.1fr_1fr]">
+    <article id={b.slug} className="scroll-mt-24">
+    <div className="grid border border-line lg:grid-cols-[1.1fr_1fr]">
       <div className="flex min-h-64 flex-col justify-center gap-10 p-10 sm:p-14" style={{ background: b.ground }}>
         <Image
           src={b.logo.src}
@@ -62,14 +63,14 @@ function BrandBoard({ b }: { b: BrandCase }) {
           ))}
         </ul>
 
-        <div className="mt-6 flex flex-wrap gap-6">
+        {b.type.length > 0 && <div className="mt-6 flex flex-wrap gap-6">
           {b.type.map((t) => (
             <div key={t.family} className="flex items-baseline gap-3">
               <span className={`text-4xl leading-none ${t.font === "instrument" ? "italic" : ""}`} style={{ fontFamily: fontVar[t.font] }} aria-hidden="true">Aa</span>
               <span className="text-sm"><span className="font-semibold">{t.family}</span><span className="block text-muted">{t.role}</span></span>
             </div>
           ))}
-        </div>
+        </div>}
 
         <ul className="mt-6 space-y-2 border-t border-line pt-5 text-sm">
           {b.system.map((x) => (
@@ -79,18 +80,34 @@ function BrandBoard({ b }: { b: BrandCase }) {
 
         {b.credit && <p className="mt-5 text-xs text-muted">{b.credit}</p>}
 
+        {linkProject && b.project && (
+          <p className="mt-5 text-sm"><Link href={`/work/${b.project}`} className="font-semibold link-underline">See the full {b.name} project →</Link></p>
+        )}
         {b.href && (
           <p className="mt-5 text-sm"><Link href={b.href} className="font-semibold link-underline">See {b.name} →</Link></p>
         )}
       </div>
+    </div>
+    {b.mockups && b.mockups.length > 0 && (
+      <div className={`mt-4 grid gap-4 ${b.mockups.length > 1 ? "md:grid-cols-2" : "mx-auto max-w-4xl"}`}>
+        {b.mockups.map((m) => (
+          <figure key={m.src} className="bg-panel">
+            <Image src={m.src} alt={m.alt} width={m.width} height={m.height} sizes={b.mockups!.length > 1 ? "(min-width: 768px) 50vw, 100vw" : "(min-width: 1200px) 1136px, 100vw"} className="h-auto w-full" />
+          </figure>
+        ))}
+      </div>
+    )}
     </article>
   );
 }
 
-export function BrandBoards({ brands }: { brands: BrandCase[] }) {
+const fontVars = `${jakarta.variable} ${montserrat.variable} ${inter.variable} ${interTight.variable} ${instrument.variable} ${barlow.variable} ${dmsans.variable}`;
+
+/** Brand boards. `linkProject` adds a link to each brand's /work page (off on the project page itself). */
+export function BrandBoards({ brands, linkProject = true }: { brands: BrandCase[]; linkProject?: boolean }) {
   return (
-    <div className={`${jakarta.variable} ${montserrat.variable} ${inter.variable} ${interTight.variable} ${instrument.variable} ${barlow.variable} ${dmsans.variable} space-y-10`}>
-      {brands.map((b) => <BrandBoard key={b.slug} b={b} />)}
+    <div className={`${fontVars} space-y-14`}>
+      {brands.map((b) => <BrandBoard key={b.slug} b={b} linkProject={linkProject} />)}
     </div>
   );
 }

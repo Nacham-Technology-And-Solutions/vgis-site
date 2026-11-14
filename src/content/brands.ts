@@ -7,6 +7,8 @@
  * - Nâcham Technology & Solutions: the Nâcham design system and stationery (logos, tokens, README, print previews).
  * - Consulate of Saint Lucia in Nigeria: the Consulate design system (logos, tokens, README).
  * - ComfortEdu: the ComfortEdu Brand Guidelines v1.0 (logos, tokens, README).
+ * - Infra-Tech Capital and Tusnny: the owner's portfolio files (docs/portfolio-manifest.json, public/work/*).
+ *   Infra-Tech colours are sampled from its logo files; Tusnny's come from its own colour board.
  * - VGIS: the VGIS Brand Guidelines (Nov 2026) and public/brand/vgis-logo.png.
  * Colours are the brands' exact hex values. Logos are the brands' own files, never redrawn.
  */
@@ -27,8 +29,12 @@ export type BrandCase = {
   /** Board background behind the logo: a colour from the brand's own palette. */
   ground: string;
   swatches: BrandSwatch[];
-  /** Typefaces named in the brand guide; `font` is the CSS variable loaded for the specimen. */
+  /** Typefaces named in the brand guide; `font` is the CSS variable loaded for the specimen. Empty when the files don't name them. */
   type: { family: string; role: string; font: BrandFont }[];
+  /** Large mockups (billboards, stationery), shown full width under the board. */
+  mockups?: BrandImage[];
+  /** The /work project page for this brand, when there is one. */
+  project?: string;
   /** What the identity system includes, from the brand's files. */
   system: string[];
   /** Applications from the brand's own files (stationery, cards), shown under the board. */
@@ -43,6 +49,7 @@ export type BrandFont = "jakarta" | "montserrat" | "inter" | "intertight" | "ins
 export const brandCases: BrandCase[] = [
   {
     slug: "nacham",
+    project: "nacham",
     name: "Nâcham Technology & Solutions",
     sector: "Software and enterprise technology",
     tagline: "Your vision, engineered.",
@@ -73,6 +80,60 @@ export const brandCases: BrandCase[] = [
       { src: "/brands/nacham/business-card-front.jpg", width: 674, height: 386, alt: "Nâcham business card, front: ink with the magenta mark and the tagline" },
       { src: "/brands/nacham/letterhead.jpg", width: 900, height: 1271, alt: "Nâcham letterhead with an example letter" },
       { src: "/brands/nacham/id-card-staff.jpg", width: 410, height: 650, alt: "Nâcham staff ID card with a magenta band" },
+    ],
+  },
+  {
+    slug: "infra-tech-capital",
+    project: "infra-tech-capital-services",
+    name: "Infra-Tech Capital Services",
+    sector: "Corporate finance and infrastructure",
+    tagline: "End-to-end corporate branding.",
+    summary:
+      "A corporate identity for Infra-Tech Capital Services Limited, designed as one consistent visual ecosystem: an ITC monogram cut by a crimson bar, set in charcoal, and carried onto a patterned business card.",
+    logo: { src: "/brands/infra-tech/itc-logo-horizontal.png", width: 1200, height: 172, alt: "Infra-Tech Capital Services Limited horizontal logo: the ITC monogram with a crimson bar beside the name" },
+    ground: "#F2F3F3",
+    swatches: [
+      { name: "Charcoal", hex: "#2E383A", role: "Logo and type" },
+      { name: "Crimson", hex: "#A01833", role: "The bar in the monogram" },
+      { name: "White", hex: "#FFFFFF", role: "Reversed logo" },
+    ],
+    type: [],
+    system: [
+      "Horizontal and vertical logo lockups",
+      "The ITC symbol for use on its own",
+      "A monogram pattern for print",
+      "Business cards and corporate stationery",
+    ],
+    mockups: [
+      { src: "/work/infra-tech-capital/04-business-card-front.jpg", width: 2116, height: 1216, alt: "Front of an Infra-Tech Capital business card: the white ITC logo on charcoal, over a tonal ITC monogram pattern" },
+    ],
+  },
+  {
+    slug: "tusnny",
+    project: "tusnny",
+    name: "Tusnny",
+    sector: "Technology and youth",
+    tagline: "Tech-United Solutions for Networking, Nurturing, and Youth.",
+    summary:
+      "An identity built from the name itself: Tusnny spells out what it stands for, and the t in the wordmark is drawn as a raised hand. Deep teal leads, with black, white and a red accent, applied from a billboard to a full stationery set.",
+    logo: { src: "/brands/tusnny/tusnny-logo-reversed.png", width: 1200, height: 341, alt: "Tusnny wordmark in white on teal, the letter t drawn as a raised hand" },
+    ground: "#1D647D",
+    swatches: [
+      { name: "Teal", hex: "#1D647D", role: "Primary" },
+      { name: "Red", hex: "#A20202", role: "Accent" },
+      { name: "Black", hex: "#000000", role: "Type" },
+      { name: "White", hex: "#FFFFFF", role: "Reversed logo" },
+    ],
+    type: [],
+    system: [
+      "Primary logo, an alternate on teal, and a secondary lockup with the full name",
+      "Colour board with RGB, CMYK and HEX values and tints",
+      "Billboard and outdoor advertising",
+      "Stationery set: folder, letterhead, cards, ID badge and branded merchandise",
+    ],
+    mockups: [
+      { src: "/work/tusnny/01-billboard-mockup.jpg", width: 2400, height: 1800, alt: "A teal Tusnny billboard on a sunlit brick wall, spelling out what the name stands for" },
+      { src: "/work/tusnny/06-stationery-mockup.jpg", width: 2400, height: 1800, alt: "Tusnny stationery set: folder, letterheads, business cards, ID badge, lanyard and gift box" },
     ],
   },
   {
@@ -210,3 +271,9 @@ export const brandCases: BrandCase[] = [
     ],
   },
 ];
+
+export const getBrandCase = (slug: string) => brandCases.find((b) => b.slug === slug);
+/** The brand board for a /work project, if it has one. */
+export const brandForProject = (projectSlug: string) => brandCases.find((b) => b.project === projectSlug);
+/** Where a brand lives on the site: its project page, else its board on the branding page. */
+export const brandHref = (b: BrandCase) => (b.project ? `/work/${b.project}` : `/services/brand-identity#${b.slug}`);

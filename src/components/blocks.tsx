@@ -1,4 +1,5 @@
 import { getCaseStudy } from "@/content/case-studies";
+import { brandForProject } from "@/content/brands";
 import Link from "next/link";
 import Image from "next/image";
 import type { ReactNode } from "react";
@@ -119,6 +120,15 @@ export function ServiceCard({ s, index }: { s: Service; index: number }) {
 
 /* ---------- Project visual: real image if supplied, otherwise a branded plan-sheet panel ---------- */
 export function ProjectVisual({ p, priority = false, sizes = "(min-width: 1024px) 33vw, 100vw" }: { p: Project; priority?: boolean; sizes?: string }) {
+  const brand = brandForProject(p.slug);
+  if (brand) {
+    // Brand work: the logo on the brand's own colour, never cropped.
+    return (
+      <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden border border-line p-[12%]" style={{ background: brand.ground }}>
+        <Image src={brand.logo.src} alt={brand.logo.alt} width={brand.logo.width} height={brand.logo.height} sizes={sizes} priority={priority} unoptimized={brand.logo.src.endsWith(".svg")} className="h-auto max-h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.03]" />
+      </div>
+    );
+  }
   const img = p.images[0];
   if (img) {
     return (

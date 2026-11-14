@@ -1,5 +1,6 @@
 import { projects } from "./projects";
 import { skyframe } from "./skyframe";
+import { brandCases, brandForProject, brandHref } from "./brands";
 
 /**
  * PORTFOLIO: the single file for all visual work on the site.
@@ -47,6 +48,8 @@ export type PortfolioItem = {
   source?: string;
   /** Show in the home page grid. */
   featured?: boolean;
+  /** Logo tiles: show the image whole (never cropped) on this brand colour. */
+  ground?: string;
 };
 
 const rp = (id: string) => `CC0 · https://www.rawpixel.com/image/${id}`;
@@ -133,14 +136,28 @@ export const beforeAfter = {
 
 const realProjects = projects.filter((p) => p.images.length);
 
-const projectTiles: PortfolioItem[] = realProjects.map((p) => ({
-  id: `p-${p.slug}`,
-  title: p.name,
-  category: p.discipline === "2d" ? "2d" : "3d",
-  image: { ...p.images[0] },
+const projectTiles: PortfolioItem[] = realProjects
+  .filter((p) => !brandForProject(p.slug))
+  .map((p) => ({
+    id: `p-${p.slug}`,
+    title: p.name,
+    category: p.discipline === "2d" ? "2d" : "3d",
+    image: { ...p.images[0] },
+    placeholder: false,
+    service: p.services[0],
+    href: `/work/${p.slug}`,
+  }));
+
+/** Every brand identity, shown the same way: its logo on its own colour, linking to its project or board. */
+const brandTiles: PortfolioItem[] = brandCases.map((b) => ({
+  id: b.project ? `p-${b.project}` : `b-${b.slug}`,
+  title: b.name,
+  category: "2d",
+  image: { ...b.logo },
+  ground: b.ground,
   placeholder: false,
-  service: p.services[0],
-  href: `/work/${p.slug}`,
+  service: "brand-identity",
+  href: brandHref(b),
 }));
 
 const videoTiles: PortfolioItem[] = realProjects
@@ -173,7 +190,14 @@ const xrTiles: PortfolioItem[] =
       ]
     : [];
 
-const real = [...projectTiles, ...videoTiles, ...xrTiles];
+// Grouped by discipline so each kind of work reads together: 3D, then 2D (brands first), then films and XR.
+const real = [
+  ...projectTiles.filter((t) => t.category === "3d"),
+  ...brandTiles,
+  ...projectTiles.filter((t) => t.category === "2d"),
+  ...videoTiles,
+  ...xrTiles,
+];
 const hasReal = (c: PortfolioCategory) => real.some((r) => r.category === c);
 
 /** Everything shown on /work: real work first; samples only fill categories with no real work yet. */
@@ -195,6 +219,6 @@ export const featuredWork = () => {
   if (!real.length) return samples.filter((p) => p.featured && !p.aiAssisted);
   const sig = projectTiles.filter((t) => projects.find((p) => `p-${p.slug}` === t.id)?.signature);
   const rest3d = projectTiles.filter((t) => t.category === "3d" && !sig.includes(t));
-  const rest2d = projectTiles.filter((t) => t.category === "2d");
+  const rest2d = [...brandTiles, ...projectTiles.filter((t) => t.category === "2d")];
   return [...sig, ...rest2d.slice(0, 2), ...rest3d].slice(0, 8);
 };

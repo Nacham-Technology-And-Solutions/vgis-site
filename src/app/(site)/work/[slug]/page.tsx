@@ -8,6 +8,8 @@ import { CtaBand, PageHero, ProjectCard, ProjectVisual, SectionHead } from "@/co
 import { JsonLd } from "@/components/JsonLd";
 import { CaseStudyView } from "@/components/CaseStudy";
 import { getCaseStudy } from "@/content/case-studies";
+import { brandForProject } from "@/content/brands";
+import { BrandBoards } from "@/components/BrandBoards";
 import { graph, projectSchema, webPageSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
 
@@ -40,7 +42,10 @@ export default async function ProjectPage({ params }: Props) {
   if (!p) notFound();
   const path = `/work/${p.slug}`;
   const svc = p.services.map(getService).filter((s) => s !== undefined);
-  const more = projects.filter((x) => x.slug !== p.slug && x.discipline === p.discipline).slice(0, 3);
+  // Related work: same discipline, and only projects with something to show.
+  const more = projects
+    .filter((x) => x.slug !== p.slug && x.discipline === p.discipline && (x.images.length > 0 || brandForProject(x.slug)))
+    .slice(0, 3);
 
   const cs = getCaseStudy(p.slug);
   if (cs)
@@ -50,6 +55,53 @@ export default async function ProjectPage({ params }: Props) {
         <CaseStudyView p={p} cs={cs} />
       </>
     );
+
+  const brand = brandForProject(p.slug);
+  if (brand) {
+    // 2D work shares one presentation everywhere: the brand board, then the rest of the brand files.
+    const onBoard = new Set([brand.logo.src, ...(brand.mockups ?? []).map((m) => m.src), ...(brand.applications ?? []).map((m) => m.src)]);
+    const files = p.images.filter((i) => !onBoard.has(i.src) && !(brand.mockups ?? []).some((m) => m.src === i.src));
+    return (
+      <>
+        <JsonLd data={graph(webPageSchema({ path, name: p.name, description: p.summary }), projectSchema(p))} />
+        <PageHero
+          eyebrow={`${p.category}${p.year ? ` · ${p.year}` : ""}`}
+          title={brand.name}
+          lede={brand.summary}
+          crumbs={[{ name: "Work", path: "/work" }, { name: brand.name, path }]}
+        />
+        <section className="wrap py-16 sm:py-20">
+          <BrandBoards brands={[brand]} linkProject={false} />
+        </section>
+        {files.length > 0 && (
+          <section className="border-t border-line">
+            <div className="wrap py-16 sm:py-20">
+              <SectionHead eyebrow="Brand files" title="Logos and colour" />
+              <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {files.map((img) => (
+                  <figure key={img.src} className="flex aspect-[4/3] items-center justify-center border border-line bg-panel p-8">
+                    <Image src={img.src} alt={img.alt} width={img.width} height={img.height} sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" className="max-h-full w-auto object-contain" />
+                  </figure>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+        {more.length > 0 && (
+          <section className="border-t border-line">
+            <div className="wrap py-16 sm:py-20">
+              <SectionHead eyebrow="More work" title="More brand identities" />
+              <div className="mt-10 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+                {more.map((x) => <ProjectCard key={x.slug} p={x} />)}
+              </div>
+              <p className="mt-10 text-sm"><Link href="/services/brand-identity" className="font-semibold link-underline">See every brand identity →</Link></p>
+            </div>
+          </section>
+        )}
+        <CtaBand />
+      </>
+    );
+  }
 
   return (
     <>
