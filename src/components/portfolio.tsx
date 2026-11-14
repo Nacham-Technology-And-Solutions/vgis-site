@@ -49,7 +49,7 @@ export function PortfolioTile({ item, sizes = "(min-width: 1024px) 33vw, (min-wi
   return (
     <figure className="group border border-line bg-paper">
       <div
-        className="relative aspect-[4/3] overflow-hidden bg-ink"
+        className={`relative overflow-hidden bg-ink ${v?.vertical ? "aspect-[9/16]" : "aspect-[4/3]"}`}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
@@ -182,7 +182,7 @@ export function PortfolioGrid({ items }: { items: PortfolioItem[] }) {
           AI-assisted pieces are concepts and campaign content, {AI_LABEL.toLowerCase()}. They are not 3D renders or built projects.
         </p>
       )}
-      <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-8 grid items-start gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {shown.map((item) => <PortfolioTile key={item.id} item={item} />)}
       </div>
     </div>

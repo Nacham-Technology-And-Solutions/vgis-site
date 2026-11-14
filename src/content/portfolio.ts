@@ -14,7 +14,8 @@ import { brandCases, brandForProject, brandHref } from "./brands";
  * One edit per item.
  *
  * Brand guardrails (owner, 13 Nov 2026):
- * - AI-assisted pieces: `aiAssisted: true`, category "ai". Always labelled
+ * - AI-assisted pieces: `aiAssisted: true`, category "ai" (AI video productions sit under Ads & Motion,
+ *   owner via HP-Claude, 14 Nov 2026). Always labelled
  *   "AI-assisted, art-directed and finished by VGIS". Never in the hero or the signature 3D projects,
  *   and never presented as 3D renders or built projects.
  */
@@ -37,7 +38,7 @@ export type PortfolioItem = {
   category: PortfolioCategory;
   image: { src: string; width: number; height: number; alt: string };
   /** Video items: the image is the poster. Add a muted preview MP4, a playable MP4, and/or a YouTube/Vimeo ID. */
-  video?: { previewMp4?: string; mp4?: string; youtubeId?: string; vimeoId?: string };
+  video?: { previewMp4?: string; mp4?: string; youtubeId?: string; vimeoId?: string; vertical?: boolean };
   /** Link the tile to a project page. */
   href?: string;
   placeholder: boolean;
@@ -174,6 +175,29 @@ const videoTiles: PortfolioItem[] = realProjects
     })),
   );
 
+/** AI video productions on the VGIS YouTube channel (owner via HP-Claude, 14 Nov 2026). Shorts are 9:16. */
+const aiVideos: [id: string, title: string, alt: string, vertical?: true][] = [
+  ["5D5I3You7a0", "Zawumi", "Two children smiling on a hillside above a lakeside town"],
+  ["soBzGNqjSRU", "Can You Behold Him", "A crowned king and queen talking in an ornate palace hall"],
+  ["7_fJj3rUV9s", "GlazeWorkings Ad 1", "A woman choosing goods at a market stall", true],
+  ["2J5jJ0o0BQU", "GlazeWorkings Ad 2", "A woman smiling at a WhatsApp message on her phone", true],
+  ["0vSlMFgsLxo", "GlazeWorkings Ad 3", "A fabricator measuring aluminium window frames on a workbench", true],
+  ["HBgwS2Cz6Ws", "GlazeWorkings Ad 4", "A worried man taking a phone call", true],
+  ["Fl9rCyM4uOQ", "GlazeWorkings Ad 5", "Two installers in hard hats with glass panels on a building site", true],
+  ["Ijm3zSkqBi4", "GlazeWorkings Ad 6", "A craftsman reading a message on his phone", true],
+  ["p4pdvVt29II", "GlazeWorkings Ad 7", "Two engineers in hard hats reviewing a notebook in a factory", true],
+];
+const aiVideoTiles: PortfolioItem[] = aiVideos.map(([id, title, alt, vertical]) => ({
+  id: `ai-video-${id}`,
+  title,
+  category: "motion",
+  image: { src: `/work/ai-video/${id}.jpg`, width: vertical ? 720 : 1280, height: vertical ? 1280 : 720, alt },
+  video: { youtubeId: id, vertical },
+  placeholder: false,
+  aiAssisted: true,
+  service: "ai-assisted-content",
+}));
+
 // Held with the video (owner, #117). The cover artwork is never used: it carries third-party branding.
 const xrTiles: PortfolioItem[] =
   skyframe.media.video?.mp4 && skyframe.media.mark
@@ -196,6 +220,7 @@ const real = [
   ...brandTiles,
   ...projectTiles.filter((t) => t.category === "2d"),
   ...videoTiles,
+  ...aiVideoTiles,
   ...xrTiles,
 ];
 const hasReal = (c: PortfolioCategory) => real.some((r) => r.category === c);
