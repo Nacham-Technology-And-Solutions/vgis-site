@@ -24,7 +24,7 @@ export default async function OgImage() {
     (
       <div style={{ width: "100%", height: "100%", display: "flex", background: "#000", color: "#fff", padding: 72, fontFamily: "Bebas" }}>
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", flex: 1 }}>
-          <div style={{ display: "flex", fontSize: 26, letterSpacing: 4, color: "#FF6600" }}>3D VISUALISATION · XR · BRANDING</div>
+          <div style={{ display: "flex", fontSize: 26, letterSpacing: 4, color: "#FF6600" }}>3D VISUALISATION · XR · CAMPAIGNS</div>
           <div style={{ display: "flex", flexDirection: "column", fontSize: 108, lineHeight: 0.95 }}>
             <span>Bridging the gap between</span>
             <span><span style={{ color: "#FF6600" }}>imagination</span>&nbsp;and reality.</span>

@@ -1,3 +1,4 @@
+import { SHOW_2D_BRANDING } from "./hidden";
 /**
  * Brand identity work shown on /services/brand-identity.
  *
@@ -51,7 +52,7 @@ export type BrandCase = {
 
 export type BrandFont = "jakarta" | "montserrat" | "inter" | "intertight" | "instrument" | "bebas" | "barlow" | "dmsans" | "rubik" | "garamond" | "robotoslab" | "poppins";
 
-export const brandCases: BrandCase[] = [
+const allBrandCases: BrandCase[] = [
   {
     slug: "nacham",
     website: "https://nachamtns.com",
@@ -343,6 +344,9 @@ export const brandCases: BrandCase[] = [
     ],
   },
 ];
+
+/** Brand boards are held back while 2D branding is not advertised (see hidden.ts). */
+export const brandCases: BrandCase[] = SHOW_2D_BRANDING ? allBrandCases : [];
 
 export const getBrandCase = (slug: string) => brandCases.find((b) => b.slug === slug);
 /** The brand board for a /work project, if it has one. */

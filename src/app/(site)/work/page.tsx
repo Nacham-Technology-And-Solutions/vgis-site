@@ -10,9 +10,9 @@ import { graph, projectSchema, webPageSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
 
 const description =
-  "VGIS work: signature projects St Helen Hotel, White Avenue Real Estate, Spicy Kingdom and Kavacha Garden, plus architectural design, 3D visualisation, XR, campaigns and branding.";
+  "VGIS work: signature projects St Helen Hotel, White Avenue Real Estate, Spicy Kingdom and Kavacha Garden, plus architectural design, 3D visualisation, XR and campaigns.";
 
-export const metadata = pageMetadata({ title: "Work: 3D Visualisation, XR, Campaigns & Branding", description, path: "/work" });
+export const metadata = pageMetadata({ title: "Work: 3D Visualisation, XR & Campaigns", description, path: "/work" });
 
 export default function WorkPage() {
   const signature = signatureProjects();

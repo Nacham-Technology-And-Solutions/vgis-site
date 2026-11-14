@@ -7,7 +7,7 @@ import { pageMetadata } from "@/lib/seo";
 import { ContactForm } from "@/components/ContactForm";
 
 const description =
-  "Contact VGIS in Abuja for 3D architectural visualisation, product rendering, XR and branding. WhatsApp or call +234 811 285 3404, or email info@3dvgis.com.";
+  "Contact VGIS in Abuja for 3D architectural visualisation, product rendering, XR and campaigns. WhatsApp or call +234 811 285 3404, or email info@3dvgis.com.";
 
 export const metadata = pageMetadata({ title: "Contact VGIS: Start a Project", description, path: "/contact" });
 

@@ -39,7 +39,7 @@ const trust = [
   `Registered company · RC ${company.rcNumber}`,
   "Head office in Maitama, Abuja",
   `Clients in ${company.areaServed.join(", ")}`,
-  "Renders and branding from one studio",
+  "Renders and walkthroughs from one studio",
 ];
 
 export default async function OfferPage({ params }: Props) {

@@ -1,3 +1,4 @@
+import { SHOW_2D_BRANDING } from "./hidden";
 import { projects } from "./projects";
 import { skyframe } from "./skyframe";
 import { brandCases, brandForProject, brandHref } from "./brands";
@@ -21,13 +22,15 @@ import { brandCases, brandForProject, brandHref } from "./brands";
 
 export type PortfolioCategory = "3d" | "xr" | "motion" | "ai" | "2d";
 
-export const categories: { id: PortfolioCategory; label: string }[] = [
+const allCategories: { id: PortfolioCategory; label: string }[] = [
   { id: "3d", label: "3D" },
   { id: "xr", label: "XR" },
   { id: "motion", label: "Ads & Motion" },
   { id: "ai", label: "AI-assisted" },
   { id: "2d", label: "2D Branding" },
 ];
+/** The 2D Branding filter is not shown while 2D branding is not advertised (hidden.ts). */
+export const categories = allCategories.filter((c) => SHOW_2D_BRANDING || c.id !== "2d");
 
 export const AI_LABEL = "AI-assisted, art-directed and finished by VGIS";
 
@@ -201,7 +204,9 @@ const real = [
 const hasReal = (c: PortfolioCategory) => real.some((r) => r.category === c);
 
 /** Everything shown on /work: real work first; samples only fill categories with no real work yet. */
-export const portfolio: PortfolioItem[] = [...real, ...samples.filter((s) => !hasReal(s.category))];
+export const portfolio: PortfolioItem[] = [...real, ...samples.filter((s) => !hasReal(s.category))].filter(
+  (p) => SHOW_2D_BRANDING || p.category !== "2d",
+);
 
 /** Any item by id, including retired samples (for blog images that still reference them). */
 export const anyPortfolioItem = (id: string) => portfolio.find((p) => p.id === id) ?? samples.find((p) => p.id === id);
@@ -218,7 +223,7 @@ export const portfolioFor = (c: PortfolioCategory) => portfolio.filter((p) => p.
 
 /** Home grid: signature projects first, then a mix of recent 3D and 2D; never AI-assisted. Max 8. */
 export const featuredWork = () => {
-  if (!real.length) return samples.filter((p) => p.featured && !p.aiAssisted);
+  if (!real.length) return samples.filter((p) => p.featured && !p.aiAssisted && (SHOW_2D_BRANDING || p.category !== "2d"));
   const sig = projectTiles.filter((t) => projects.find((p) => `p-${p.slug}` === t.id)?.signature);
   const rest3d = projectTiles.filter((t) => t.category === "3d" && !sig.includes(t));
   const rest2d = [...brandTiles, ...projectTiles.filter((t) => t.category === "2d")];

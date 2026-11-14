@@ -19,7 +19,7 @@ export default function AboutPage() {
       <JsonLd data={graph({ ...webPageSchema({ path: "/about", name: "About VGIS", description, type: "AboutPage" }), mainEntity: { "@id": ids.org } })} />
       <PageHero
         eyebrow="About VGIS"
-        title="A twofold studio: 3D at the core, branding in support."
+        title="A twofold studio: 3D at the core, 2D design in support."
         lede={company.tagline}
         crumbs={[{ name: "About", path: "/about" }]}
       />

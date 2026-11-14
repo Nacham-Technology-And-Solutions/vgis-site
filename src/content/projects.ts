@@ -1,6 +1,6 @@
 import { caseStudies, getCaseStudy } from "./case-studies";
 import type { Discipline } from "./services";
-import { isHidden } from "./hidden";
+import { isHidden, SHOW_2D_BRANDING } from "./hidden";
 import { manifestProjects, type ManifestProject } from "./work.generated";
 
 /**
@@ -268,6 +268,7 @@ export const projects: Project[] = [
   ...extra.filter((e) => e.images.length).sort((a, b) => (b.year ?? 0) - (a.year ?? 0)),
 ]
   .filter((p) => !isHidden(p.slug)) // hidden.ts: kept in the repo, off the site
+  .filter((p) => SHOW_2D_BRANDING || p.discipline !== "2d") // 2D branding work is not advertised (hidden.ts)
   .map((p) => (getCaseStudy(p.slug) ? { ...p, signature: true } : p));
 
 for (const c of caseStudies) if (!projects.some((p) => p.slug === c.slug)) throw new Error(`Case study "${c.slug}" has no project`);

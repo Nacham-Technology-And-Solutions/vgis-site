@@ -1,3 +1,4 @@
+import { SHOW_2D_BRANDING, BRANDING_SERVICES } from "./hidden";
 import type { ProcessKey } from "./process";
 
 export type Discipline = "3d" | "2d" | "campaigns";
@@ -32,10 +33,12 @@ export const disciplines: Record<Discipline, { name: string; label: string; intr
       "From concept, design and full working drawings to photorealistic rendering, cinematic walkthroughs and interactive AR and VR, for buildings, civil projects and products.",
   },
   "2d": {
-    name: "2D branding & design",
+    name: SHOW_2D_BRANDING ? "2D branding & design" : "2D design & motion",
     label: "Support",
     intro:
-      "Brand identity, graphic design and illustration, designed to package, present and sell the spaces and products we visualise.",
+      SHOW_2D_BRANDING
+        ? "Brand identity, graphic design and illustration, designed to package, present and sell the spaces and products we visualise."
+        : "Graphic design, illustration and motion graphics, designed to present and sell the spaces and products we visualise.",
   },
   campaigns: {
     name: "Campaigns & motion",
@@ -48,7 +51,7 @@ export const disciplines: Record<Discipline, { name: string; label: string; intr
 /** Display order of the service groups. */
 export const disciplineOrder: Discipline[] = ["3d", "2d", "campaigns"];
 
-export const services: Service[] = [
+const allServices: Service[] = [
   {
     slug: "architectural-design",
     discipline: "3d",
@@ -341,6 +344,10 @@ export const services: Service[] = [
     ],
   },
 ];
+
+/** Live services: brand identity is held back while 2D branding is not advertised (see hidden.ts). */
+export const services: Service[] = allServices
+  .filter((s) => SHOW_2D_BRANDING || !BRANDING_SERVICES.has(s.slug));
 
 export const getService = (slug: string) => services.find((s) => s.slug === slug);
 /** Canonical URL path for a service. Always use this instead of building /services/<slug>. */

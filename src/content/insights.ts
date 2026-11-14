@@ -1,3 +1,4 @@
+import { SHOW_2D_BRANDING, BRANDING_SERVICES, BRANDING_INSIGHTS } from "./hidden";
 /**
  * Insights (blog). Rules from the owner (13 Nov 2026):
  * - Source material: the 80-reasons knowledge base (src/content/knowledge/80-reasons.ts) and the company profile.
@@ -22,7 +23,7 @@ export type Insight = {
   sections: InsightSection[];
 };
 
-export const insights: Insight[] = [
+const allInsights: Insight[] = [
   {
     slug: "why-visualise-before-you-build",
     title: "Why every construction project should be visualised before it is built",
@@ -106,7 +107,7 @@ export const insights: Insight[] = [
       {
         heading: "Stand out in a crowded market",
         body: [
-          "For many buyers, the visualisation is their first encounter with the project. Consistent, high-quality visuals give a development a professional identity and differentiate it from competing schemes. That is why VGIS pairs its 3D work with brand identity: the renders and the brand are designed to work as one visual system.",
+          "For many buyers, the visualisation is their first encounter with the project. Consistent, high-quality visuals give a development a professional identity and differentiate it from competing schemes. That is why VGIS keeps every render in one consistent art direction, so the whole set works as one visual system.",
         ],
         keyPoints: [40, 41, 42],
       },
@@ -307,6 +308,11 @@ export const insights: Insight[] = [
     ],
   },
 ];
+
+/** Live articles: the branding article is held back while 2D branding is not advertised (see hidden.ts). */
+export const insights: Insight[] = allInsights
+  .filter((p) => SHOW_2D_BRANDING || !BRANDING_INSIGHTS.has(p.slug))
+  .map((p) => (SHOW_2D_BRANDING ? p : { ...p, related: p.related?.filter((s) => !BRANDING_SERVICES.has(s)) }));
 
 export const getInsight = (slug: string) => insights.find((p) => p.slug === slug);
 export const insightsForService = (slug: string) => insights.filter((p) => p.service === slug || p.related?.includes(slug));

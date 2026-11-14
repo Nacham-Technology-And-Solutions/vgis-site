@@ -1,3 +1,4 @@
+import { SHOW_2D_BRANDING, BRANDING_SERVICES, BRANDING_OFFERS } from "./hidden";
 import type { Faq } from "./services";
 import type { ProcessKey } from "./process";
 
@@ -39,7 +40,7 @@ export type Offer = {
   };
 };
 
-export const offers: Offer[] = [
+const allOffers: Offer[] = [
   {
     slug: "off-plan-renders",
     name: "Off-plan property renders",
@@ -321,5 +322,10 @@ export const offers: Offer[] = [
     },
   },
 ];
+
+/** Live offers: branding offers are held back while 2D branding is not advertised (see hidden.ts). */
+export const offers: Offer[] = allOffers
+  .filter((o) => SHOW_2D_BRANDING || !BRANDING_OFFERS.has(o.slug))
+  .map((o) => (SHOW_2D_BRANDING ? o : { ...o, services: o.services.filter((s) => !BRANDING_SERVICES.has(s)) }));
 
 export const getOffer = (slug: string) => offers.find((o) => o.slug === slug);

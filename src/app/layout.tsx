@@ -16,11 +16,11 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "sw
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "VGIS® | 3D Architectural Visualisation & Branding Studio, Abuja",
+    default: "VGIS® | 3D Architectural Visualisation Studio, Abuja",
     template: "%s | VGIS®",
   },
   description:
-    "VGIS is an Abuja-based studio creating photorealistic 3D architectural and product renders, cinematic walkthroughs, AR/VR and brand identity for developers and businesses.",
+    "VGIS is an Abuja-based studio creating photorealistic 3D architectural and product renders, cinematic walkthroughs and AR/VR for developers and businesses.",
   applicationName: "VGIS®",
   authors: [{ name: company.legalName, url: SITE_URL }],
   creator: company.legalName,

@@ -8,3 +8,14 @@
 export const HIDDEN_PROJECTS = new Set<string>(["down-town-castries"]);
 
 export const isHidden = (slug: string) => HIDDEN_PROJECTS.has(slug);
+
+/**
+ * Owner (Precious, 14 Nov 2026): do not advertise 2D branding. While false, the brand identity
+ * service and offer, the "3D + brand" launch offer, the brand-identity article, every brand board
+ * and the 2D brand projects are left out of the site (their pages 404), and copy no longer
+ * promotes branding. All data stays in the repo; set to true to bring it all back.
+ */
+export const SHOW_2D_BRANDING = false;
+export const BRANDING_SERVICES = new Set(["brand-identity"]);
+export const BRANDING_OFFERS = new Set(["brand-identity", "development-launch-package"]);
+export const BRANDING_INSIGHTS = new Set(["your-development-needs-a-brand"]);
