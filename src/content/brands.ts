@@ -5,6 +5,7 @@
  * - FluraVest: the FluraVest design system (logos, tokens.json, README).
  * - Skyframe XR: docs/skyframe-brand/ (brand guide, tokens.json, logo files).
  * - Nâcham Technology & Solutions: the Nâcham design system and stationery (logos, tokens, README, print previews).
+ * - Consulate of Saint Lucia in Nigeria: the Consulate design system (logos, tokens, README).
  * - VGIS: the VGIS Brand Guidelines (Nov 2026) and public/brand/vgis-logo.png.
  * Colours are the brands' exact hex values. Logos are the brands' own files, never redrawn.
  */
@@ -31,10 +32,12 @@ export type BrandCase = {
   system: string[];
   /** Applications from the brand's own files (stationery, cards), shown under the board. */
   applications?: BrandImage[];
+  /** Attribution required by a licence on part of the artwork. */
+  credit?: string;
   href?: string;
 };
 
-export type BrandFont = "jakarta" | "montserrat" | "inter" | "intertight" | "instrument" | "bebas";
+export type BrandFont = "jakarta" | "montserrat" | "inter" | "intertight" | "instrument" | "bebas" | "barlow" | "dmsans";
 
 export const brandCases: BrandCase[] = [
   {
@@ -70,6 +73,34 @@ export const brandCases: BrandCase[] = [
       { src: "/brands/nacham/letterhead.jpg", width: 900, height: 1271, alt: "Nâcham letterhead with an example letter" },
       { src: "/brands/nacham/id-card-staff.jpg", width: 410, height: 650, alt: "Nâcham staff ID card with a magenta band" },
     ],
+  },
+  {
+    slug: "saint-lucia-consulate",
+    name: "Consulate of Saint Lucia in Nigeria",
+    sector: "Diplomatic mission",
+    tagline: "Bridging the Caribbean and West Africa.",
+    summary:
+      "The Honorary Consulate of Saint Lucia in Nigeria serves Saint Lucian nationals and visitors, and builds trade, investment, tourism and cultural ties between the two nations. The identity takes its colours from the Saint Lucia flag and has to read as official, trustworthy and proudly Caribbean.",
+    logo: { src: "/brands/saint-lucia-consulate/consulate-lockup-horizontal.svg", width: 744, height: 200, alt: "Consulate of Saint Lucia in Nigeria horizontal logo: the consulate seal beside the wordmark" },
+    ground: "#EDFAFF",
+    swatches: [
+      { name: "Cerulean", hex: "#67CBFF", role: "From the national flag" },
+      { name: "Gold", hex: "#FED116", role: "Accent only" },
+      { name: "Seal Black", hex: "#000000", role: "Seal band and wordmark" },
+      { name: "Ink", hex: "#2E383A", role: "Body text" },
+    ],
+    type: [
+      { family: "Barlow Condensed", role: "Wordmark and headings", font: "barlow" },
+      { family: "DM Sans", role: "Body", font: "dmsans" },
+    ],
+    system: [
+      "The consulate seal, with the Saint Lucia coat of arms, and a horizontal lockup",
+      "Flag-derived colour system with proportion and contrast rules",
+      "The tricolour rule, dashed ring and partner strip as graphic elements",
+      "Diplomatic voice, key messages and boilerplate",
+      "Templates: business card, letterhead, presentation slide and website",
+    ],
+    credit: "Coat of arms in the seal traced from \u201cCoat of arms of Saint Lucia.svg\u201d by Diafora, Wikimedia Commons, CC BY-SA 3.0.",
   },
   {
     slug: "fluravest",

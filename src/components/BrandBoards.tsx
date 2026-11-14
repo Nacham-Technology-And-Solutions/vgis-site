@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Inter, Inter_Tight, Instrument_Serif, Montserrat, Plus_Jakarta_Sans } from "next/font/google";
+import { Barlow_Condensed, DM_Sans, Inter, Inter_Tight, Instrument_Serif, Montserrat, Plus_Jakarta_Sans } from "next/font/google";
 import type { BrandCase, BrandFont } from "@/content/brands";
 
 const jakarta = Plus_Jakarta_Sans({ weight: ["800"], subsets: ["latin"], variable: "--font-brand-jakarta", display: "swap" });
@@ -8,7 +8,11 @@ const montserrat = Montserrat({ weight: ["800"], subsets: ["latin"], variable: "
 const inter = Inter({ weight: ["600"], subsets: ["latin"], variable: "--font-brand-inter", display: "swap" });
 const interTight = Inter_Tight({ weight: ["600"], subsets: ["latin"], variable: "--font-brand-intertight", display: "swap" });
 const instrument = Instrument_Serif({ weight: ["400"], style: ["italic"], subsets: ["latin"], variable: "--font-brand-instrument", display: "swap" });
+const barlow = Barlow_Condensed({ weight: ["700"], subsets: ["latin"], variable: "--font-brand-barlow", display: "swap" });
+const dmsans = DM_Sans({ weight: ["500"], subsets: ["latin"], variable: "--font-brand-dmsans", display: "swap" });
 const fontVar: Record<BrandFont, string> = {
+  barlow: "var(--font-brand-barlow)",
+  dmsans: "var(--font-brand-dmsans)",
   jakarta: "var(--font-brand-jakarta)",
   montserrat: "var(--font-brand-montserrat)",
   inter: "var(--font-brand-inter)",
@@ -73,6 +77,8 @@ function BrandBoard({ b }: { b: BrandCase }) {
           ))}
         </ul>
 
+        {b.credit && <p className="mt-5 text-xs text-muted">{b.credit}</p>}
+
         {b.href && (
           <p className="mt-5 text-sm"><Link href={b.href} className="font-semibold link-underline">See {b.name} →</Link></p>
         )}
@@ -83,7 +89,7 @@ function BrandBoard({ b }: { b: BrandCase }) {
 
 export function BrandBoards({ brands }: { brands: BrandCase[] }) {
   return (
-    <div className={`${jakarta.variable} ${montserrat.variable} ${inter.variable} ${interTight.variable} ${instrument.variable} space-y-10`}>
+    <div className={`${jakarta.variable} ${montserrat.variable} ${inter.variable} ${interTight.variable} ${instrument.variable} ${barlow.variable} ${dmsans.variable} space-y-10`}>
       {brands.map((b) => <BrandBoard key={b.slug} b={b} />)}
     </div>
   );
