@@ -7,6 +7,8 @@ import { projectsForService } from "@/content/projects";
 import { portfolio } from "@/content/portfolio";
 import { insightsForService } from "@/content/insights";
 import { PortfolioTile } from "@/components/portfolio";
+import { BrandBoards } from "@/components/BrandBoards";
+import { brandCases } from "@/content/brands";
 import { company } from "@/content/site";
 import { AnswerBox, CtaBand, FaqList, PageHero, ProcessSteps, ProjectCard, SectionHead, ServiceCard } from "@/components/blocks";
 import { JsonLd } from "@/components/JsonLd";
@@ -35,7 +37,9 @@ export default async function ServicePage({ params }: Props) {
   const process = processes[s.process];
   // Related visual work; AI-assisted pieces only ever appear on the AI-assisted service.
   const reading = insightsForService(s.slug).slice(0, 3);
-  const work = portfolio.filter((w) => w.service === s.slug && (!w.aiAssisted || s.slug === "ai-assisted-content")).slice(0, 3);
+  const brands = s.slug === "brand-identity" ? brandCases : [];
+  // Real brand work replaces the sample boards on the branding page.
+  const work = brands.length ? [] : portfolio.filter((w) => w.service === s.slug && (!w.aiAssisted || s.slug === "ai-assisted-content")).slice(0, 3);
 
   return (
     <>
@@ -83,6 +87,15 @@ export default async function ServicePage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {brands.length > 0 && (
+        <section className="border-t border-line">
+          <div className="wrap py-20">
+            <SectionHead eyebrow="Work" title="Brand identities by VGIS" intro="Each identity is a complete system: logo suite, colour, typography and the guidelines that keep it consistent." />
+            <div className="mt-10"><BrandBoards brands={brands} /></div>
+          </div>
+        </section>
+      )}
 
       {work.length > 0 && (
         <section className="border-t border-line">
