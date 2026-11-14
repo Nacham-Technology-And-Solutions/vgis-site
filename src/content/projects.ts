@@ -31,7 +31,7 @@ export type Project = {
   /** Partner credit line, e.g. Justking Solutions. */
   credit?: string;
   /** Self-hosted videos featured on the project page (e.g. the Skyframe XR VR demo built on this project). */
-  videos?: { mp4: string; poster?: string; title: string; href?: string }[];
+  videos?: { mp4: string; poster?: string; title: string; href?: string; /** 16:9 video (default is 9:16 portrait). */ landscape?: boolean; /** Shown under the video, e.g. "January 2020". */ date?: string }[];
 };
 
 const curated: Project[] = [
@@ -95,11 +95,27 @@ const curated: Project[] = [
     client: { name: "White Avenue Real Estate", url: "https://whiteavenuegroup.com" },
     discipline: "3d",
     category: "3D visualisation",
-    scope: "Design, visualisation, rendering and a tour film.",
+    scope: "Design, visualisation, rendering, a tour film and an interactive game walkthrough.",
     summary:
-      "Design, visualisation and rendering for Cedarwood City Estate, plus a tour film of the estate.",
+      "Design, visualisation and rendering for Cedarwood City Estate, plus a tour film and an interactive game walkthrough of the estate and its houses.",
     services: ["architectural-visualization", "cinematic-walkthroughs"],
     images: [],
+    videos: [
+      {
+        mp4: "/work/cedarwood-city/walkthrough/estate-walkthrough.mp4",
+        poster: "/work/cedarwood-city/walkthrough/estate-walkthrough.jpg",
+        title: "Interactive walkthrough: the estate",
+        landscape: true,
+        date: "January 2020",
+      },
+      {
+        mp4: "/work/cedarwood-city/walkthrough/house-walkthrough.mp4",
+        poster: "/work/cedarwood-city/walkthrough/house-walkthrough.jpg",
+        title: "Interactive walkthrough: inside a house",
+        landscape: true,
+        date: "January 2020",
+      },
+    ],
   },
   {
     slug: "nacham",

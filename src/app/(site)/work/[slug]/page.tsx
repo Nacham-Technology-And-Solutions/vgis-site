@@ -137,9 +137,10 @@ export default async function ProjectPage({ params }: Props) {
           {(p.videos ?? []).map((v) => (
             <div key={v.mp4} className="mt-10">
               <p className="eyebrow">{v.title}</p>
-              <div className="mx-auto mt-3 aspect-[9/16] w-full max-w-[360px] overflow-hidden bg-ink">
-                <video src={v.mp4} poster={v.poster} controls playsInline preload="metadata" className="h-full w-full object-cover" />
+              <div className={`mt-3 overflow-hidden bg-ink ${v.landscape ? "aspect-video w-full" : "mx-auto aspect-[9/16] w-full max-w-[360px]"}`}>
+                <video src={v.mp4} poster={v.poster} controls playsInline preload="none" className="h-full w-full object-cover" />
               </div>
+              {v.date && <p className="mt-2 text-sm text-muted">Recorded {v.date}</p>}
               {v.href && (
                 <p className="mt-3 text-center text-sm">
                   <Link href={v.href} className="link-underline">See Skyframe XR by VGIS →</Link>
