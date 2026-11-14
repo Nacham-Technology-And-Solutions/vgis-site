@@ -92,15 +92,15 @@ const allCaseStudies: CaseStudy[] = [
   },
   {
     slug: "white-avenue-real-estate",
-    headline: "Visualisation across White Avenue's developments, from colour options to an interactive estate tour.",
+    headline: "Visualisation across White Avenue's developments, from colour options to an estate tour film.",
     brief:
       "Visualise White Avenue Real Estate's developments, Cedarwood City Estate and Colour Code, from estate-wide views to facade colour options.",
-    scope: ["Design", "3D visualisation", "Interactive walkthrough", "Walkthrough film"],
+    scope: ["Design", "3D visualisation", "Walkthrough film"],
     parts: [
       {
         name: "Cedarwood City Estate",
         slug: "cedarwood-city-estate",
-        body: "Estate views of the houses, streets, park, pond and sports courts, an aerial of the estate, a tour film, and an interactive game walkthrough that lets buyers explore the estate freely.",
+        body: "Estate views of the houses, streets, park, pond and sports courts, an aerial of the estate and a tour film.",
         images: ["04-set1-7.jpg", "01-estate-park.jpg", "02-street-of-houses.jpg"],
       },
       {
@@ -111,7 +111,7 @@ const allCaseStudies: CaseStudy[] = [
       },
     ],
     deliverables: [
-      "Cedarwood City Estate: 7 rendered views, a tour film and an interactive game walkthrough",
+      "Cedarwood City Estate: 7 rendered views and a tour film",
       "Colour Code: 4 rendered views, including three colourway options",
     ],
   },

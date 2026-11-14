@@ -138,7 +138,7 @@ export const offers: Offer[] = [
     ],
     includes: ["On-site AR/VR walkthrough on the actual land", "1:1 scale virtual walkthrough", "Estate masterplan projection", "Finish customisation and visualisation in AR", "Setup at your office or site, with basic staff training"],
     process: "xr",
-    projects: ["cedarwood-city-estate"],
+    projects: ["spicy-kingdom"],
     services: ["skyframe-xr"],
     faqs: [
       { q: "What is Skyframe XR?", a: "Skyframe XR by VGIS is a real estate virtual experience. Clients preview an off-plan development or a bare plot in its completed form before a single block is laid." },

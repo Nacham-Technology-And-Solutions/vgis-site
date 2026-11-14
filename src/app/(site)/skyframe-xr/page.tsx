@@ -3,11 +3,10 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import { getService, serviceHref } from "@/content/services";
-import { getProject } from "@/content/projects";
 import { portfolioFor } from "@/content/portfolio";
 import { insightsForService } from "@/content/insights";
 import { skyframe as x } from "@/content/skyframe";
-import { AnswerBox, Breadcrumbs, FaqList, ProjectCard } from "@/components/blocks";
+import { AnswerBox, Breadcrumbs, FaqList } from "@/components/blocks";
 import { SampleBadge } from "@/components/portfolio";
 import { WhatsAppIcon, WhatsAppLink } from "@/components/WhatsApp";
 import { JsonLd } from "@/components/JsonLd";
@@ -44,7 +43,6 @@ function Wa({ label = "Book a demo on WhatsApp" }: { label?: string }) {
 }
 
 export default function SkyframePage() {
-  const cedarwood = getProject("cedarwood-city-estate");
   const sample = portfolioFor("xr").find((p) => p.placeholder);
   const reading = insightsForService(s.slug).slice(0, 3);
   const video = x.media.video;
@@ -193,20 +191,6 @@ export default function SkyframePage() {
           </ul>
         </div>
       </section>
-
-      {/* Related VGIS work */}
-      {cedarwood && (
-        <section className="border-t border-line">
-          <div className="wrap py-16 sm:py-20">
-            <p className="eyebrow">From the VGIS studio</p>
-            <h2 className="mt-3">Interactive walkthroughs</h2>
-            <p className="mt-3 max-w-2xl text-muted">Cedarwood City Estate included an interactive game walkthrough of the estate.</p>
-            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              <ProjectCard p={cedarwood} />
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* FAQ */}
       <section className="border-t border-line">

@@ -156,7 +156,7 @@ export const insights: Insight[] = [
     date: "2026-11-13",
     service: "skyframe-xr",
     related: ["cinematic-walkthroughs", "architectural-visualization"],
-    image: "p-cedarwood-city-estate",
+    image: "v-spicy-kingdom-0",
     readingMinutes: 4,
     intro:
       "A walkthrough film follows a path chosen by the director. An interactive experience hands control to the viewer. With Skyframe XR by VGIS, buyers, investors and clients explore a building at their own pace, in virtual or augmented reality, and look closely at what matters to them.",
@@ -178,7 +178,7 @@ export const insights: Insight[] = [
       {
         heading: "How a Skyframe XR project runs",
         body: [
-          "Every XR project follows five stages: discovery and plan review, blueprint and agreement on scope and terms, scene modelling with assets optimised for real-time engines, development and post-production with quality assurance, and final deployment of the interactive experience. VGIS has delivered interactive work before: our Cedarwood City Estate project included an interactive game walkthrough of the estate.",
+          "Every XR project follows five stages: discovery and plan review, blueprint and agreement on scope and terms, scene modelling with assets optimised for real-time engines, development and post-production with quality assurance, and final deployment of the interactive experience.",
         ],
       },
     ],

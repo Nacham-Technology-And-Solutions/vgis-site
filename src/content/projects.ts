@@ -95,10 +95,10 @@ const curated: Project[] = [
     client: { name: "White Avenue Real Estate", url: "https://whiteavenuegroup.com" },
     discipline: "3d",
     category: "3D visualisation",
-    scope: "Design, visualisation, rendering and an interactive game walkthrough.",
+    scope: "Design, visualisation, rendering and a tour film.",
     summary:
-      "Design, visualisation and rendering for Cedarwood City Estate, plus an interactive game-engine walkthrough that lets buyers explore the estate freely.",
-    services: ["architectural-visualization", "skyframe-xr"],
+      "Design, visualisation and rendering for Cedarwood City Estate, plus a tour film of the estate.",
+    services: ["architectural-visualization", "cinematic-walkthroughs"],
     images: [],
   },
   {
