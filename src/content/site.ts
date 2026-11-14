@@ -25,7 +25,7 @@ export const company = {
     applications: ["NG/TM/O/2024/265289", "NG/TM/O/2024/265290", "NG/TM/O/2024/265294"],
     classes: [9, 35, 42],
   },
-  emails: { primary: "3d.vgis.ltd@gmail.com", secondary: "info@3dvgis.com" },
+  emails: { primary: "info@3dvgis.com", secondary: "3d.vgis.ltd@gmail.com" },
   phones: [
     { display: "+234 811 285 3404", e164: "+2348112853404", whatsapp: true },
     { display: "+234 707 247 5996", e164: "+2347072475996", whatsapp: false },

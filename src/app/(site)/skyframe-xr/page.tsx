@@ -75,7 +75,7 @@ export default function SkyframePage() {
             <p className="mt-6 max-w-xl text-lg text-ink-muted">{x.hooks.imagine}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Wa />
-              <Link href="/contact" className="btn btn-ghost"><span>Send your plans</span></Link>
+              <a href={`mailto:${x.email}?subject=${encodeURIComponent("Skyframe XR demo")}`} className="btn btn-ghost"><span>Email {x.email}</span></a>
             </div>
           </div>
           <div className={`relative overflow-hidden rounded-2xl bg-ink ${video?.mp4 ? "mx-auto aspect-[9/16] w-full max-w-[340px]" : "aspect-square"}`}>
@@ -245,7 +245,7 @@ export default function SkyframePage() {
           </div>
           <div className="flex flex-wrap gap-3">
             <Wa />
-            <Link href="/contact" className="btn btn-ghost"><span>Send your plans</span></Link>
+            <a href={`mailto:${x.email}?subject=${encodeURIComponent("Skyframe XR demo")}`} className="btn btn-ghost"><span>Email {x.email}</span></a>
           </div>
         </div>
       </section>

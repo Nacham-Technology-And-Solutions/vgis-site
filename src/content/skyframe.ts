@@ -25,6 +25,8 @@ function skyframeAsset(name: string) {
 export const skyframe = {
   name: "Skyframe XR",
   byline: "by VGIS®",
+  /** Owner (14 Nov 2026): Skyframe XR contact is this Gmail plus the VGIS WhatsApp only. */
+  email: "skyframe.xr@gmail.com",
   ownership: "Skyframe XR is developed and owned by Visual Graphics Illustration Services Ltd (VGIS).",
   category: "Real Estate Technology", // cover subtitle
 
