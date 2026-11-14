@@ -55,9 +55,9 @@ export const services: Service[] = [
     name: "Concept, design & working drawings",
     seoTitle: "Architectural Design & Working Drawings, Abuja",
     description:
-      "Architectural concept, design and full working drawings (architectural, mechanical, electrical) in 2–4 days, plus 3D visualisation, from VGIS in Abuja.",
+      "Architectural concept, design and full working drawings (architectural, mechanical, electrical) and 3D visualisation in 2–5 days, all together, from VGIS in Abuja.",
     answer:
-      "VGIS takes a project from idea to buildable plans: concept, design and full working drawings covering architectural, mechanical and electrical, typically in 2–4 days. The same team then visualises the design in photorealistic 3D, typically in 2–5 days, so you can approve, present and market it before construction.",
+      "VGIS takes a project from idea to buildable plans: concept, design and full working drawings covering architectural, mechanical and electrical. The same team then visualises the design in photorealistic 3D, and the whole journey from idea to plans to 3D typically takes 2–5 days in total, so you can approve, present and market it before construction.",
     deliverables: [
       "Concept development",
       "Architectural design",
@@ -68,7 +68,7 @@ export const services: Service[] = [
     ],
     forWho: ["Property owners and developers", "Real estate companies", "Hotels, commercial and institutional projects"],
     process: "design",
-    turnaround: "Full plans typically in 2–4 days; 3D visualisation typically in 2–5 days.",
+    turnaround: "From idea to plans to 3D visualisation typically in 2–5 days, all together.",
     faqs: [
       {
         q: "Do you only visualise existing plans?",
@@ -76,7 +76,7 @@ export const services: Service[] = [
       },
       {
         q: "How long does it take?",
-        a: "Full plans, from concept to working drawings, typically take 2–4 days. 3D visualisation typically takes 2–5 days. Timelines depend on the size and complexity of the project and are confirmed when we agree the scope.",
+        a: "From idea to full plans to 3D visualisation typically takes 2–5 days, all together. Timelines depend on the size and complexity of the project and are confirmed when we agree the scope.",
       },
     ],
   },
@@ -98,7 +98,7 @@ export const services: Service[] = [
     ],
     forWho: ["Real estate developers", "Architects", "Civil engineers"],
     process: "3d",
-    turnaround: "3D visualisation typically in 2–5 days.",
+    turnaround: "From idea to plans to 3D visualisation typically in 2–5 days, all together.",
     faqs: [
       {
         q: "What do you need from me to start an architectural render?",

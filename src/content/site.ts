@@ -17,8 +17,8 @@ export const company = {
   /** One-sentence entity definition: used for meta descriptions, llms.txt and schema. */
   definition:
     "VGIS (Visual Graphics Illustration Services Limited) is a Nigerian architectural design and 3D visualisation studio, headquartered in Abuja, that takes projects from concept, design and working drawings to photorealistic renders, cinematic walkthroughs and interactive AR/VR, supported by brand identity, graphic design and motion graphics.",
-  /** Owner-stated typical turnarounds (13 Nov 2026). */
-  turnaround: { plans: "2–4 days", visualisation: "2–5 days" },
+  /** Owner-stated typical turnaround (corrected 14 Nov 2026): idea to plans to 3D visualisation in 2–5 days, all together. */
+  turnaround: { total: "2–5 days", summary: "From idea to plans to 3D visualisation in 2–5 days, all together." },
   trademark: {
     mark: "VGIS AND DEVICE",
     symbol: "®",

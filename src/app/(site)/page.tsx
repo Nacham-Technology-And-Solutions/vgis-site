@@ -45,19 +45,15 @@ export default function HomePage() {
           <div>
             <p className="eyebrow">Concept to render, one team</p>
             <h2 className="mt-3 text-5xl sm:text-7xl">We design it, draw it and visualise it.</h2>
-            <dl className="mt-6 grid max-w-md grid-cols-2 gap-4">
+            <dl className="mt-6 max-w-md">
               <div className="border-l-2 border-orange pl-4">
-                <dt className="text-xs uppercase tracking-[0.14em] text-ink-muted">Full plans</dt>
-                <dd className="font-display text-4xl">{company.turnaround.plans}</dd>
-              </div>
-              <div className="border-l-2 border-orange pl-4">
-                <dt className="text-xs uppercase tracking-[0.14em] text-ink-muted">3D visualisation</dt>
-                <dd className="font-display text-4xl">{company.turnaround.visualisation}</dd>
+                <dt className="text-xs uppercase tracking-[0.14em] text-ink-muted">Idea → plans → 3D visualisation</dt>
+                <dd className="font-display text-4xl">{company.turnaround.total}, all together</dd>
               </div>
             </dl>
             <p className="mt-4 max-w-md text-sm text-ink-muted">
               Concept, design and architectural, mechanical and electrical working drawings, then photorealistic 3D. Typical
-              turnarounds; confirmed when we agree the scope.
+              turnaround; confirmed when we agree the scope.
             </p>
             <Link href="/process" className="mt-6 hidden font-semibold link-underline sm:inline-block">How we work →</Link>
           </div>

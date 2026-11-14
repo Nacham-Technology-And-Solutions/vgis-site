@@ -13,12 +13,12 @@ export const processes: Record<ProcessKey, Process> = {
   design: {
     key: "design",
     name: "Concept to visualisation (full package)",
-    summary: "From an idea to full plans in 2–4 days, then photorealistic 3D visualisation in 2–5 days.",
+    summary: "From idea to full plans to photorealistic 3D visualisation in 2–5 days, all together.",
     steps: [
       { title: "Concept", body: "We develop the concept from your brief, site and budget." },
       { title: "Design", body: "We design the building: layouts, elevations and the look of the finished project." },
-      { title: "Working drawings", body: "We produce full architectural, mechanical and electrical working drawings, typically in 2–4 days." },
-      { title: "3D visualisation", body: "We turn the design into photorealistic renders, typically in 2–5 days." },
+      { title: "Working drawings", body: "We produce full architectural, mechanical and electrical working drawings." },
+      { title: "3D visualisation", body: "We turn the design into photorealistic renders. The whole journey, idea to plans to 3D, typically takes 2–5 days in total." },
       { title: "Delivery", body: "You receive the complete package: drawings for construction and visuals to approve, present and market." },
     ],
   },

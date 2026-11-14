@@ -40,7 +40,7 @@ export const companyFaqs: Faq[] = [
   },
   {
     q: "How long does a project take?",
-    a: "Full plans, from concept to working drawings, typically take 2–4 days, and 3D visualisation typically takes 2–5 days. Timelines depend on the size and complexity of the project and are confirmed when we agree the scope.",
+    a: "From idea to full plans to 3D visualisation typically takes 2–5 days, all together. Timelines depend on the size and complexity of the project and are confirmed when we agree the scope.",
   },
   {
     q: "How much does 3D visualisation cost?",
