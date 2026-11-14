@@ -218,7 +218,7 @@ export const offers: Offer[] = [
     ],
     includes: ["Structural and site visualisation", "Aerial and context views", "Walkthrough or flythrough video", "Presentation and proposal graphics"],
     process: "3d",
-    projects: ["down-town-castries"],
+    projects: ["st-helen-hotel", "down-town-castries"],
     services: ["architectural-visualization", "cinematic-walkthroughs"],
     faqs: [
       { q: "What kinds of civil projects do you visualise?", a: "VGIS provides visual solutions for buildings, products and civil projects. Share your drawings and we will confirm the scope in the Discovery stage." },
