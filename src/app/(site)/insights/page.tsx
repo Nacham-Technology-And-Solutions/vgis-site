@@ -12,7 +12,7 @@ import { pageMetadata, absoluteUrl } from "@/lib/seo";
 const description =
   "Insights from VGIS on 3D architectural visualisation, off-plan marketing, walkthroughs, Skyframe XR, product rendering, branding and campaigns.";
 
-export const metadata = pageMetadata({ title: "Insights: Visualisation, XR & Campaigns", description, path: "/insights" });
+export const metadata = pageMetadata({ title: "Insights: Visualisation, Branding & Campaigns", description, path: "/insights" });
 
 export default function InsightsIndex() {
   const posts = [...insights].sort((a, b) => b.date.localeCompare(a.date));
@@ -27,7 +27,7 @@ export default function InsightsIndex() {
       <PageHero
         eyebrow="Insights"
         title="See it, study it, then build it."
-        lede="Practical thinking on visualisation, XR and campaigns for developers, architects, contractors and manufacturers."
+        lede="Practical thinking on visualisation, branding and campaigns for developers, architects, contractors and manufacturers."
         crumbs={[{ name: "Insights", path: "/insights" }]}
       />
       <section className="wrap py-16 sm:py-20">

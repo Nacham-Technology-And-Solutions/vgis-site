@@ -17,7 +17,7 @@ export default function HomePage() {
     <>
       <JsonLd
         data={graph(
-          webPageSchema({ path: "/", name: "VGIS® | 3D Architectural Visualisation Studio", description: company.definition }),
+          webPageSchema({ path: "/", name: "VGIS® | 3D Architectural Visualisation & Branding Studio", description: company.definition }),
           serviceListSchema(),
           faqSchema(homeFaqs),
         )}
@@ -63,7 +63,7 @@ export default function HomePage() {
 
       {/* Services, compact: three groups */}
       <section className="wrap py-16 sm:py-24">
-        <SectionHead num="02" eyebrow="Services" title="One studio, from model to market" intro="3D visualisation at the core, supported by 2D design and campaigns." />
+        <SectionHead num="02" eyebrow="Services" title="One studio, from model to market" intro="3D visualisation at the core, supported by branding and campaigns." />
         <div className="mt-10 grid gap-px border border-line bg-line md:grid-cols-3">
           {disciplineOrder.map((d, i) => (
             <div key={d} className="bg-paper p-6 sm:p-8">

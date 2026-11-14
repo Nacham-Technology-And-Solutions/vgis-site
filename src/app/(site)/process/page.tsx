@@ -1,4 +1,3 @@
-import { SHOW_2D_BRANDING } from "@/content/hidden";
 import { processes } from "@/content/process";
 import { CtaBand, PageHero, ProcessSteps, SectionHead } from "@/components/blocks";
 import { JsonLd } from "@/components/JsonLd";
@@ -6,13 +5,12 @@ import { graph, webPageSchema } from "@/lib/schema";
 import { pageMetadata, absoluteUrl } from "@/lib/seo";
 
 const description =
-  "How VGIS delivers 3D visualisation, Skyframe XR experiences and campaign films, stage by stage, from brief to final delivery.";
+  "How VGIS delivers 3D visualisation, Skyframe XR experiences, brand identity and campaign films, stage by stage, from brief to final delivery.";
 
 export const metadata = pageMetadata({ title: "Our Process: How VGIS Delivers Projects", description, path: "/process" });
 
 export default function ProcessPage() {
-  // The 2D branding process is not advertised while SHOW_2D_BRANDING is false (hidden.ts).
-  const list = Object.values(processes).filter((p) => SHOW_2D_BRANDING || p.key !== "2d");
+  const list = Object.values(processes);
   return (
     <>
       <JsonLd

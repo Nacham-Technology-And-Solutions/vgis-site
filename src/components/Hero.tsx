@@ -36,7 +36,7 @@ export function Hero() {
       <div className="plan-grid absolute inset-0 -z-10 opacity-60" aria-hidden="true" />
 
       <div className="wrap flex min-h-[78svh] flex-col justify-end pb-14 pt-24 sm:min-h-[86svh] sm:pb-20">
-        <p className="eyebrow">Design · 3D visualisation · XR · Campaigns · Abuja</p>
+        <p className="eyebrow">Design · 3D visualisation · XR · Branding · Campaigns · Abuja</p>
         <h1 className="mt-5 max-w-5xl text-[60px] sm:text-[104px] lg:text-[128px]">
           Bridging the gap between <span className="text-orange">imagination</span> and reality.
         </h1>

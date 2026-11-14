@@ -44,6 +44,7 @@ export function organizationSchema() {
       "Cinematic walkthrough animation",
       "Virtual reality",
       "Augmented reality",
+      "Brand identity design",
       "Graphic design",
       "Motion graphics",
     ],

@@ -1,4 +1,3 @@
-import { SHOW_2D_BRANDING } from "@/content/hidden";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -109,15 +108,12 @@ export default async function ServicePage({ params }: Props) {
         </section>
       )}
 
-      {/* The 2D process is the branding workflow: not shown while 2D branding is not advertised (hidden.ts). */}
-      {(SHOW_2D_BRANDING || s.process !== "2d") && (
-        <section className="border-t border-line">
-          <div className="wrap py-20">
-            <SectionHead eyebrow="How it works" title={process.name} intro={process.summary} />
-            <div className="mt-10"><ProcessSteps process={process} /></div>
-          </div>
-        </section>
-      )}
+      <section className="border-t border-line">
+        <div className="wrap py-20">
+          <SectionHead eyebrow="How it works" title={process.name} intro={process.summary} />
+          <div className="mt-10"><ProcessSteps process={process} /></div>
+        </div>
+      </section>
 
       {related.length > 0 && (
         <section className="border-t border-line">

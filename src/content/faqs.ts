@@ -8,7 +8,7 @@ import { services, serviceHref } from "./services";
 export const companyFaqs: Faq[] = [
   {
     q: "What is VGIS?",
-    a: "VGIS (Visual Graphics Illustration Services Limited) is a 3D visualisation and design studio headquartered in Abuja, Nigeria. It produces photorealistic architectural and product renders, cinematic walkthroughs and interactive AR/VR experiences, supported by graphic design and motion graphics.",
+    a: "VGIS (Visual Graphics Illustration Services Limited) is a 3D visualisation and design studio headquartered in Abuja, Nigeria. It produces photorealistic architectural and product renders, cinematic walkthroughs and interactive AR/VR experiences, supported by brand identity, graphic design and motion graphics.",
   },
   {
     q: "Where is VGIS located?",
@@ -20,11 +20,11 @@ export const companyFaqs: Faq[] = [
   },
   {
     q: "Was VGIS previously called VG3DS?",
-    a: "Yes. VGIS began as VG3DS (Visual Graphics 3D Services), focused on 3D architectural visualisation, and became Visual Graphics Illustration Services Limited to add 2D design and motion graphics.",
+    a: "Yes. VGIS began as VG3DS (Visual Graphics 3D Services), focused on 3D architectural visualisation, and became Visual Graphics Illustration Services Limited to add 2D design, brand identity and motion graphics.",
   },
   {
-    q: "Why use one studio for both 3D visualisation and marketing visuals?",
-    a: "Because the renders and the marketing then come from one team with one art direction. VGIS calls this a unified visual ecosystem: the same studio helps you view and experience a model, then market it.",
+    q: "Why use one studio for both 3D visualisation and branding?",
+    a: "Because the renders and the marketing then come from one team with one art direction. VGIS calls this a unified visual ecosystem: the same studio helps you view and experience a model, then brand and market it.",
   },
   {
     q: "What is Skyframe XR?",

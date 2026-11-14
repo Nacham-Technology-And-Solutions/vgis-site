@@ -8,7 +8,7 @@ import { pageMetadata } from "@/lib/seo";
 const description =
   "Answers about VGIS, 3D architectural visualisation, product rendering, walkthroughs, Skyframe XR, branding, pricing, process and working with us.";
 
-export const metadata = pageMetadata({ title: "FAQ: 3D Visualisation, XR & Campaigns", description, path: "/faq" });
+export const metadata = pageMetadata({ title: "FAQ: 3D Visualisation, XR & Branding", description, path: "/faq" });
 
 export default function FaqPage() {
   return (

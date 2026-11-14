@@ -16,7 +16,7 @@ export const company = {
   natureOfBusiness: "Architectural visualisation, product visualisation and graphic design firm",
   /** One-sentence entity definition: used for meta descriptions, llms.txt and schema. */
   definition:
-    "VGIS (Visual Graphics Illustration Services Limited) is a Nigerian architectural design and 3D visualisation studio, headquartered in Abuja, that takes projects from concept, design and working drawings to photorealistic renders, cinematic walkthroughs and interactive AR/VR, supported by graphic design and motion graphics.",
+    "VGIS (Visual Graphics Illustration Services Limited) is a Nigerian architectural design and 3D visualisation studio, headquartered in Abuja, that takes projects from concept, design and working drawings to photorealistic renders, cinematic walkthroughs and interactive AR/VR, supported by brand identity, graphic design and motion graphics.",
   /** Owner-stated typical turnaround (corrected 14 Nov 2026): idea to plans to 3D visualisation in 2–5 days, all together. */
   turnaround: { total: "2–5 days", summary: "From idea to plans to 3D visualisation in 2–5 days, all together." },
   trademark: {
@@ -75,11 +75,11 @@ export const company = {
   skyframeUrl: "https://skyframexr.3dvgis.com",
   story: [
     "VGIS was founded as VG3DS (Visual Graphics 3D Services), with a focus on structural rendering and high-end 3D architectural visualisation.",
-    "As client needs grew, the company became Visual Graphics Illustration Services Limited (VGIS) and added 2D design and motion graphics, so it could offer one complete visual ecosystem.",
-    "Today VGIS pairs 3D visualisation, its core, with 2D design and motion that present and sell the work.",
+    "As client needs grew, the company became Visual Graphics Illustration Services Limited (VGIS) and added 2D design, brand identity and motion graphics, so it could offer one complete visual ecosystem.",
+    "Today VGIS pairs 3D visualisation, its core, with 2D branding that packages, presents and sells the work.",
   ],
   vision:
-    "To bridge the gap between imagination and reality with complete visual solutions for buildings, products and civil projects: high-end 3D architectural and product visualisation at the core, supported by 2D illustration, graphic design and motion graphics. We give clients a complete visual ecosystem, from viewing and experiencing a model to marketing it to the world.",
+    "To bridge the gap between imagination and reality with complete visual solutions for buildings, products and civil projects: high-end 3D architectural and product visualisation at the core, supported by 2D illustration, branding and motion graphics. We give clients a complete visual ecosystem, from viewing and experiencing a model to marketing it to the world.",
   mission: [
     {
       title: "Pioneering 3D innovation",
@@ -87,7 +87,7 @@ export const company = {
     },
     {
       title: "Elevating visual marketing",
-      body: "Go beyond the 3D model with 2D illustration, graphic design and motion graphics that communicate the project.",
+      body: "Go beyond the 3D model with 2D illustration, graphic design and brand identity that package and communicate the project.",
     },
     {
       title: "Driving unified excellence",

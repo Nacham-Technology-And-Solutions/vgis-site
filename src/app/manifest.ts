@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "VGIS® · Visual Graphics Illustration Services",
     short_name: "VGIS®",
-    description: "3D architectural visualisation and XR studio in Abuja, Nigeria.",
+    description: "3D architectural visualisation, XR and branding studio in Abuja, Nigeria.",
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",
