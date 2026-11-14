@@ -206,10 +206,12 @@ export const portfolio: PortfolioItem[] = [...real, ...samples.filter((s) => !ha
 /** Any item by id, including retired samples (for blog images that still reference them). */
 export const anyPortfolioItem = (id: string) => portfolio.find((p) => p.id === id) ?? samples.find((p) => p.id === id);
 
-const castries = projects.find((p) => p.slug === "down-town-castries");
-/** Home hero: the Down Town Castries signature render once available, else the sample. */
-export const hero = castries?.images[0]
-  ? { image: castries.images[0], reelMp4: undefined as string | undefined, placeholder: false, source: "VGIS: Down Town Castries" }
+/** Home hero: the first published signature project with a render (Down Town Castries while it is visible), else the sample. */
+const heroProject = ["down-town-castries", "st-helen-hotel", "white-avenue-real-estate"]
+  .map((slug) => projects.find((p) => p.slug === slug))
+  .find((p) => p?.images[0]);
+export const hero = heroProject
+  ? { image: heroProject.images[0], reelMp4: undefined as string | undefined, placeholder: false, source: `VGIS: ${heroProject.name}` }
   : sampleHero;
 
 export const portfolioFor = (c: PortfolioCategory) => portfolio.filter((p) => p.category === c);

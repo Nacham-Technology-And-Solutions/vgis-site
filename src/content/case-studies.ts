@@ -1,3 +1,5 @@
+import { isHidden } from "./hidden";
+
 /**
  * Case studies for the signature projects.
  *
@@ -28,7 +30,7 @@ export type CaseStudy = {
   deliverables: string[];
 };
 
-export const caseStudies: CaseStudy[] = [
+const allCaseStudies: CaseStudy[] = [
   {
     slug: "down-town-castries",
     headline: "A new mixed-use quarter for downtown Castries, shown street by street.",
@@ -164,5 +166,8 @@ export const caseStudies: CaseStudy[] = [
     deliverables: ["6 rendered views: site plan, crest wall, entrance drive, car park and pavilion walks", "A walkthrough film"],
   },
 ];
+
+/** Published case studies, in loop order. Hidden projects (see hidden.ts) are left out. */
+export const caseStudies: CaseStudy[] = allCaseStudies.filter((c) => !isHidden(c.slug));
 
 export const getCaseStudy = (slug: string) => caseStudies.find((c) => c.slug === slug);
