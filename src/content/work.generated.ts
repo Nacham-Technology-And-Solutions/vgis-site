@@ -19,7 +19,10 @@ export const manifestProjects: ManifestProject[] = [
     "contact": null,
     "credit": "Justking Solutions",
     "signature": true,
-    "youtubeIds": [],
+    "youtubeIds": [
+      "2UTWugC8Ua0",
+      "ZdPqh6-2LIc"
+    ],
     "videos": [],
     "location": null,
     "images": [
@@ -159,7 +162,9 @@ export const manifestProjects: ManifestProject[] = [
     "contact": null,
     "credit": "Justking Solutions",
     "signature": true,
-    "youtubeIds": [],
+    "youtubeIds": [
+      "S8_k2hXenG0"
+    ],
     "videos": [],
     "location": null,
     "images": [
@@ -603,7 +608,9 @@ export const manifestProjects: ManifestProject[] = [
     "contact": null,
     "credit": "Justking Solutions",
     "signature": false,
-    "youtubeIds": [],
+    "youtubeIds": [
+      "JDwPdqwSRZY"
+    ],
     "videos": [],
     "location": null,
     "images": [
@@ -918,7 +925,9 @@ export const manifestProjects: ManifestProject[] = [
     "contact": null,
     "credit": null,
     "signature": false,
-    "youtubeIds": [],
+    "youtubeIds": [
+      "ubezyzQSEzM"
+    ],
     "videos": [],
     "location": null,
     "images": [

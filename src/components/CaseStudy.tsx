@@ -176,11 +176,11 @@ export function CaseStudyView({ p, cs }: { p: Project; cs: CaseStudy }) {
           <div className="mt-10 grid items-start gap-10 lg:grid-cols-[2fr_1fr]">
             {films.length > 0 && (
               <div className="space-y-8">
-                {films.map((id) => (
+                {films.map((id, k) => (
                   <div key={id} className="relative aspect-video bg-ink">
                     <iframe
                       src={`https://www.youtube-nocookie.com/embed/${id}?rel=0`}
-                      title={`${p.name}: walkthrough film`}
+                      title={`${p.name}: film${films.length > 1 ? ` ${k + 1} of ${films.length}` : ""}`}
                       loading="lazy"
                       allow="fullscreen; picture-in-picture"
                       allowFullScreen
