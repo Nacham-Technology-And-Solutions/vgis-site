@@ -6,6 +6,7 @@
  * - Skyframe XR: docs/skyframe-brand/ (brand guide, tokens.json, logo files).
  * - Nâcham Technology & Solutions: the Nâcham design system and stationery (logos, tokens, README, print previews).
  * - Consulate of Saint Lucia in Nigeria: the Consulate design system (logos, tokens, README).
+ * - ComfortEdu: the ComfortEdu Brand Guidelines v1.0 (logos, tokens, README).
  * - VGIS: the VGIS Brand Guidelines (Nov 2026) and public/brand/vgis-logo.png.
  * Colours are the brands' exact hex values. Logos are the brands' own files, never redrawn.
  */
@@ -101,6 +102,33 @@ export const brandCases: BrandCase[] = [
       "Templates: business card, letterhead, presentation slide and website",
     ],
     credit: "Coat of arms in the seal traced from \u201cCoat of arms of Saint Lucia.svg\u201d by Diafora, Wikimedia Commons, CC BY-SA 3.0.",
+  },
+  {
+    slug: "comfortedu",
+    name: "ComfortEdu",
+    sector: "School management software",
+    tagline: "Run your school with peace of mind.",
+    summary:
+      "ComfortEdu is a school management platform for Nigerian schools, from crèche to university: fees, results, parent messages and safety in one place. The identity promises relief to proprietors and has to look premium enough for an elite school while staying warm and plain-spoken.",
+    logo: { src: "/brands/comfortedu/comfortedu-logo-horizontal-reversed.svg", width: 346, height: 64, alt: "ComfortEdu logo, reversed on ink: the Sunrise Book mark beside the wordmark" },
+    ground: "#14213D",
+    swatches: [
+      { name: "Comfort Teal", hex: "#136E64", role: "Primary" },
+      { name: "Marigold", hex: "#F9AE2B", role: "Accent: the sun" },
+      { name: "Ink", hex: "#14213D", role: "Text" },
+      { name: "Paper", hex: "#FBF9F5", role: "Background" },
+    ],
+    type: [
+      { family: "Plus Jakarta Sans", role: "Headings and logo", font: "jakarta" },
+      { family: "Inter", role: "Interface and body", font: "inter" },
+    ],
+    system: [
+      "The Sunrise Book mark: horizontal, stacked, wordmark and icon versions in four colourways",
+      "App icon, favicon and a \u201cPowered by ComfortEdu\u201d badge for school portals",
+      "Teal and marigold colour scales with semantic design tokens",
+      "Strategy, personality, voice and tone",
+      "Interface principles for low-cost Android phones and white-label rules for each school\u2019s own brand",
+    ],
   },
   {
     slug: "fluravest",
